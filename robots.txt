@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://oh-gnues-iohc.github.io/sitemap.xml
