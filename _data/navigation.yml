@@ -1,9 +1,9 @@
 # main links
 main:
   - title: "Categories"
-    url: https://oh-gnues-iohc.github.io/categories/
+    url: /categories/
   - title: "Tags"
-    url: https://oh-gnues-iohc.github.io/tags/
+    url: /tags/
   - title: "Github"
     url: https://github.com/oh-gnues-iohc
   - title: "Huggingface"
