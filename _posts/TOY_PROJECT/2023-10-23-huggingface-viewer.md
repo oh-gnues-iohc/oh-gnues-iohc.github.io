@@ -35,4 +35,11 @@ GPT, BERT, T5, ... 여러 모델과 모델의 목적에 따라 사용되는 인�
 
 ## 개발 목표
 
+- [ ] Dataclass 별로 가지고 있는 Argument들을 Streamlit을 통해서 설정
+
+- [ ] 설정한 옵션들로 Python 실행 명령어 출력
+
 ## 사용 기술
+
+# Dataclass 추출
+---
