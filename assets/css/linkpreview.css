@@ -4,13 +4,13 @@
 }
 
 .jekyll-linkpreview-wrapper-inner {
-  border: 1px solid rgba(0,0,0,.1);
+  border: 1px solid rgb(255, 230, 0);
   padding: 12px;
 }
 
 .jekyll-linkpreview-content {
   position: relative;
-  height: 500px;
+  height: 450px;
   overflow: hidden;
   margin-bottom: 10px;
 }
@@ -41,8 +41,8 @@
 }
 
 .jekyll-linkpreview-description {
-  line-height: 1.5;
-  font-size: 13px;
+  line-height: 0;
+  font-size: 0px;
 }
 
 .jekyll-linkpreview-footer {
