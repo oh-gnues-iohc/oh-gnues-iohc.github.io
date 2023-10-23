@@ -1,17 +1,1020 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-10-23T17:17:44+09:00</updated><id>/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="/jekyll/update/2023/10/23/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2023-10-23T17:16:57+09:00</published><updated>2023-10-23T17:16:57+09:00</updated><id>/jekyll/update/2023/10/23/welcome-to-jekyll</id><content type="html" xml:base="/jekyll/update/2023/10/23/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-10-23T17:27:05+09:00</updated><id>/feed.xml</id><title type="html">바퀴를 다시 개발하는 개발자</title><subtitle>취미 블로그</subtitle><author><name>최승호</name></author><entry><title type="html">Huggigface Trainer Arguments Viewer</title><link href="/toy%20project/huggingface-viewer/" rel="alternate" type="text/html" title="Huggigface Trainer Arguments Viewer" /><published>2023-10-23T00:00:00+09:00</published><updated>2023-10-23T00:00:00+09:00</updated><id>/toy%20project/huggingface-viewer</id><content type="html" xml:base="/toy%20project/huggingface-viewer/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
+  <div class="jekyll-linkpreview-wrapper-inner">
+    <div class="jekyll-linkpreview-content">
+      <div class="jekyll-linkpreview-image">
+        <a href="https://github.com/oh-gnues-iohc/Huggingface-Trainer-Args-Viewer" target="_blank">
+          <img src="https://opengraph.githubassets.com/d9b117e553abfc4014e1b1d5039b7ef4bbbe83ac4370bfd7518066a89144d55e/oh-gnues-iohc/Huggingface-Trainer-Args-Viewer" />
+        </a>
+      </div>
 
-<p>Jekyll requires blog post files to be named according to the following format:</p>
+      <div class="jekyll-linkpreview-body">
+        <h2 class="jekyll-linkpreview-title">
+          <a href="https://github.com/oh-gnues-iohc/Huggingface-Trainer-Args-Viewer" target="_blank">GitHub - oh-gnues-iohc/Huggingface-Trainer-Args-Viewer: Code for easy management of HuggingFace Trainer arguments with Streamlit</a>
+        </h2>
+        <div class="jekyll-linkpreview-description">Code for easy management of HuggingFace Trainer arguments with Streamlit - GitHub - oh-gnues-iohc/Huggingface-Trainer-Args-Viewer: Code for easy management of HuggingFace Trainer arguments with Str...</div>
+      </div>
+    </div>
+    <div class="jekyll-linkpreview-footer">
+      <a href="//github.com" target="_blank">github.com</a>
+    </div>
+  </div>
+</div>
 
-<p><code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
+<h1 id="프로젝트-개요">프로젝트 개요</h1>
+<hr />
 
-<p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+<p>HuggingFace의 Trainer의 인자(Arguments) 관리를 쉽게 하기 위한 프로젝트</p>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+<h2 id="개발-이유">개발 이유</h2>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+<p>GPT, BERT, T5, … 여러 모델과 모델의 목적에 따라 사용되는 인자가 너무 많아 관리가 어려움</p>
 
-<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry></feed>
+<p>인자가 많아짐에 따라 실행 명령어를 관리하는데에 어려움이 있음</p>
+
+<p>인자를 한눈에 보기 어려움</p>
+
+<h2 id="개발-목표">개발 목표</h2>
+
+<h2 id="사용-기술">사용 기술</h2>]]></content><author><name>최승호</name></author><category term="TOY PROJECT" /><category term="Huggingface" /><category term="Python" /><category term="Side Project" /><summary type="html"><![CDATA[GitHub - oh-gnues-iohc/Huggingface-Trainer-Args-Viewer: Code for easy management of HuggingFace Trainer arguments with Streamlit Code for easy management of HuggingFace Trainer arguments with Streamlit - GitHub - oh-gnues-iohc/Huggingface-Trainer-Args-Viewer: Code for easy management of HuggingFace Trainer arguments with Str... github.com]]></summary></entry><entry><title type="html">Github 블로그 첫걸음 - 폰트 변경</title><link href="/blog/blog-04/" rel="alternate" type="text/html" title="Github 블로그 첫걸음 - 폰트 변경" /><published>2023-10-20T00:00:00+09:00</published><updated>2023-10-20T00:00:00+09:00</updated><id>/blog/blog-04</id><content type="html" xml:base="/blog/blog-04/"><![CDATA[<p>차라리 꾸미는 걸 따로 따로 빼서 글 쓰는게 나을듯</p>
+
+<h1 id="무료-폰트-고르기">무료 폰트 고르기</h1>
+<hr />
+
+<ul>
+  <li><a href="https://noonnu.cc/index">눈누</a></li>
+  <li><a href="https://fonts.google.com/">구글 폰트</a></li>
+</ul>
+
+<p>보통 이렇게 두개 많이 사용하는 듯</p>
+
+<p>나는 눈누에서 주아체 가져왔음</p>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/6ff0b1de-95b7-4c0d-a7a4-d9995b090fc8" alt="image" /></p>
+
+<p>원하는 폰트 보면 <strong>웹 폰트로 사용</strong> 이라고 있음</p>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/80745c21-bc16-421e-a7e8-b8baa982b0a3" alt="image" /></p>
+
+<p>이걸 복사해서 임포트하면 끝임</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@font-face</span> <span class="p">{</span>
+    <span class="nl">font-family</span><span class="p">:</span> <span class="s2">'BMJUA'</span><span class="p">;</span>
+    <span class="nl">src</span><span class="p">:</span> <span class="sx">url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff'</span><span class="p">);</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+    <span class="nl">font-style</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="임포트">임포트</h1>
+<hr />
+
+<p>총 두개의 파일을 수정해야함</p>
+
+<p><code class="language-plaintext highlighter-rouge">assets/css/main.scss</code>, <code class="language-plaintext highlighter-rouge">_sass/minimal-mistakes/_variables.scss</code>임</p>
+
+<p><code class="language-plaintext highlighter-rouge">main_scss</code>에는 폰트를 등록하고, <code class="language-plaintext highlighter-rouge">_variables.scss</code>에는 등록한 폰트를 사용한다고 선언하는 것</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">main.scss</code>
+    <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">---</span><span class="err">
+  # </span><span class="na">Only</span><span class="err"> </span><span class="na">the</span><span class="err"> </span><span class="na">main</span><span class="err"> </span><span class="na">Sass</span><span class="err"> </span><span class="na">file</span><span class="err"> </span><span class="na">needs</span><span class="err"> </span><span class="na">front</span><span class="err"> </span><span class="na">matter</span><span class="err"> (</span><span class="na">the</span><span class="err"> </span><span class="na">dashes</span><span class="err"> </span><span class="na">are</span><span class="err"> </span><span class="na">enough</span><span class="err">)
+  </span><span class="na">search</span><span class="p">:</span> <span class="bp">false</span>
+  <span class="o">---</span>
+
+  <span class="o">@</span><span class="n">charset</span> <span class="s2">"utf-8"</span><span class="p">;</span>
+
+  <span class="k">@import</span> <span class="s2">"minimal-mistakes/skins/dark"</span><span class="p">;</span> <span class="c1">// skin</span>
+  <span class="k">@import</span> <span class="s2">"minimal-mistakes"</span><span class="p">;</span> <span class="c1">// main partials</span>
+
+  <span class="k">@font-face</span> <span class="p">{</span>
+      <span class="nl">font-family</span><span class="p">:</span> <span class="s1">'Dovemayo_gothic'</span><span class="p">;</span>
+      <span class="nl">src</span><span class="p">:</span> <span class="sx">url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2')</span> <span class="nf">format</span><span class="p">(</span><span class="s1">'woff2'</span><span class="p">);</span>
+      <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+      <span class="nl">font-style</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">_variables.scss</code>
+    <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cm">/* system typefaces */</span>
+  <span class="nv">$serif</span><span class="p">:</span> <span class="n">Georgia</span><span class="o">,</span> <span class="n">Times</span><span class="o">,</span> <span class="nb">serif</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+  <span class="nv">$sans-serif</span><span class="p">:</span> <span class="s2">"Dovemayo_gothic"</span><span class="o">,</span> <span class="o">-</span><span class="n">apple-system</span><span class="o">,</span> <span class="n">BlinkMacSystemFont</span><span class="o">,</span> <span class="s2">"Roboto"</span><span class="o">,</span> <span class="s2">"Segoe UI"</span><span class="o">,</span>
+  <span class="s2">"Helvetica Neue"</span><span class="o">,</span> <span class="s2">"Lucida Grande"</span><span class="o">,</span> <span class="n">Arial</span><span class="o">,</span> <span class="nb">sans-serif</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+  <span class="nv">$monospace</span><span class="p">:</span> <span class="n">Monaco</span><span class="o">,</span> <span class="n">Consolas</span><span class="o">,</span> <span class="s2">"Lucida Console"</span><span class="o">,</span> <span class="nb">monospace</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>sans-serif 맨 앞에 바로 선언하거나 따로 변수 지정한 뒤, 따로 써도 되긴 함</p>]]></content><author><name>최승호</name></author><category term="BLOG" /><category term="Blog" /><category term="Jekyll" /><category term="Github" /><category term="Git" /><summary type="html"><![CDATA[차라리 꾸미는 걸 따로 따로 빼서 글 쓰는게 나을듯]]></summary></entry><entry><title type="html">Github 블로그 첫걸음 - 카테고리 만들기</title><link href="/blog/blog-05/" rel="alternate" type="text/html" title="Github 블로그 첫걸음 - 카테고리 만들기" /><published>2023-10-20T00:00:00+09:00</published><updated>2023-10-20T00:00:00+09:00</updated><id>/blog/blog-05</id><content type="html" xml:base="/blog/blog-05/"><![CDATA[<p>너무 맘에 드는 디자인을 잘 정리해준 <a href="https://ansohxxn.github.io/blog/category">블로그</a>가 있어 보고 그대로 따라했음</p>
+
+<p>위 블로그에선 여러 파일을 추가해서 진행했는데, 나는 그런게 좀 싫고 원래 가지고 있는 파일에 적용하고 싶어서 그렇게 했음</p>
+
+<h1 id="같은-카테고리-끼리-모으기">같은 카테고리 끼리 모으기</h1>
+<hr />
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/f75bc158-8f75-4936-b947-7302ae266a6b" alt="image" /></p>
+
+<p>이걸 만들어 주는 단계임</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>minimal-mistakes
+ㄴ 📁 _pages
+    ㄴ 📁 categories
+        ㄴ 📝 category-카테고리명.md
+</code></pre></div></div>
+
+<p>이렇게 _pages/categories 폴더에 category-카테고리명.md 파일을 만들어 줘야함</p>
+
+<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">블로그"</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">archive</span>
+<span class="na">permalink</span><span class="pi">:</span> <span class="s">categories/blog</span>
+<span class="na">author_profile</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">sidebar</span><span class="pi">:</span>
+    <span class="na">nav</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="nn">---</span>
+
+ 
+
+
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"list__item"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;article</span> <span class="na">class=</span><span class="s">"archive__item"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"https://schema.org/CreativeWork"</span><span class="nt">&gt;</span>
+    
+    
+    <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"archive__item-title"</span> <span class="na">itemprop=</span><span class="s">"headline"</span><span class="nt">&gt;</span>
+      
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"page__meta"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"far fa-fw fa-calendar-alt"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/i&gt;</span> 2023.10.20<span class="nt">&lt;/p&gt;</span>
+      
+      
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/blog/search/"</span> <span class="na">rel=</span><span class="s">"permalink"</span><span class="nt">&gt;</span>Github 블로그 검색창 노출 시키기 [구글, 네이버]
+<span class="nt">&lt;/a&gt;</span>
+      
+    <span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;br&gt;</span>
+    
+        
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"page__taxonomy"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"keywords"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/categories/#blog"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-category"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>BLOG<span class="nt">&lt;/a&gt;</span>
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#blog"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Blog<span class="nt">&lt;/a&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sep"</span><span class="nt">&gt;</span> <span class="nt">&lt;/span&gt;</span>
+                
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#github"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Github<span class="nt">&lt;/a&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sep"</span><span class="nt">&gt;</span> <span class="nt">&lt;/span&gt;</span>
+                
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#git"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Git<span class="nt">&lt;/a&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sep"</span><span class="nt">&gt;</span> <span class="nt">&lt;/span&gt;</span>
+                
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#jekyll"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Jekyll<span class="nt">&lt;/a&gt;</span>
+                
+            <span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/article&gt;</span>
+  <span class="nt">&lt;hr&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+  <span class="sb">
+
+
+
+</span><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"list__item"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;article</span> <span class="na">class=</span><span class="s">"archive__item"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"https://schema.org/CreativeWork"</span><span class="nt">&gt;</span>
+    
+    
+    <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"archive__item-title"</span> <span class="na">itemprop=</span><span class="s">"headline"</span><span class="nt">&gt;</span>
+      
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"page__meta"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"far fa-fw fa-calendar-alt"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/i&gt;</span> 2023.10.20<span class="nt">&lt;/p&gt;</span>
+      
+      
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/blog/blog-05/"</span> <span class="na">rel=</span><span class="s">"permalink"</span><span class="nt">&gt;</span>Github 블로그 첫걸음 - 카테고리 만들기
+<span class="nt">&lt;/a&gt;</span>
+      
+    <span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;br&gt;</span>
+    
+        
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"page__taxonomy"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"keywords"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/categories/#blog"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-category"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>BLOG<span class="nt">&lt;/a&gt;</span>
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#blog"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Blog<span class="nt">&lt;/a&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sep"</span><span class="nt">&gt;</span> <span class="nt">&lt;/span&gt;</span>
+                
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#github"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Github<span class="nt">&lt;/a&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sep"</span><span class="nt">&gt;</span> <span class="nt">&lt;/span&gt;</span>
+                
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#git"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Git<span class="nt">&lt;/a&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sep"</span><span class="nt">&gt;</span> <span class="nt">&lt;/span&gt;</span>
+                
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#jekyll"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Jekyll<span class="nt">&lt;/a&gt;</span>
+                
+            <span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/article&gt;</span>
+  <span class="nt">&lt;hr&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+  <span class="sb">
+
+
+
+</span><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"list__item"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;article</span> <span class="na">class=</span><span class="s">"archive__item"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"https://schema.org/CreativeWork"</span><span class="nt">&gt;</span>
+    
+    
+    <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"archive__item-title"</span> <span class="na">itemprop=</span><span class="s">"headline"</span><span class="nt">&gt;</span>
+      
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"page__meta"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"far fa-fw fa-calendar-alt"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/i&gt;</span> 2023.10.20<span class="nt">&lt;/p&gt;</span>
+      
+      
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/blog/blog-04/"</span> <span class="na">rel=</span><span class="s">"permalink"</span><span class="nt">&gt;</span>Github 블로그 첫걸음 - 폰트 변경
+<span class="nt">&lt;/a&gt;</span>
+      
+    <span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;br&gt;</span>
+    
+        
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"page__taxonomy"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"keywords"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/categories/#blog"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-category"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>BLOG<span class="nt">&lt;/a&gt;</span>
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#blog"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Blog<span class="nt">&lt;/a&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sep"</span><span class="nt">&gt;</span> <span class="nt">&lt;/span&gt;</span>
+                
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#github"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Github<span class="nt">&lt;/a&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sep"</span><span class="nt">&gt;</span> <span class="nt">&lt;/span&gt;</span>
+                
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#git"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Git<span class="nt">&lt;/a&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sep"</span><span class="nt">&gt;</span> <span class="nt">&lt;/span&gt;</span>
+                
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#jekyll"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Jekyll<span class="nt">&lt;/a&gt;</span>
+                
+            <span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/article&gt;</span>
+  <span class="nt">&lt;hr&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+  <span class="sb">
+
+
+
+</span><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"list__item"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;article</span> <span class="na">class=</span><span class="s">"archive__item"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"https://schema.org/CreativeWork"</span><span class="nt">&gt;</span>
+    
+    
+    <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"archive__item-title"</span> <span class="na">itemprop=</span><span class="s">"headline"</span><span class="nt">&gt;</span>
+      
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"page__meta"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"far fa-fw fa-calendar-alt"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/i&gt;</span> 2023.10.19<span class="nt">&lt;/p&gt;</span>
+      
+      
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/blog/blog-03/"</span> <span class="na">rel=</span><span class="s">"permalink"</span><span class="nt">&gt;</span>Github 블로그 첫걸음 - minimal-mistakes 꾸미기
+<span class="nt">&lt;/a&gt;</span>
+      
+    <span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;br&gt;</span>
+    
+        
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"page__taxonomy"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"keywords"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/categories/#blog"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-category"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>BLOG<span class="nt">&lt;/a&gt;</span>
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#blog"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Blog<span class="nt">&lt;/a&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sep"</span><span class="nt">&gt;</span> <span class="nt">&lt;/span&gt;</span>
+                
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#github"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Github<span class="nt">&lt;/a&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sep"</span><span class="nt">&gt;</span> <span class="nt">&lt;/span&gt;</span>
+                
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#git"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Git<span class="nt">&lt;/a&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sep"</span><span class="nt">&gt;</span> <span class="nt">&lt;/span&gt;</span>
+                
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#jekyll"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Jekyll<span class="nt">&lt;/a&gt;</span>
+                
+            <span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/article&gt;</span>
+  <span class="nt">&lt;hr&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+  <span class="sb">
+
+
+
+</span><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"list__item"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;article</span> <span class="na">class=</span><span class="s">"archive__item"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"https://schema.org/CreativeWork"</span><span class="nt">&gt;</span>
+    
+    
+    <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"archive__item-title"</span> <span class="na">itemprop=</span><span class="s">"headline"</span><span class="nt">&gt;</span>
+      
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"page__meta"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"far fa-fw fa-calendar-alt"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/i&gt;</span> 2023.10.18<span class="nt">&lt;/p&gt;</span>
+      
+      
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/blog/blog-02/"</span> <span class="na">rel=</span><span class="s">"permalink"</span><span class="nt">&gt;</span>Github 블로그 첫걸음 - 포스트
+<span class="nt">&lt;/a&gt;</span>
+      
+    <span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;br&gt;</span>
+    
+        
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"page__taxonomy"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"keywords"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/categories/#blog"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-category"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>BLOG<span class="nt">&lt;/a&gt;</span>
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#blog"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Blog<span class="nt">&lt;/a&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sep"</span><span class="nt">&gt;</span> <span class="nt">&lt;/span&gt;</span>
+                
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#github"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Github<span class="nt">&lt;/a&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sep"</span><span class="nt">&gt;</span> <span class="nt">&lt;/span&gt;</span>
+                
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#git"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Git<span class="nt">&lt;/a&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sep"</span><span class="nt">&gt;</span> <span class="nt">&lt;/span&gt;</span>
+                
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#jekyll"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Jekyll<span class="nt">&lt;/a&gt;</span>
+                
+            <span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/article&gt;</span>
+  <span class="nt">&lt;hr&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+  <span class="sb">
+
+
+
+</span><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"list__item"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;article</span> <span class="na">class=</span><span class="s">"archive__item"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"https://schema.org/CreativeWork"</span><span class="nt">&gt;</span>
+    
+    
+    <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"archive__item-title"</span> <span class="na">itemprop=</span><span class="s">"headline"</span><span class="nt">&gt;</span>
+      
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"page__meta"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"far fa-fw fa-calendar-alt"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/i&gt;</span> 2023.10.18<span class="nt">&lt;/p&gt;</span>
+      
+      
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/blog/blog-01/"</span> <span class="na">rel=</span><span class="s">"permalink"</span><span class="nt">&gt;</span>Github 블로그 첫걸음 - 블로그 생성
+<span class="nt">&lt;/a&gt;</span>
+      
+    <span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;br&gt;</span>
+    
+        
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"page__taxonomy"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"keywords"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/categories/#blog"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-category"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>BLOG<span class="nt">&lt;/a&gt;</span>
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#blog"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Blog<span class="nt">&lt;/a&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sep"</span><span class="nt">&gt;</span> <span class="nt">&lt;/span&gt;</span>
+                
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#github"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Github<span class="nt">&lt;/a&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sep"</span><span class="nt">&gt;</span> <span class="nt">&lt;/span&gt;</span>
+                
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#git"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Git<span class="nt">&lt;/a&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sep"</span><span class="nt">&gt;</span> <span class="nt">&lt;/span&gt;</span>
+                
+                    
+                    
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/tags/#jekyll"</span> <span class="na">class=</span><span class="s">"page__taxonomy-item-tag"</span> <span class="na">rel=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Jekyll<span class="nt">&lt;/a&gt;</span>
+                
+            <span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/article&gt;</span>
+  <span class="nt">&lt;hr&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+ 
+</code></pre></div></div>
+
+<p>이러면 끝임</p>
+
+<h1 id="-nav_list">📝 nav_list</h1>
+<hr />
+
+<p>_includes 폴더에 있는 nav_list를 변경할 차례</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+<span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"nav__list"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"ac-toc"</span> <span class="na">name=</span><span class="s">"accordion-toc"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"ac-toc"</span><span class="nt">&gt;</span>토글 메뉴<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav__items"</span> <span class="na">id=</span><span class="s">"category_tag_menu"</span><span class="nt">&gt;</span>
+      <span class="c">&lt;!--전체 글 수--&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+            📂 <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"font-family:'Dovemayo_gothic';"</span><span class="nt">&gt;</span>전체 글 수<span class="nt">&lt;/style&gt;</span> <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"font-family:'Dovemayo_gothic';"</span><span class="nt">&gt;</span>7<span class="nt">&lt;/style&gt;</span> <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"font-family:'Dovemayo_gothic';"</span><span class="nt">&gt;</span>개<span class="nt">&lt;/style&gt;</span> 
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"nav__sub-title"</span><span class="nt">&gt;</span>📖 Study<span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;ul&gt;</span>
+                
+                    
+                
+                    
+                
+            <span class="nt">&lt;/ul&gt;</span>
+            <span class="nt">&lt;ul&gt;</span>
+                
+                    
+                
+                    
+                
+            <span class="nt">&lt;/ul&gt;</span>
+        <span class="c">&lt;!--span 태그로 카테고리들을 크게 분류 ex) C/C++/C#--&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"nav__sub-title"</span><span class="nt">&gt;</span>📝 etc<span class="nt">&lt;/span&gt;</span>
+            <span class="c">&lt;!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열--&gt;</span>
+            <span class="nt">&lt;ul&gt;</span>
+                
+                    
+                        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/categories/blog"</span> <span class="na">class=</span><span class="s">""</span><span class="nt">&gt;</span>BLOG (6)<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                    
+                
+                    
+                
+            <span class="nt">&lt;/ul&gt;</span>
+            <span class="nt">&lt;ul&gt;</span>
+                
+                    
+                
+                    
+                
+            <span class="nt">&lt;/ul&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+</code></pre></div></div>
+
+<p>위 참고 블로그에서 가져온것 코딩 할 줄 알면 대충 읽힐테니 보고 슥삭 만들면 됨</p>
+
+<h1 id="-_configyml--indexhtml">📝 _config.yml, 📝 index.html</h1>
+<hr />
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Defaults</span>
+<span class="na">defaults</span><span class="pi">:</span>
+  <span class="c1"># _posts</span>
+  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span>
+      <span class="na">path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">posts</span>
+    <span class="na">values</span><span class="pi">:</span>
+      <span class="na">layout</span><span class="pi">:</span> <span class="s">single</span>
+      <span class="na">author_profile</span><span class="pi">:</span> <span class="kc">true</span>
+      <span class="na">read_time</span><span class="pi">:</span> <span class="kc">true</span>
+      <span class="na">comments</span><span class="pi">:</span> <span class="c1"># true</span>
+      <span class="na">share</span><span class="pi">:</span> <span class="kc">true</span>
+      <span class="na">related</span><span class="pi">:</span> <span class="kc">true</span>
+      <span class="na">sidebar</span><span class="pi">:</span>
+        <span class="na">nav</span><span class="pi">:</span> <span class="kc">true</span>
+</code></pre></div></div>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: home
+author_profile: true
+sidebar:
+    nav: true
+---
+</code></pre></div></div>
+
+<p>각자 sidebar: nav: true 태그를 추가해주면 끝</p>
+
+<h1 id="categories-페이지">Categories 페이지</h1>
+<hr />
+
+<p>이 흉한 페이지를 바꿔야함</p>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/f905d2f0-0026-45f3-ac95-206206e07be5" alt="image" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">_pages/cartegory-archive.md</code> 를 생성해서 작성해줌</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+title: "Category"
+layout: categories
+permalink: /categories/
+author_profile: true
+sidebar:
+    nav: true
+---
+</code></pre></div></div>
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/459bdfb8-7b2e-43aa-9601-c243e1642ca7" alt="image" /></p>
+
+<p>이렇게 변함</p>
+
+<h1 id="tags-페이지">Tags 페이지</h1>
+<hr />
+
+<p>위와 마찬가지로 _pages/tags-archive.md 를 작성해주면 끝</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+title: "Tag"
+layout: tags
+permalink: /tags/
+author_profile: true
+sidebar:
+    nav: true
+---
+</code></pre></div></div>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/5e61e4f9-a788-491b-9549-44a506453f16" alt="image" /></p>
+
+<p>🤗</p>]]></content><author><name>최승호</name></author><category term="BLOG" /><category term="Blog" /><category term="Jekyll" /><category term="Github" /><category term="Git" /><summary type="html"><![CDATA[너무 맘에 드는 디자인을 잘 정리해준 블로그가 있어 보고 그대로 따라했음]]></summary></entry><entry><title type="html">Github 블로그 검색창 노출 시키기 [구글, 네이버]</title><link href="/blog/search/" rel="alternate" type="text/html" title="Github 블로그 검색창 노출 시키기 [구글, 네이버]" /><published>2023-10-20T00:00:00+09:00</published><updated>2023-10-20T00:00:00+09:00</updated><id>/blog/search</id><content type="html" xml:base="/blog/search/"><![CDATA[<p>블로그를 하면서 광고로 돈을 벌게 아니더라도 누군가 봐주지 않는다면 글을 쓸 필요가 없음</p>
+
+<p>그렇기 때문에 검색에 노출되도록 하는것이 중요</p>
+
+<h1 id="google-search-console">Google Search Console</h1>
+<hr />
+
+<p><a href="https://search.google.com/search-console/about">Google Search Console</a>은 말 그대로 구글 검색에 블로그가 노출 될 수 있도록 등록하는 서비스임</p>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/dc1fa915-5724-4f2b-b8d4-345ef10f5c02" alt="image" /></p>
+
+<p>시작하기를 누른 뒤, 일반적으론 도메인이 없는 상황이기 때문에</p>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/a5d9d127-baa0-4ba9-affa-da70c224986c" alt="image" /></p>
+
+<p>URL 접두어에 블로그의 링크를 걸고 계속을 누르면 됨</p>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/1d567197-d47f-48c5-b09d-7186922f9fac" alt="image" /></p>
+
+<p>그 뒤 html 파일을 다운 받은 뒤, <code class="language-plaintext highlighter-rouge">_config.yml</code> 파일과 동일한 root 위치에 놓으면 끝</p>
+
+<h2 id="sitemapxml-만들기">sitemap.xml 만들기</h2>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: null
+---
+
+<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;urlset</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+        <span class="na">xsi:schemaLocation=</span><span class="s">"http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"</span>
+        <span class="na">xmlns=</span><span class="s">"http://www.sitemaps.org/schemas/sitemap/0.9"</span><span class="nt">&gt;</span>
+    
+    <span class="nt">&lt;url&gt;</span>
+        <span class="nt">&lt;loc&gt;</span>/toy%20project/huggingface-viewer/<span class="nt">&lt;/loc&gt;</span>
+        
+        <span class="nt">&lt;lastmod&gt;</span>2023-10-23T00:00:00+09:00<span class="nt">&lt;/lastmod&gt;</span>
+        
+
+        
+        <span class="nt">&lt;changefreq&gt;</span>weekly<span class="nt">&lt;/changefreq&gt;</span>
+        
+
+        
+        <span class="nt">&lt;priority&gt;</span>0.5<span class="nt">&lt;/priority&gt;</span>
+        
+
+    <span class="nt">&lt;/url&gt;</span>
+    
+    <span class="nt">&lt;url&gt;</span>
+        <span class="nt">&lt;loc&gt;</span>/blog/search/<span class="nt">&lt;/loc&gt;</span>
+        
+        <span class="nt">&lt;lastmod&gt;</span>2023-10-20T00:00:00+09:00<span class="nt">&lt;/lastmod&gt;</span>
+        
+
+        
+        <span class="nt">&lt;changefreq&gt;</span>weekly<span class="nt">&lt;/changefreq&gt;</span>
+        
+
+        
+        <span class="nt">&lt;priority&gt;</span>0.5<span class="nt">&lt;/priority&gt;</span>
+        
+
+    <span class="nt">&lt;/url&gt;</span>
+    
+    <span class="nt">&lt;url&gt;</span>
+        <span class="nt">&lt;loc&gt;</span>/blog/blog-05/<span class="nt">&lt;/loc&gt;</span>
+        
+        <span class="nt">&lt;lastmod&gt;</span>2023-10-20T00:00:00+09:00<span class="nt">&lt;/lastmod&gt;</span>
+        
+
+        
+        <span class="nt">&lt;changefreq&gt;</span>weekly<span class="nt">&lt;/changefreq&gt;</span>
+        
+
+        
+        <span class="nt">&lt;priority&gt;</span>0.5<span class="nt">&lt;/priority&gt;</span>
+        
+
+    <span class="nt">&lt;/url&gt;</span>
+    
+    <span class="nt">&lt;url&gt;</span>
+        <span class="nt">&lt;loc&gt;</span>/blog/blog-04/<span class="nt">&lt;/loc&gt;</span>
+        
+        <span class="nt">&lt;lastmod&gt;</span>2023-10-20T00:00:00+09:00<span class="nt">&lt;/lastmod&gt;</span>
+        
+
+        
+        <span class="nt">&lt;changefreq&gt;</span>weekly<span class="nt">&lt;/changefreq&gt;</span>
+        
+
+        
+        <span class="nt">&lt;priority&gt;</span>0.5<span class="nt">&lt;/priority&gt;</span>
+        
+
+    <span class="nt">&lt;/url&gt;</span>
+    
+    <span class="nt">&lt;url&gt;</span>
+        <span class="nt">&lt;loc&gt;</span>/blog/blog-03/<span class="nt">&lt;/loc&gt;</span>
+        
+        <span class="nt">&lt;lastmod&gt;</span>2023-10-19T00:00:00+09:00<span class="nt">&lt;/lastmod&gt;</span>
+        
+
+        
+        <span class="nt">&lt;changefreq&gt;</span>weekly<span class="nt">&lt;/changefreq&gt;</span>
+        
+
+        
+        <span class="nt">&lt;priority&gt;</span>0.5<span class="nt">&lt;/priority&gt;</span>
+        
+
+    <span class="nt">&lt;/url&gt;</span>
+    
+    <span class="nt">&lt;url&gt;</span>
+        <span class="nt">&lt;loc&gt;</span>/blog/blog-02/<span class="nt">&lt;/loc&gt;</span>
+        
+        <span class="nt">&lt;lastmod&gt;</span>2023-10-18T00:00:00+09:00<span class="nt">&lt;/lastmod&gt;</span>
+        
+
+        
+        <span class="nt">&lt;changefreq&gt;</span>weekly<span class="nt">&lt;/changefreq&gt;</span>
+        
+
+        
+        <span class="nt">&lt;priority&gt;</span>0.5<span class="nt">&lt;/priority&gt;</span>
+        
+
+    <span class="nt">&lt;/url&gt;</span>
+    
+    <span class="nt">&lt;url&gt;</span>
+        <span class="nt">&lt;loc&gt;</span>/blog/blog-01/<span class="nt">&lt;/loc&gt;</span>
+        
+        <span class="nt">&lt;lastmod&gt;</span>2023-10-18T00:00:00+09:00<span class="nt">&lt;/lastmod&gt;</span>
+        
+
+        
+        <span class="nt">&lt;changefreq&gt;</span>weekly<span class="nt">&lt;/changefreq&gt;</span>
+        
+
+        
+        <span class="nt">&lt;priority&gt;</span>0.5<span class="nt">&lt;/priority&gt;</span>
+        
+
+    <span class="nt">&lt;/url&gt;</span>
+    
+<span class="nt">&lt;/urlset&gt;</span>
+</code></pre></div></div>
+
+<p>이런 xml 파일을 만들어서 방금 놓은 html과 같은 위치에 저장하면 됨</p>
+
+<h2 id="robotstxt-만들기">robots.txt 만들기</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User-agent: *
+Allow: /
+
+Sitemap: https://oh-gnues-iohc.github.io/sitemap.xml
+</code></pre></div></div>
+
+<p>마찬가지</p>
+
+<h2 id="커밋">커밋</h2>
+
+<p>여기까지 한 뒤, 커밋을 하면</p>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/f089c706-98ab-46cb-b8c3-5d71baa7121b" alt="image" /></p>
+
+<p>이렇게 뜸</p>
+
+<p>속성으로 이동 누른 뒤, Sitemaps를 등록해야함</p>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/9ada58d5-70d5-4b91-8881-db8689fc5912" alt="image" /></p>
+
+<p>처음에는 상태가 가져올 수 없음이고 기다리면 정상적으로 바뀜</p>
+
+<p>짧으면 3일 길면 몇달씩 걸린다고 함</p>
+
+<h1 id="naver-search-advisor">Naver Search Advisor</h1>
+<hr />
+
+<p><a href="https://searchadvisor.naver.com/">Naver Search Advisor</a>에 접속한 뒤, <code class="language-plaintext highlighter-rouge">웹 마스터 도구</code> -&gt; <code class="language-plaintext highlighter-rouge">사이트 관리</code> -&gt; <code class="language-plaintext highlighter-rouge">사이트 등록</code> 페이지로 이동</p>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/9f75cb75-f43e-4a1c-ae2f-86bbc649f765" alt="image" /></p>
+
+<p>마찬가지로 URL을 입력한 다음</p>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/649db7a1-b516-438b-a4fc-4e900ced8411" alt="image" /></p>
+
+<p>구글 등록과 마찬가지로 소유확인, 사이트맵 등록을 하면 된다</p>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/a8b660f2-fcb6-4ae9-89c3-245d7952aa5a" alt="image" /></p>]]></content><author><name>최승호</name></author><category term="BLOG" /><category term="Blog" /><category term="Jekyll" /><category term="Github" /><category term="Git" /><summary type="html"><![CDATA[블로그를 하면서 광고로 돈을 벌게 아니더라도 누군가 봐주지 않는다면 글을 쓸 필요가 없음]]></summary></entry><entry><title type="html">Github 블로그 첫걸음 - minimal-mistakes 꾸미기</title><link href="/blog/blog-03/" rel="alternate" type="text/html" title="Github 블로그 첫걸음 - minimal-mistakes 꾸미기" /><published>2023-10-19T00:00:00+09:00</published><updated>2023-10-20T00:00:00+09:00</updated><id>/blog/blog-03</id><content type="html" xml:base="/blog/blog-03/"><![CDATA[<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>🔔 계속 업데이트 될 예정
+</code></pre></div></div>
+
+<p><a href="https://jekyllrb-ko.github.io/">Jekyll 한글</a> 문서와 <a href="https://mmistakes.github.io/minimal-mistakes/">Minimal Mistakes</a> 공식 문서를 참고하였음</p>
+
+<p>크게 어려운건 없는데, 프론트는 깔짝 깔짝 겉할기 한게 전부이다 보니 시간이 좀 걸린다.</p>
+
+<p>그래도 파일명이나 문서 자체가 상당히 직관적이라 생각보다 금방 익히는중</p>
+
+<p>이 분야 잘 아는 사람들은 이 글이 아니라 위 문서 직접 보면서 하는게 더 빠를듯</p>
+
+<h1 id="minimal-mistakes-구조">minimal-mistakes 구조</h1>
+<hr />
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>minimal-mistakes
+ㄴ 📁 _data
+ㄴ 📁 _includes
+ㄴ 📁 _layouts
+ㄴ 📁 _sass
+ㄴ 📁 assets
+ㄴ 📝 _config.yml
+ㄴ 📝 Gemfile
+ㄴ 📝 index.html
+ㄴ 📝 package.json
+</code></pre></div></div>
+
+<h2 id="-_data-폴더">📁 _data 폴더</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>minimal-mistakes
+ㄴ 📁 _data
+    ㄴ 📝 navigation.yml
+    ㄴ 📝 ui-text.yml
+</code></pre></div></div>
+
+<p>테마를 커스터마이징 하기 위한 폴더</p>
+
+<p>해당 폴더에 <code class="language-plaintext highlighter-rouge">yml</code>, <code class="language-plaintext highlighter-rouge">json</code>, <code class="language-plaintext highlighter-rouge">csv</code>, <code class="language-plaintext highlighter-rouge">tsv</code>, … 등 데이터 파일을 위치하면 해당 파일들을 자동으로 읽어 site.data 로 사용할 수 있다함</p>
+
+<p><a href="https://jekyllrb-ko.github.io/">Jekyll 문서</a>에 나온 예제를 보면</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/_data/member.yml/
+
+- name: Eric Mill
+  github: konklone
+
+- name: Parker Moore
+  github: parkr
+
+- name: Liu Fengyun
+  github: liufengyun
+</code></pre></div></div>
+<p>이런 데이터를 <code class="language-plaintext highlighter-rouge">site.data.members</code>로 접근이 가능하다 함</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul&gt;</span>
+{% for member in site.data.members %}
+  <span class="nt">&lt;li&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://github.com/{{ member.github }}"</span><span class="nt">&gt;</span>
+      {{ member.name }}
+    <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+{% endfor %}
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+
+<p>이때 주의할 점은 <strong>파일명</strong>이 변수 이름으로 사용된다 함</p>
+
+<p>자세한건 <a href="https://jekyllrb-ko.github.io/docs/datafiles/">여기</a> 보면 나와있음</p>
+
+<h3 id="-navigationyml">📝 navigation.yml</h3>
+<hr />
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># main links</span>
+<span class="na">main</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Quick-Start</span><span class="nv"> </span><span class="s">Guide"</span>
+    <span class="na">url</span><span class="pi">:</span> <span class="s">https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/</span>
+  <span class="c1"># - title: "About"</span>
+   <span class="na">url</span><span class="pi">:</span> <span class="s">https://mmistakes.github.io/minimal-mistakes/about/</span>
+  <span class="c1"># - title: "Sample Posts"</span>
+   <span class="na">url</span><span class="pi">:</span> <span class="s">/year-archive/</span>
+  <span class="c1"># - title: "Sample Collections"</span>
+   <span class="na">url</span><span class="pi">:</span> <span class="s">/collection-archive/</span>
+  <span class="c1"># - title: "Sitemap"</span>
+   <span class="na">url</span><span class="pi">:</span> <span class="s">/sitemap/</span>
+</code></pre></div></div>
+<p>이름만 봐도 상단 네비게이션에 관련된 파일로 보임</p>
+
+<p>원하는 메뉴를 마음껏 추가하면 될듯</p>
+
+<h3 id="-ui-textyml">📝 ui-text.yml</h3>
+<hr />
+
+<p>말 그대로 Ui에 표시되는 text에 대한 파일</p>
+
+<p>각국 언어별로 나눠져 있는데 TOC의 “On this page”가 마음에 안들어서 바꿔준거 말고는 딱히 손댄거 없음</p>
+
+<h2 id="-_includes-폴더">📁 _includes 폴더</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>minimal-mistakes
+ㄴ 📁 _includes
+    ㄴ 📁 analytics-providers
+    ㄴ 📁 comments-providers
+    ㄴ 📁 footer
+    ㄴ 📁 head
+    ㄴ 📘 feature_row
+    ㄴ 📘 gallery
+    ㄴ 📘 group-by-array
+    ㄴ 📘 nav_list      
+    ㄴ 📘 toc           
+    ㄴ 📘 video         
+    ㄴ 📘 figure        
+    ㄴ 📝 analytics.html
+    ㄴ 📝 archive-single.html     
+    ㄴ 📝 author-profile-custom-links.html
+    ㄴ 📝 author-profiles.html    
+    ㄴ 📝 breadcrumbs.html        
+    ㄴ 📝 browser-upgrade.html    
+    ㄴ 📝 category-list.html      
+    ㄴ 📝 commtent.html           
+    ㄴ 📝 commtents.html           
+    ㄴ 📝 documents-collection.html 
+    ㄴ 📝 footer.html             
+    ㄴ 📝 head.html               
+    ㄴ 📝 masthead.html           
+    ㄴ 📝 page__hero_video.html   
+    ㄴ 📝 page__hero.html         
+    ㄴ 📝 page__taxonomy.html     
+    ㄴ 📝 paginator.html          
+    ㄴ 📝 post_pagination.html    
+    ㄴ 📝 posts-category.html     
+    ㄴ 📝 posts-tag.html           
+    ㄴ 📝 read-time.html          
+    ㄴ 📝 scripts.html            
+    ㄴ 📝 seo.html                
+    ㄴ 📝 sidebar.html            
+    ㄴ 📝 skip-links.html         
+    ㄴ 📝 social-share.html       
+    ㄴ 📝 tag-list.html           
+    ㄴ 📝 toc.html                
+</code></pre></div></div>
+
+<p>뭐가 상당히 많은데, 재사용 되는 html 파일들이 모여있는 폴더</p>
+
+<p>댓글, 카테고리, 태그, … 블로그에서 많이 쓰이는 공통된 컴포넌트들이 모여있는 폴더임</p>
+
+<p><code class="language-plaintext highlighter-rouge">Liquid</code> 언어의 태그로 쉽게 사용할 수 있음</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{ % include file.ext % }  // _includes 폴더 내에 있는 file.ext 파일의 코드가 삽입됨
+</code></pre></div></div>
+
+<h3 id="-analytics-providers">📁 analytics-providers</h3>
+<hr />
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>minimal-mistakes
+ㄴ 📁 _includes
+    ㄴ 📁analytics-providers
+        ㄴ 📝 google.html
+        ㄴ 📝 google-gtag.html
+        ㄴ 📝 google-universal.html
+        ㄴ 📝 custom.html
+</code></pre></div></div>
+
+<p>어떤 analytics 플랫폼을 사용할 것인지에 대한 폴더</p>
+
+<p><code class="language-plaintext highlighter-rouge">_config.yml</code>에 provider에서 google로 사용하기로 했음</p>
+
+<p>다른거 쓸거면 custom으로 변경한 뒤, 위 custom.html에 작성하면 됨</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Analytics</span>
+<span class="na">analytics</span><span class="pi">:</span>
+  <span class="na">provider               </span><span class="pi">:</span> <span class="kc">false</span> <span class="c1"># false (default), "google", "google-universal", "google-gtag", "custom"</span>
+  <span class="na">google</span><span class="pi">:</span>
+    <span class="na">tracking_id          </span><span class="pi">:</span>
+    <span class="na">anonymize_ip         </span><span class="pi">:</span> <span class="c1"># true, false (default)</span>
+</code></pre></div></div>
+
+<h3 id="-comments-providers">📁 comments-providers</h3>
+<hr />
+
+<p>댓글 플렛폼에 대한 설정인데 지금은 건들 생각 없음</p>
+
+<p>추후 추가할 예정</p>
+
+<h3 id="-footer">📁 footer</h3>
+<hr />
+
+<p>광고 달면 되는 듯 마찬가지로 지금은 건들 생각 없음</p>
+
+<h3 id="-head">📁 head</h3>
+<hr />
+
+<p>파비콘을 추가하는데 사용했음</p>
+
+<p>하다보니 상당히 귀찮은게 아이폰, 안드로이드, 웹 등등 여러 사이즈로 넣어야하고</p>
+
+<p>넣는 방법도 다 다르고, 상당히 귀찮음</p>
+
+<p><a href="https://www.favicon-generator.org/">Favicon &amp; App Icon Generator</a></p>
+
+<p>여기 들어가면 클릭 한번에 전부 만들어 줌 😏</p>
+
+<h3 id="-nav_list">📝 nav_list</h3>
+<hr />
+
+<p>네비게이션 관련된거 건드는 문서로 보임 /_data/navigation.yml 과 연동되어 동작하는듯 보이는데 나중에 따로 다룰 예정</p>
+
+<h3 id="-breadcrumbshtml">📝 breadcrumbs.html</h3>
+<hr />
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/a0a1ca04-9dc1-49c9-844d-d00792befdb5" alt="image" /></p>
+
+<p>글 위에 뜨는 이런걸 breadcrumbs라고 한다. 이거 꾸미는 역할인거 같은데, 꾸미는 방법은 잘 모르겠고 그냥 _config.yml 내에 있는 breadcrumbs를 true로 해주면 나타남</p>]]></content><author><name>최승호</name></author><category term="BLOG" /><category term="Blog" /><category term="Jekyll" /><category term="Github" /><category term="Git" /><summary type="html"><![CDATA[🔔 계속 업데이트 될 예정]]></summary></entry><entry><title type="html">Github 블로그 첫걸음 - 블로그 생성</title><link href="/blog/blog-01/" rel="alternate" type="text/html" title="Github 블로그 첫걸음 - 블로그 생성" /><published>2023-10-18T00:00:00+09:00</published><updated>2023-10-18T00:00:00+09:00</updated><id>/blog/blog-01</id><content type="html" xml:base="/blog/blog-01/"><![CDATA[<p>처음 만들어 보는데 어떻게 하는지 몰라서 이 문서, 저 문서 찾아보면서 하는중</p>
+
+<p>왠지 나 같은 사람들 많을듯해서 정리하면서 만들어봄</p>
+
+<p><br /></p>
+
+<h1 id="1-github-blog-repository-생성">1. Github Blog Repository 생성</h1>
+
+<hr />
+
+<p><img src="https://github.com/mushanshitiancai/vscode-paste-image/assets/79557937/de34240d-5f5e-4589-921e-6dbd4cbb1b3d" alt="image" /></p>
+
+<p>단순하게 자신의 계정 이름으로 생성한 뒤, 생성한 Repo의 설정 -&gt; Pages에 들어가 사진과 같이 설정해주면 끝</p>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc/assets/79557937/cf8b8485-7ed8-4151-b778-9852988e56ac" alt="image2" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>🤔 이름.github.io 로 만들면 더 편한거 아님???
+</code></pre></div></div>
+
+<p>맞는 말이긴 한데 이렇게 만들면 깃허브 프로필 Repo와 블로그 Repo를 하나로 통합해서 관리할 수 있음</p>
+
+<p>따로 관리하고 싶다거나 github.io Repo가 더 간지난다 싶으면 위 과정은 필요 없음</p>
+
+<h1 id="2-repository-생성-및-theme">2. Repository 생성 및 Theme</h1>
+
+<hr />
+
+<h2 id="git-clone-하기">git clone 하기</h2>
+
+<p>당연하게도 생성한 Repo를 git clone을 이용해서 로컬로 긁어와서 작업하는게 편함</p>
+
+<p>외에 자기가 생각하기에 더 편한 방법이 있다면 그렇게 작업해도 상관은 없음</p>
+
+<p>그냥 깃허브에 다른 프로젝트들 관리하고 작업하듯 하면 되는게 깃허브 블로그의 최대 장점인듯</p>
+
+<h2 id="theme-설정">Theme 설정</h2>
+
+<p>마찬가지로 테마도 직접 만들 수 있는 능력이 있고 의지가 있다면 그렇게 하면 됨</p>
+
+<p>디자인 감각도 없고, 프론트를 다룰줄 모르는 나로써는 있는 테마 가져다 야금 야금 고쳐 쓰는게 편함</p>
+
+<p>난 <strong><a href="https://github.com/mmistakes/minimal-mistakes">minimal-mistakes</a></strong> 테마를 사용하기로 결정</p>
+
+<p>이유는 뭔가 다들 이거 쓰는 느낌이 들어서 정보가 비교적 많은듯 싶어서</p>
+
+<p>선택한 테마의 Repo에 가서 fork를 하던, 직접 로컬에 옮겨서 Commit을 하던 업로드를 하면 끝</p>
+
+<p>https://아이디.github.io 에 접속하면 테마가 적용된 블로그를 볼 수 있음</p>]]></content><author><name>최승호</name></author><category term="BLOG" /><category term="Blog" /><category term="Jekyll" /><category term="Github" /><category term="Git" /><summary type="html"><![CDATA[처음 만들어 보는데 어떻게 하는지 몰라서 이 문서, 저 문서 찾아보면서 하는중]]></summary></entry><entry><title type="html">Github 블로그 첫걸음 - 포스트</title><link href="/blog/blog-02/" rel="alternate" type="text/html" title="Github 블로그 첫걸음 - 포스트" /><published>2023-10-18T00:00:00+09:00</published><updated>2023-10-18T00:00:00+09:00</updated><id>/blog/blog-02</id><content type="html" xml:base="/blog/blog-02/"><![CDATA[<h1 id="1-포스트-작성하기">1. 포스트 작성하기</h1>
+
+<h2 id="md">.md</h2>
+
+<p>깃허브 블로그는 Markdown이랑 뭐랑 둘 중 하나로 포스트를 한다는데 Markdown 쓸거니 머리속에 넣지도 않아서 기억 안남</p>
+
+<p>말 그대로 내가 작성할 포스트의 내용을 Markdown으로 작성하면 됨</p>
+
+<p>주의할 점은 아래와 같이 md 파일 내에 해당 포스트의 정보를 머릿말로 적어야함</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+title: "Github 블로그 첫걸음 - 포스트"
+excerpt: "내용 설명"
+
+categories: 
+    - BLOG
+tags:
+    - [Blog, Jekyll, Github, Git]
+
+toc: true
+toc_sticky: true
+
+data: 2023-10-18
+last_modified_at: 2023-10-18
+---
+</code></pre></div></div>
+
+<p>title: 포스트 제목. title을 적지 않으면 md 파일의 이름이 제목으로 된다 함</p>
+
+<p>excerpt: 포스트 목록에서 보이는 포스트 요약 글</p>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc/assets/79557937/621f166b-127a-4312-9e0a-5d8ad591f57d" alt="image" /></p>
+
+<p>categories: 포스트의 카테고리</p>
+
+<p>tags: 카테고리랑 비슷한데, 솔직히 뭐가 다른진 모르겠음 그냥 카테고리 보다 좀 더 세부적인 느낌으로 사용하면 될듯</p>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc/assets/79557937/67cb38d2-f292-4e59-9439-fec3b2dea596" alt="image" /></p>
+
+<p>toc: Table of Contents 목차를 사용할지 여부</p>
+
+<p>toc_sticky: true로 사용하면 목차가 스크롤을 따라 움직임</p>
+
+<p>외에 기타 등등 옵션이 많으니 직접 찾는 재미를 느껴보시길</p>
+
+<h2 id="글쓰기--저장하기">글쓰기 &amp; 저장하기</h2>
+
+<p>머릿말이 끝난 이후부터는 포스트 본문 영역임</p>
+
+<p>그냥 평소 쓰던 Markdown 느낌으로 죽 죽 포스트를 작성하면 됨</p>
+
+<p>작성을 다 끝냈다면 Repo에 <strong>_post</strong> 라는 폴더를 만들어 해당 폴더 내에 md 파일을 저장하면 끝</p>
+
+<h1 id="2-commit--push">2. Commit &amp; Push</h1>
+<hr />
+
+<p>일반 프로젝트 Repo 관리 하듯 커밋하고, 푸시하면 블로그에 바로 적용이 된다.</p>]]></content><author><name>최승호</name></author><category term="BLOG" /><category term="Blog" /><category term="Jekyll" /><category term="Github" /><category term="Git" /><summary type="html"><![CDATA[내용 설명]]></summary></entry></feed>

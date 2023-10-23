@@ -1,0 +1,925 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Github 블로그 첫걸음 - 블로그 생성 - 바퀴를 다시 개발하는 개발자</title>
+<meta name="description" content="처음 만들어 보는데 어떻게 하는지 몰라서 이 문서, 저 문서 찾아보면서 하는중">
+
+
+  <meta name="author" content="최승호">
+  
+  <meta property="article:author" content="최승호">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="바퀴를 다시 개발하는 개발자">
+<meta property="og:title" content="Github 블로그 첫걸음 - 블로그 생성">
+<meta property="og:url" content="/blog/blog-01/">
+
+
+  <meta property="og:description" content="처음 만들어 보는데 어떻게 하는지 몰라서 이 문서, 저 문서 찾아보면서 하는중">
+
+
+
+  <meta property="og:image" content="https://github-readme-stats.vercel.app/api/pin/?username=oh-gnues-iohc&amp;repo=oh-gnues-iohc.github.io">
+
+
+
+
+
+  <meta property="article:published_time" content="2023-10-18T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2023-10-18T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/blog/blog-01/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "ohgnues",
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="바퀴를 다시 개발하는 개발자 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/assets/css/linkpreview.css" media="screen">
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/assets/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+<link rel="manifest" href="/assets/favicon/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/favicon/ms-icon-144x144.png" alt="바퀴를 다시 개발하는 개발자"></a>
+        
+        <a class="site-title" href="/">
+          바퀴를 다시 개발하는 개발자
+          <span class="site-subtitle">CV, NLP 개발자</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://github.com/oh-gnues-iohc">Github</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://huggingface.co/ohgnues/">Huggingface</a>
+            </li><li class="masthead__menu-item">
+              <a href="/sitemap.xml/">Sitemap</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#blog" itemprop="item"><span itemprop="name">Blog</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Github 블로그 첫걸음 - 블로그 생성</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="/">
+        <img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc/assets/79557937/61798633-698b-4a1e-a556-beaa66523e43" alt="최승호" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="/" itemprop="url">최승호</a>
+    </h3>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Seoul, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:choiseungho1019@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/oh-gnues-iohc" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://huggingface.co/ohgnues/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="far fa-fw fa-smile" aria-hidden="true"></i><span class="label">Huggingface</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <!--전체 글 수-->
+      <li>
+            📂 <span style="font-family:'Dovemayo_gothic';">전체 글 수</span> <span style="font-family:'Dovemayo_gothic';color: #B7B19A;">7</span> <span style="font-family:'Dovemayo_gothic';">개</style> 
+      </li>
+      <li>
+        <span class="nav__sub-title" style="font-family:'BMJUA'; color: #BDA655; font-size: 20px;">💻 Programming</span>
+        <ul>
+            
+                
+            
+                
+                    <li><a href="/categories/toy_project" class="">TOY PROJECT (1)</a></li>
+                
+            
+        </ul>
+        <span class="nav__sub-title" style="font-family:'BMJUA'; color: #BDA655; font-size: 20px;">📖 Study</span>
+            <ul>
+                
+                    
+                
+                    
+                
+            </ul>
+        <!--span 태그로 카테고리들을 크게 분류 ex) C/C++/C#-->
+        <span class="nav__sub-title" style="font-family:'BMJUA'; color: #BDA655; font-size: 20px;">📝 etc</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                
+                    
+                        <li><a href="/categories/blog" class="" style="font-size: 18px;">BLOG (6)</a></li>
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+            </ul>
+      </li>
+  </ul>
+</nav>
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Github 블로그 첫걸음 - 블로그 생성">
+    <meta itemprop="description" content="처음 만들어 보는데 어떻게 하는지 몰라서 이 문서, 저 문서 찾아보면서 하는중">
+    <meta itemprop="datePublished" content="2023-10-18T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-10-18T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Github 블로그 첫걸음 - 블로그 생성
+</h1>
+          
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업로드:</strong> <time datetime="2023-10-18T00:00:00+09:00">2023.10.18</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 수정:</strong> <time datetime="2023-10-18">2023.10.18</time></p>
+          
+          
+            
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#blog" class="page__taxonomy-item-category" rel="tag">BLOG</a>
+    
+    </span>
+  </p>
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#github" class="page__taxonomy-item-tag" rel="tag">Github</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#git" class="page__taxonomy-item-tag" rel="tag">Git</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#jekyll" class="page__taxonomy-item-tag" rel="tag">Jekyll</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#blog" class="page__taxonomy-item-tag" rel="tag">Blog</a>
+    
+    </span>
+  </p>
+
+          
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#1-github-blog-repository-생성">1. Github Blog Repository 생성</a></li><li><a href="#2-repository-생성-및-theme">2. Repository 생성 및 Theme</a><ul><li><a href="#git-clone-하기">git clone 하기</a></li><li><a href="#theme-설정">Theme 설정</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>처음 만들어 보는데 어떻게 하는지 몰라서 이 문서, 저 문서 찾아보면서 하는중</p>
+
+<p>왠지 나 같은 사람들 많을듯해서 정리하면서 만들어봄</p>
+
+<p><br /></p>
+
+<h1 id="1-github-blog-repository-생성">1. Github Blog Repository 생성</h1>
+
+<hr />
+
+<p><img src="https://github.com/mushanshitiancai/vscode-paste-image/assets/79557937/de34240d-5f5e-4589-921e-6dbd4cbb1b3d" alt="image" /></p>
+
+<p>단순하게 자신의 계정 이름으로 생성한 뒤, 생성한 Repo의 설정 -&gt; Pages에 들어가 사진과 같이 설정해주면 끝</p>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc/assets/79557937/cf8b8485-7ed8-4151-b778-9852988e56ac" alt="image2" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>🤔 이름.github.io 로 만들면 더 편한거 아님???
+</code></pre></div></div>
+
+<p>맞는 말이긴 한데 이렇게 만들면 깃허브 프로필 Repo와 블로그 Repo를 하나로 통합해서 관리할 수 있음</p>
+
+<p>따로 관리하고 싶다거나 github.io Repo가 더 간지난다 싶으면 위 과정은 필요 없음</p>
+
+<h1 id="2-repository-생성-및-theme">2. Repository 생성 및 Theme</h1>
+
+<hr />
+
+<h2 id="git-clone-하기">git clone 하기</h2>
+
+<p>당연하게도 생성한 Repo를 git clone을 이용해서 로컬로 긁어와서 작업하는게 편함</p>
+
+<p>외에 자기가 생각하기에 더 편한 방법이 있다면 그렇게 작업해도 상관은 없음</p>
+
+<p>그냥 깃허브에 다른 프로젝트들 관리하고 작업하듯 하면 되는게 깃허브 블로그의 최대 장점인듯</p>
+
+<h2 id="theme-설정">Theme 설정</h2>
+
+<p>마찬가지로 테마도 직접 만들 수 있는 능력이 있고 의지가 있다면 그렇게 하면 됨</p>
+
+<p>디자인 감각도 없고, 프론트를 다룰줄 모르는 나로써는 있는 테마 가져다 야금 야금 고쳐 쓰는게 편함</p>
+
+<p>난 <strong><a href="https://github.com/mmistakes/minimal-mistakes">minimal-mistakes</a></strong> 테마를 사용하기로 결정</p>
+
+<p>이유는 뭔가 다들 이거 쓰는 느낌이 들어서 정보가 비교적 많은듯 싶어서</p>
+
+<p>선택한 테마의 Repo에 가서 fork를 하던, 직접 로컬에 옮겨서 Commit을 하던 업로드를 하면 끝</p>
+
+<p>https://아이디.github.io 에 접속하면 테마가 적용된 블로그를 볼 수 있음</p>
+
+        
+      </section>
+
+      <!-- <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#github" class="page__taxonomy-item-tag" rel="tag">Github</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#git" class="page__taxonomy-item-tag" rel="tag">Git</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#jekyll" class="page__taxonomy-item-tag" rel="tag">Jekyll</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#blog" class="page__taxonomy-item-tag" rel="tag">Blog</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#blog" class="page__taxonomy-item-category" rel="tag">BLOG</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업로드:</strong> <time class="dt-published" datetime="2023-10-18">October 18, 2023</time></p>
+
+      </footer> -->
+
+      <!-- <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Github+%EB%B8%94%EB%A1%9C%EA%B7%B8+%EC%B2%AB%EA%B1%B8%EC%9D%8C+-+%EB%B8%94%EB%A1%9C%EA%B7%B8+%EC%83%9D%EC%84%B1%20%2Fblog%2Fblog-01%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=%2Fblog%2Fblog-01%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=%2Fblog%2Fblog-01%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+ -->
+
+      <!--
+
+  <nav class="pagination">
+    
+      <a href="#" class="pagination--pager disabled">이전</a>
+    
+    
+      <a href="/blog/blog-02/" class="pagination--pager" title="Github 블로그 첫걸음 - 포스트
+">다음</a>
+    
+  </nav>
+
+-->
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  	
+  	
+  	
+  	
+  	
+
+<nav class="pagination_prev_next">
+
+    
+      <a href="#" class="pagination_prev_next--pager disabled-first-child">첫 번째 글입니다</a>
+    
+    
+      <a href="/blog/blog-02/" class="pagination_prev_next--pager"><span class="prev_next">다음 글  &nbsp  </span>Github 블로그 첫걸음 - 포스트</a>
+    
+  </nav>
+
+
+<!--
+
+
+
+-->
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">다른 글</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              
+                
+                <div class="archive__item-teaser">
+                  <img src="https://github-readme-stats.vercel.app/api/pin/?username=oh-gnues-iohc&repo=Huggingface-Trainer-Args-Viewer" alt="">
+                </div>
+              
+              <a href="/toy%20project/huggingface-viewer/">Huggigface Trainer Arguments Viewer</a>
+              <br>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.10.23
+              <br>
+              
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#toy-project" class="page__taxonomy-item-category" rel="tag">TOY PROJECT</a>
+                    
+                    
+                    <a href="/tags/#huggingface" class="page__taxonomy-item-tag" rel="tag">Huggingface</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#python" class="page__taxonomy-item-tag" rel="tag">Python</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#side-project" class="page__taxonomy-item-tag" rel="tag">Side Project</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              
+                
+                <div class="archive__item-teaser">
+                  <img src="https://github-readme-stats.vercel.app/api/pin/?username=oh-gnues-iohc&repo=oh-gnues-iohc.github.io" alt="">
+                </div>
+              
+              <a href="/blog/search/">Github 블로그 검색창 노출 시키기 [구글, 네이버]</a>
+              <br>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.10.20
+              <br>
+              
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#blog" class="page__taxonomy-item-category" rel="tag">BLOG</a>
+                    
+                    
+                    <a href="/tags/#blog" class="page__taxonomy-item-tag" rel="tag">Blog</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#github" class="page__taxonomy-item-tag" rel="tag">Github</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#git" class="page__taxonomy-item-tag" rel="tag">Git</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#jekyll" class="page__taxonomy-item-tag" rel="tag">Jekyll</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              
+                
+                <div class="archive__item-teaser">
+                  <img src="https://github-readme-stats.vercel.app/api/pin/?username=oh-gnues-iohc&repo=oh-gnues-iohc.github.io" alt="">
+                </div>
+              
+              <a href="/blog/blog-05/">Github 블로그 첫걸음 - 카테고리 만들기</a>
+              <br>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.10.20
+              <br>
+              
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#blog" class="page__taxonomy-item-category" rel="tag">BLOG</a>
+                    
+                    
+                    <a href="/tags/#blog" class="page__taxonomy-item-tag" rel="tag">Blog</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#github" class="page__taxonomy-item-tag" rel="tag">Github</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#git" class="page__taxonomy-item-tag" rel="tag">Git</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#jekyll" class="page__taxonomy-item-tag" rel="tag">Jekyll</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              
+                
+                <div class="archive__item-teaser">
+                  <img src="https://github-readme-stats.vercel.app/api/pin/?username=oh-gnues-iohc&repo=oh-gnues-iohc.github.io" alt="">
+                </div>
+              
+              <a href="/blog/blog-04/">Github 블로그 첫걸음 - 폰트 변경</a>
+              <br>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2023.10.20
+              <br>
+              
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#blog" class="page__taxonomy-item-category" rel="tag">BLOG</a>
+                    
+                    
+                    <a href="/tags/#blog" class="page__taxonomy-item-tag" rel="tag">Blog</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#github" class="page__taxonomy-item-tag" rel="tag">Github</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#git" class="page__taxonomy-item-tag" rel="tag">Git</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#jekyll" class="page__taxonomy-item-tag" rel="tag">Jekyll</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong></strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/oh-gnues-iohc" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://huggingface.co/ohgnues/" rel="nofollow noopener noreferrer"><i class="far fa-fw fa-smile" aria-hidden="true"></i> Huggingface</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 ohgnues. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'oh-gnues-iohc/oh-gnues-iohc.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    
+    script.setAttribute('theme', 'github-dark-orange');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+
+  </body>
+</html>
