@@ -32,8 +32,10 @@
         <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
       {% endif %}
     </h2>
+    <br>
     {% if site.category_archive.type and post.categories[0] and site.tag_archive.type and post.tags[0] %}
       {%- include post__taxonomy.html -%}
     {% endif %}
   </article>
+  <hr>
 </div>
