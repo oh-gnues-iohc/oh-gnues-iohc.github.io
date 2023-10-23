@@ -36,7 +36,7 @@ var store = [{
         "teaser": "https://github-readme-stats.vercel.app/api/pin/?username=oh-gnues-iohc&repo=oh-gnues-iohc.github.io"
       },{
         "title": "Huggigface Trainer Arguments Viewer",
-        "excerpt":"GitHub - oh-gnues-iohc/Huggingface-Trainer-Args-Viewer: Code for easy management of HuggingFace Trainer arguments with Streamlit Code for easy management of HuggingFace Trainer arguments with Streamlit - GitHub - oh-gnues-iohc/Huggingface-Trainer-Args-Viewer: Code for easy management of HuggingFace Trainer arguments with Str... github.com 프로젝트 개요 HuggingFace의 Trainer의 인자(Arguments) 관리를 쉽게 하기 위한 프로젝트 개발 이유...","categories": ["TOY PROJECT"],
+        "excerpt":"development GitHub - oh-gnues-iohc/Huggingface-Trainer-Args-Viewer: Code for easy management of HuggingFace Trainer arguments with Streamlit Code for easy management of HuggingFace Trainer arguments with Streamlit - GitHub - oh-gnues-iohc/Huggingface-Trainer-Args-Viewer: Code for easy management of HuggingFace Trainer arguments with Str... github.com 프로젝트 개요 HuggingFace의 Trainer의 인자(Arguments) 관리를 쉽게 하기 위한 프로젝트 개발...","categories": ["TOY PROJECT"],
         "tags": ["Huggingface","Python","Side Project"],
         "url": "/toy%20project/huggingface-viewer/",
         "teaser": "https://github-readme-stats.vercel.app/api/pin/?username=oh-gnues-iohc&repo=Huggingface-Trainer-Args-Viewer"
