@@ -10,7 +10,7 @@
 
 .jekyll-linkpreview-content {
   position: relative;
-  height: 450px;
+  height: 400px;
   overflow: hidden;
   margin-bottom: 10px;
 }
@@ -35,7 +35,7 @@
 }
 
 .jekyll-linkpreview-title {
-  font-size: 17px;
+  font-size: 12px;
   margin: 0 0 2px;
   line-height: 1.3;
 }
