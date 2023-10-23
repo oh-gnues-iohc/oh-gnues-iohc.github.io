@@ -9,18 +9,19 @@
             📂 <span style="font-family:'Dovemayo_gothic';">전체 글 수</span> <span style="font-family:'Dovemayo_gothic';color: #B7B19A;">{{sum}}</span> <span style="font-family:'Dovemayo_gothic';">개</style> 
       </li>
       <li>
+        <span class="nav__sub-title" style="font-family:'BMJUA'; color: #BDA655; font-size: 20px;">💻 Programming</span>
+        <ul>
+            {% for category in site.categories %}
+                {% if category[0] == "TOY PROJECT" %}
+                    <li><a href="/categories/toy_project" class="">TOY PROJECT ({{category[1].size}})</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
         <span class="nav__sub-title" style="font-family:'BMJUA'; color: #BDA655; font-size: 20px;">📖 Study</span>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "PAPER" %}
                         <li><a href="/categories/paper" class="">PAPER ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "Programmers" %}
-                        <li><a href="/categories/programmers" class="">프로그래머스 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
