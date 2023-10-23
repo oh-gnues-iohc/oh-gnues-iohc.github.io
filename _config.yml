@@ -233,7 +233,8 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-seo-tag
-  
+  - jekyll-linkpreview
+
 # mimic GitHub Pages with --safe
 whitelist:
   - jekyll-paginate
