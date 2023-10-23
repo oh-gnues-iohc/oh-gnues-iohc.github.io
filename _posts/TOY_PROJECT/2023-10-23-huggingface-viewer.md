@@ -18,11 +18,8 @@ header:
     
 ---
 
-[GitHub - oh-gnues-iohc/Huggingface-Trainer-Args-Viewer: Code for easy management of HuggingFace Trainer arguments with Streamlit](https://github.com/oh-gnues-iohc/Huggingface-Trainer-Args-Viewer)
+{% linkpreview "https://github.com/oh-gnues-iohc/Huggingface-Trainer-Args-Viewer" %}
 
-
-
-[![깃허브](https://socialsharepreview.com/api/image-proxy?url=https%3A%2F%2Fopengraph.githubassets.com%2F3baf831338075585b57e1a738fb15885ca4a8d98f7d38f1b695d70ca67d6e29d%2Foh-gnues-iohc%2FHuggingface-Trainer-Args-Viewer)](https://github.com/oh-gnues-iohc/Huggingface-Trainer-Args-Viewer)
 # 프로젝트 개요
 ---
 
