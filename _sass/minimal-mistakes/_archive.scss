@@ -89,12 +89,62 @@
   position: relative;
   border-radius: $border-radius;
   overflow: hidden;
-
+  
+  display: flex;
+  justify-content: center;
+  
+  background-color: mix(rgb(122, 122, 122), $background-color, 10%);
+  backdrop-filter: blur(10px);
+  width: 100%; 
+  max-height: 10em;
+  margin-bottom: 5px;
+  
   img {
-    width: 100%;
+      margin: auto;
+      position: relative;  //absolute;
+      object-fit: fill;
   }
-}
+  }
+  @media screen and (min-width: 600px) {
+    .archive__item-teaser_list {
+      position: relative;
+      border-radius: $border-radius;
+      overflow: hidden;
+      margin-right: 0.5em;
+      display: inline;
+      justify-content: center;
+      float : right;
+      margin-bottom: 5px;
 
+      background-color: $background-color;
+      backdrop-filter: blur(10px);
+      width: 15em;
+      max-height: 130px;
+      text-align: center;
+      vertical-align: middle;
+
+      img {
+        margin: auto;
+        position: relative; //absolute;
+        object-fit: contain;
+        overflow: hidden;
+        justify-content: center;
+        transition: all 0.3s linear; //hover 시간 조정
+        width: 100%; /* 이미지의 부모 요소 너비에 맞게 조정 */
+        height: 100%; /* 이미지의 부모 요소 높이에 맞게 조정 */
+        border-radius: inherit;
+      }
+
+      @include breakpoint($small) {
+        min-height: 130px;
+        background-size: contain; //비율 강제 고정
+      }
+
+      @include breakpoint($medium) {
+        background-size: contain; //비율 강제 고정
+      }
+    }
+    }
 .archive__item-caption {
   position: absolute;
   bottom: 0;
