@@ -450,7 +450,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#개발-이유">개발 이유</a></li><li><a href="#개발-목표">개발 목표</a></li><li><a href="#사용-기술">사용 기술</a></li></ul>
+              <ul class="toc__menu"><li><a href="#프로젝트-개요">프로젝트 개요</a><ul><li><a href="#개발-이유">개발 이유</a></li><li><a href="#개발-목표">개발 목표</a></li></ul></li><li><a href="#dataclass-추출">Dataclass 추출</a><ul><li><a href="#argument-추출">Argument 추출</a></li></ul></li></ul>
 
             </nav>
           </aside>
@@ -460,7 +460,7 @@
     <div class="jekyll-linkpreview-content">
       <div class="jekyll-linkpreview-image">
         <a href="https://github.com/oh-gnues-iohc/Huggingface-Trainer-Args-Viewer" target="_blank">
-          <img src="https://opengraph.githubassets.com/d9b117e553abfc4014e1b1d5039b7ef4bbbe83ac4370bfd7518066a89144d55e/oh-gnues-iohc/Huggingface-Trainer-Args-Viewer" />
+          <img src="https://opengraph.githubassets.com/ab7218d7768910a4517bff358cf779e28e93937e4797373ccdd95799f68117d2/oh-gnues-iohc/Huggingface-Trainer-Args-Viewer" />
         </a>
       </div>
 
@@ -477,12 +477,11 @@
   </div>
 </div>
 
-<h1 id="프로젝트-개요">프로젝트 개요</h1>
-<hr />
+<h2 id="프로젝트-개요">프로젝트 개요</h2>
 
 <p>HuggingFace의 Trainer의 인자(Arguments) 관리를 쉽게 하기 위한 프로젝트</p>
 
-<h2 id="개발-이유">개발 이유</h2>
+<h3 id="개발-이유">개발 이유</h3>
 
 <p>GPT, BERT, T5, … 여러 모델과 모델의 목적에 따라 사용되는 인자가 너무 많아 관리가 어려움</p>
 
@@ -490,12 +489,12 @@
 
 <p>인자를 한눈에 보기 어려움</p>
 
-<h2 id="개발-목표">개발 목표</h2>
+<h3 id="개발-목표">개발 목표</h3>
 
 <ul class="task-list">
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Dataclass 추출
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><a href="#dataclass-추출">Dataclass 추출</a>
     <ul class="task-list">
-      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Argument 추출</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><a href="#argument-추출">Argument 추출</a></li>
     </ul>
   </li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Streamlit 구축
@@ -506,11 +505,111 @@
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />설정한 옵션들로 Python 실행 명령어 출력</li>
 </ul>
 
-<h2 id="사용-기술">사용 기술</h2>
+<h2 id="dataclass-추출">Dataclass 추출</h2>
 
-<h1 id="dataclass-추출">Dataclass 추출</h1>
+<p>AST: Python Abstract Syntax Tree</p>
 
-<hr />
+<p>Python에서 기본 제공하는 package</p>
+
+<p>이름에서 알 수 있듯 Python 코드를 넣으면, Syntax를 쉽게 분석 할 수 있는 Tree가 나오게 됨</p>
+
+<p>Dataclass를 추출하기 위해선 <code class="language-plaintext highlighter-rouge">@dataclass</code> 데코레이터를 찾으면 쉬움</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">ModelArguments</span><span class="p">:</span>
+    <span class="n">pretrained_model_name_or_path</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="nf">field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="sh">""</span>
+    <span class="p">)</span>
+    <span class="n">use_auth_token</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="nf">field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="sh">""</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="sh">"</span><span class="s">help</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">비공개 모델 사용에 필요한 인증 토큰</span><span class="sh">"</span><span class="p">}</span>
+    <span class="p">)</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">ast.parse</code> 함수를 이용해 코드에 대한 tree를 얻을 수 있음</p>
+
+<p>이 tree를 이용해 각 node에 접근이 가능</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">'</span><span class="s">utf-8</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="nb">file</span><span class="p">.</span><span class="nf">read</span><span class="p">())</span>
+
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">ast</span><span class="p">.</span><span class="nf">walk</span><span class="p">(</span><span class="n">tree</span><span class="p">):</span>
+    <span class="bp">...</span>
+</code></pre></div></div>
+
+<p>각 노드들은 <code class="language-plaintext highlighter-rouge">ast.Name</code>, <code class="language-plaintext highlighter-rouge">ast.ClassDef</code>, <code class="language-plaintext highlighter-rouge">ast.Call</code> 등 여러 instance로 존재함</p>
+
+<p>자세한 내용은 <a href="https://docs.python.org/3/library/ast.html">공식 문서</a>를 참고하고, 여기선 <code class="language-plaintext highlighter-rouge">ast.ClassDef</code> 만 사용하면 됨</p>
+
+<p><code class="language-plaintext highlighter-rouge">isinstance(node, ast.ClassDef)</code> 에 걸리는 node들은 모두 Class이니, 여기서 <code class="language-plaintext highlighter-rouge">@dataclass</code>라는 데코레이터를 가지고 있는 node만 다시 걸러줘야함</p>
+
+<p><code class="language-plaintext highlighter-rouge">node.decorator_list</code>를 사용하면 해당 노드가 가지고 있는 모든 데코레이터를 얻을 수 있음</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">'</span><span class="s">utf-8</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="nb">file</span><span class="p">.</span><span class="nf">read</span><span class="p">())</span>
+
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">ast</span><span class="p">.</span><span class="nf">walk</span><span class="p">(</span><span class="n">tree</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nf">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ast</span><span class="p">.</span><span class="n">ClassDef</span><span class="p">):</span>
+        <span class="n">decorators</span> <span class="o">=</span> <span class="p">{</span><span class="n">d</span><span class="p">.</span><span class="nb">id</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">node</span><span class="p">.</span><span class="n">decorator_list</span><span class="p">}</span>
+        <span class="k">if</span> <span class="sh">"</span><span class="s">dataclass</span><span class="sh">"</span> <span class="ow">in</span> <span class="n">decorators</span><span class="p">:</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ModelArguments
+DataArguments
+TrainArguments
+</code></pre></div></div>
+
+<h3 id="argument-추출">Argument 추출</h3>
+
+<p>각 Dataclass들을 추출했으면 다음은 Argument를 추출할 차례</p>
+
+<p><code class="language-plaintext highlighter-rouge">ast.ClassDef</code> 문서를 보면 아래와 같음</p>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/f56f2424-06a5-43d4-b00b-ab0c83dd9735" alt="image" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">body</code>는 클래스 내부에 정의된 코드의 노드임 즉 이걸 통해서 Argument를 가져올 수 있음</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">DataclassFinder</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">()</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">file_path</span> <span class="o">=</span> <span class="n">file_path</span>
+        
+        <span class="n">tree</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">_parse_file</span><span class="p">()</span>
+        
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">ast</span><span class="p">.</span><span class="nf">walk</span><span class="p">(</span><span class="n">tree</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nf">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ast</span><span class="p">.</span><span class="n">ClassDef</span><span class="p">)</span> <span class="ow">and</span> <span class="n">self</span><span class="p">.</span><span class="nf">_has_dataclass_decorator</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
+                <span class="n">dataclass</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">_parse_dataclass</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+                <span class="n">self</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">dataclass</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_parse_file</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">file_path</span><span class="p">,</span> <span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">'</span><span class="s">utf-8</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ast</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="nb">file</span><span class="p">.</span><span class="nf">read</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">_has_dataclass_decorator</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">class_node</span><span class="p">):</span>
+        <span class="n">decorators</span> <span class="o">=</span> <span class="p">{</span><span class="n">d</span><span class="p">.</span><span class="nb">id</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">class_node</span><span class="p">.</span><span class="n">decorator_list</span><span class="p">}</span>
+        <span class="k">return</span> <span class="sh">"</span><span class="s">dataclass</span><span class="sh">"</span> <span class="ow">in</span> <span class="n">decorators</span>
+
+    <span class="k">def</span> <span class="nf">_parse_dataclass</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">class_node</span><span class="p">):</span>
+        <span class="n">dataclass</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="n">class_node</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="sh">"</span><span class="s">elements</span><span class="sh">"</span><span class="p">:</span> <span class="p">[]}</span>
+        <span class="k">for</span> <span class="n">class_element</span> <span class="ow">in</span> <span class="n">class_node</span><span class="p">.</span><span class="n">body</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nf">isinstance</span><span class="p">(</span><span class="n">class_element</span><span class="p">,</span> <span class="n">ast</span><span class="p">.</span><span class="n">AnnAssign</span><span class="p">):</span>
+                <span class="n">element</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">_parse_class_element</span><span class="p">(</span><span class="n">class_element</span><span class="p">)</span>
+                <span class="n">dataclass</span><span class="p">[</span><span class="sh">"</span><span class="s">elements</span><span class="sh">"</span><span class="p">].</span><span class="nf">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">dataclass</span>
+
+    <span class="k">def</span> <span class="nf">_parse_class_element</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">class_element</span><span class="p">):</span>
+        <span class="n">element</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="n">class_element</span><span class="p">.</span><span class="n">target</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span> <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="sh">"</span><span class="s">default</span><span class="sh">"</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="sh">"</span><span class="s">help</span><span class="sh">"</span><span class="p">:</span> <span class="bp">None</span><span class="p">}</span>
+        <span class="k">if</span> <span class="nf">isinstance</span><span class="p">(</span><span class="n">class_element</span><span class="p">.</span><span class="n">annotation</span><span class="p">,</span> <span class="n">ast</span><span class="p">.</span><span class="n">Name</span><span class="p">):</span>
+            <span class="n">element</span><span class="p">[</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">]</span> <span class="o">=</span> <span class="n">class_element</span><span class="p">.</span><span class="n">annotation</span><span class="p">.</span><span class="nb">id</span>
+        <span class="k">if</span> <span class="n">class_element</span><span class="p">.</span><span class="n">value</span> <span class="ow">and</span> <span class="nf">isinstance</span><span class="p">(</span><span class="n">class_element</span><span class="p">.</span><span class="n">value</span><span class="p">,</span> <span class="n">ast</span><span class="p">.</span><span class="n">Call</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">class_element</span><span class="p">.</span><span class="n">value</span><span class="p">.</span><span class="n">keywords</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">keyword</span><span class="p">.</span><span class="n">arg</span> <span class="o">==</span> <span class="sh">'</span><span class="s">default</span><span class="sh">'</span><span class="p">:</span>
+                    <span class="n">element</span><span class="p">[</span><span class="sh">"</span><span class="s">default</span><span class="sh">"</span><span class="p">]</span> <span class="o">=</span> <span class="n">ast</span><span class="p">.</span><span class="nf">literal_eval</span><span class="p">(</span><span class="n">keyword</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">keyword</span><span class="p">.</span><span class="n">arg</span> <span class="o">==</span> <span class="sh">"</span><span class="s">metadata</span><span class="sh">"</span><span class="p">:</span>
+                    <span class="n">element</span><span class="p">[</span><span class="sh">"</span><span class="s">help</span><span class="sh">"</span><span class="p">]</span> <span class="o">=</span> <span class="n">ast</span><span class="p">.</span><span class="nf">literal_eval</span><span class="p">(</span><span class="n">keyword</span><span class="p">.</span><span class="n">value</span><span class="p">)[</span><span class="sh">"</span><span class="s">help</span><span class="sh">"</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">element</span>
+
+</code></pre></div></div>
 
         
       </section>
