@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-23T21:41:49+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">바퀴를 다시 개발하는 개발자</title><subtitle>취미 블로그</subtitle><author><name>최승호</name></author><entry><title type="html">Huggigface Trainer Arguments Viewer</title><link href="http://localhost:4000/toy%20project/huggingface-viewer/" rel="alternate" type="text/html" title="Huggigface Trainer Arguments Viewer" /><published>2023-10-23T00:00:00+09:00</published><updated>2023-10-23T00:00:00+09:00</updated><id>http://localhost:4000/toy%20project/huggingface-viewer</id><content type="html" xml:base="http://localhost:4000/toy%20project/huggingface-viewer/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-24T17:19:42+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">바퀴를 다시 개발하는 개발자</title><subtitle>취미 블로그</subtitle><author><name>최승호</name></author><entry><title type="html">Huggigface Trainer Arguments Viewer</title><link href="http://localhost:4000/toy%20project/huggingface-viewer/" rel="alternate" type="text/html" title="Huggigface Trainer Arguments Viewer" /><published>2023-10-23T00:00:00+09:00</published><updated>2023-10-23T00:00:00+09:00</updated><id>http://localhost:4000/toy%20project/huggingface-viewer</id><content type="html" xml:base="http://localhost:4000/toy%20project/huggingface-viewer/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
   <div class="jekyll-linkpreview-wrapper-inner">
     <div class="jekyll-linkpreview-content">
       <div class="jekyll-linkpreview-image">
@@ -36,17 +36,23 @@
 <h2 id="개발-목표">개발 목표</h2>
 
 <ul class="task-list">
-  <li class="task-list-item">
-    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Dataclass 별로 가지고 있는 Argument들을 Streamlit을 통해서 설정</p>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Dataclass 추출
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Argument 추출</li>
+    </ul>
   </li>
-  <li class="task-list-item">
-    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />설정한 옵션들로 Python 실행 명령어 출력</p>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Streamlit 구축
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />옵션 설정 기능 추가</li>
+    </ul>
   </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />설정한 옵션들로 Python 실행 명령어 출력</li>
 </ul>
 
 <h2 id="사용-기술">사용 기술</h2>
 
 <h1 id="dataclass-추출">Dataclass 추출</h1>
+
 <hr />]]></content><author><name>최승호</name></author><category term="TOY PROJECT" /><category term="Huggingface" /><category term="Python" /><category term="Side Project" /><summary type="html"><![CDATA[GitHub - oh-gnues-iohc/Huggingface-Trainer-Args-Viewer: Code for easy management of HuggingFace Trainer arguments with Streamlit Code for easy management of HuggingFace Trainer arguments with Streamlit - GitHub - oh-gnues-iohc/Huggingface-Trainer-Args-Viewer: Code for easy management of HuggingFace Trainer arguments with Str... github.com]]></summary></entry><entry><title type="html">Github 블로그 첫걸음 - 폰트 변경</title><link href="http://localhost:4000/blog/blog-04/" rel="alternate" type="text/html" title="Github 블로그 첫걸음 - 폰트 변경" /><published>2023-10-20T00:00:00+09:00</published><updated>2023-10-20T00:00:00+09:00</updated><id>http://localhost:4000/blog/blog-04</id><content type="html" xml:base="http://localhost:4000/blog/blog-04/"><![CDATA[<p>차라리 꾸미는 걸 따로 따로 빼서 글 쓰는게 나을듯</p>
 
 <h1 id="무료-폰트-고르기">무료 폰트 고르기</h1>
