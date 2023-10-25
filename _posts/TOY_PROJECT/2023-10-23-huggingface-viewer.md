@@ -156,3 +156,20 @@ class DataclassFinder(list):
 ```
 
 ## Streamlit 구축
+
+Streamlit은 Python을 이용해서 빠르게 어플리케이션을 만들 수 있는 라이브러리
+
+### 파일 읽기
+
+`st.file_uploader`를 이용하여 쉽게 파일을 읽을 수 있음
+
+```python
+uploaded_file = st.file_uploader("Choose a Python file", accept_multiple_files=False)
+if uploaded_file:
+    st.write(DataclassFinder(uploaded_file.read()))
+```
+
+![image](https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/c85963fb-dbba-4a0f-a2a7-7f82913a74f0)
+
+이렇게 streamlit을 통해 얻은 파일의 Dataclass를 추출하였으니, 이걸 편하게 Display하면 됨
+
