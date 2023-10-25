@@ -38,7 +38,7 @@ GPT, BERT, T5, ... 여러 모델과 모델의 목적에 따라 사용되는 인�
 
 - [X] [Dataclass 추출](#dataclass-추출)
   - [X] [Argument 추출](#argument-추출)
-- [ ] Streamlit 구축
+- [ ] [Streamlit 구축](#streamlit-구축)
   - [ ] 옵션 설정 기능 추가
 - [ ] 설정한 옵션들로 Python 실행 명령어 출력
 
@@ -154,3 +154,5 @@ class DataclassFinder(list):
         return element
 
 ```
+
+## Streamlit 구축
