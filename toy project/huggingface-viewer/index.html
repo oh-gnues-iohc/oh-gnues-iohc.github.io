@@ -450,7 +450,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#프로젝트-개요">프로젝트 개요</a><ul><li><a href="#개발-이유">개발 이유</a></li><li><a href="#개발-목표">개발 목표</a></li></ul></li><li><a href="#dataclass-추출">Dataclass 추출</a><ul><li><a href="#argument-추출">Argument 추출</a></li></ul></li><li><a href="#streamlit-구축">Streamlit 구축</a></li></ul>
+              <ul class="toc__menu"><li><a href="#프로젝트-개요">프로젝트 개요</a><ul><li><a href="#개발-이유">개발 이유</a></li><li><a href="#개발-목표">개발 목표</a></li></ul></li><li><a href="#dataclass-추출">Dataclass 추출</a><ul><li><a href="#argument-추출">Argument 추출</a></li></ul></li><li><a href="#streamlit-구축">Streamlit 구축</a><ul><li><a href="#파일-읽기">파일 읽기</a></li></ul></li></ul>
 
             </nav>
           </aside>
@@ -614,6 +614,19 @@ TrainArguments
 <h2 id="streamlit-구축">Streamlit 구축</h2>
 
 <p>Streamlit은 Python을 이용해서 빠르게 어플리케이션을 만들 수 있는 라이브러리</p>
+
+<h3 id="파일-읽기">파일 읽기</h3>
+
+<p><code class="language-plaintext highlighter-rouge">st.file_uploader</code>를 이용하여 쉽게 파일을 읽을 수 있음</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">uploaded_file</span> <span class="o">=</span> <span class="n">st</span><span class="p">.</span><span class="nf">file_uploader</span><span class="p">(</span><span class="sh">"</span><span class="s">Choose a Python file</span><span class="sh">"</span><span class="p">,</span> <span class="n">accept_multiple_files</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">uploaded_file</span><span class="p">:</span>
+    <span class="n">st</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="nc">DataclassFinder</span><span class="p">(</span><span class="n">uploaded_file</span><span class="p">.</span><span class="nf">read</span><span class="p">()))</span>
+</code></pre></div></div>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/c85963fb-dbba-4a0f-a2a7-7f82913a74f0" alt="image" /></p>
+
+<p>이렇게 streamlit을 통해 얻은 파일의 Dataclass를 추출하였으니, 이걸 편하게 Display하면 됨</p>
 
 
         
