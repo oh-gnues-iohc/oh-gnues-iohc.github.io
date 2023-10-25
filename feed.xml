@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-25T09:31:20+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">바퀴를 다시 개발하는 개발자</title><subtitle>취미 블로그</subtitle><author><name>최승호</name></author><entry><title type="html">Huggigface Trainer Arguments Viewer</title><link href="http://localhost:4000/toy%20project/huggingface-viewer/" rel="alternate" type="text/html" title="Huggigface Trainer Arguments Viewer" /><published>2023-10-23T00:00:00+09:00</published><updated>2023-10-23T00:00:00+09:00</updated><id>http://localhost:4000/toy%20project/huggingface-viewer</id><content type="html" xml:base="http://localhost:4000/toy%20project/huggingface-viewer/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://oh-gnues-iohc.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://oh-gnues-iohc.github.io//" rel="alternate" type="text/html" /><updated>2023-10-25T09:43:14+09:00</updated><id>https://oh-gnues-iohc.github.io//feed.xml</id><title type="html">바퀴를 다시 개발하는 개발자</title><subtitle>취미 블로그</subtitle><author><name>최승호</name></author><entry><title type="html">Huggigface Trainer Arguments Viewer</title><link href="https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer/" rel="alternate" type="text/html" title="Huggigface Trainer Arguments Viewer" /><published>2023-10-23T00:00:00+09:00</published><updated>2023-10-23T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
   <div class="jekyll-linkpreview-wrapper-inner">
     <div class="jekyll-linkpreview-content">
       <div class="jekyll-linkpreview-image">
@@ -154,7 +154,9 @@ TrainArguments
 
 </code></pre></div></div>
 
-<h2 id="streamlit-구축">Streamlit 구축</h2>]]></content><author><name>최승호</name></author><category term="TOY PROJECT" /><category term="Huggingface" /><category term="Python" /><category term="Side Project" /><summary type="html"><![CDATA[GitHub - oh-gnues-iohc/Huggingface-Trainer-Args-Viewer: Code for easy management of HuggingFace Trainer arguments with Streamlit Code for easy management of HuggingFace Trainer arguments with Streamlit - GitHub - oh-gnues-iohc/Huggingface-Trainer-Args-Viewer: Code for easy management of HuggingFace Trainer arguments with Str... github.com]]></summary></entry><entry><title type="html">Github 블로그 첫걸음 - 폰트 변경</title><link href="http://localhost:4000/blog/blog-04/" rel="alternate" type="text/html" title="Github 블로그 첫걸음 - 폰트 변경" /><published>2023-10-20T00:00:00+09:00</published><updated>2023-10-20T00:00:00+09:00</updated><id>http://localhost:4000/blog/blog-04</id><content type="html" xml:base="http://localhost:4000/blog/blog-04/"><![CDATA[<p>차라리 꾸미는 걸 따로 따로 빼서 글 쓰는게 나을듯</p>
+<h2 id="streamlit-구축">Streamlit 구축</h2>
+
+<p>Streamlit은 Python을 이용해서 빠르게 어플리케이션을 만들 수 있는 라이브러리</p>]]></content><author><name>최승호</name></author><category term="TOY PROJECT" /><category term="Huggingface" /><category term="Python" /><category term="Side Project" /><summary type="html"><![CDATA[GitHub - oh-gnues-iohc/Huggingface-Trainer-Args-Viewer: Code for easy management of HuggingFace Trainer arguments with Streamlit Code for easy management of HuggingFace Trainer arguments with Streamlit - GitHub - oh-gnues-iohc/Huggingface-Trainer-Args-Viewer: Code for easy management of HuggingFace Trainer arguments with Str... github.com]]></summary></entry><entry><title type="html">Github 블로그 첫걸음 - 폰트 변경</title><link href="https://oh-gnues-iohc.github.io//blog/blog-04/" rel="alternate" type="text/html" title="Github 블로그 첫걸음 - 폰트 변경" /><published>2023-10-20T00:00:00+09:00</published><updated>2023-10-20T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//blog/blog-04</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//blog/blog-04/"><![CDATA[<p>차라리 꾸미는 걸 따로 따로 빼서 글 쓰는게 나을듯</p>
 
 <h1 id="무료-폰트-고르기">무료 폰트 고르기</h1>
 <hr />
@@ -223,7 +225,7 @@ TrainArguments
   </li>
 </ul>
 
-<p>sans-serif 맨 앞에 바로 선언하거나 따로 변수 지정한 뒤, 따로 써도 되긴 함</p>]]></content><author><name>최승호</name></author><category term="BLOG" /><category term="Blog" /><category term="Jekyll" /><category term="Github" /><category term="Git" /><summary type="html"><![CDATA[차라리 꾸미는 걸 따로 따로 빼서 글 쓰는게 나을듯]]></summary></entry><entry><title type="html">Github 블로그 첫걸음 - 카테고리 만들기</title><link href="http://localhost:4000/blog/blog-05/" rel="alternate" type="text/html" title="Github 블로그 첫걸음 - 카테고리 만들기" /><published>2023-10-20T00:00:00+09:00</published><updated>2023-10-20T00:00:00+09:00</updated><id>http://localhost:4000/blog/blog-05</id><content type="html" xml:base="http://localhost:4000/blog/blog-05/"><![CDATA[<p>너무 맘에 드는 디자인을 잘 정리해준 <a href="https://ansohxxn.github.io/blog/category">블로그</a>가 있어 보고 그대로 따라했음</p>
+<p>sans-serif 맨 앞에 바로 선언하거나 따로 변수 지정한 뒤, 따로 써도 되긴 함</p>]]></content><author><name>최승호</name></author><category term="BLOG" /><category term="Blog" /><category term="Jekyll" /><category term="Github" /><category term="Git" /><summary type="html"><![CDATA[차라리 꾸미는 걸 따로 따로 빼서 글 쓰는게 나을듯]]></summary></entry><entry><title type="html">Github 블로그 첫걸음 - 카테고리 만들기</title><link href="https://oh-gnues-iohc.github.io//blog/blog-05/" rel="alternate" type="text/html" title="Github 블로그 첫걸음 - 카테고리 만들기" /><published>2023-10-20T00:00:00+09:00</published><updated>2023-10-20T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//blog/blog-05</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//blog/blog-05/"><![CDATA[<p>너무 맘에 드는 디자인을 잘 정리해준 <a href="https://ansohxxn.github.io/blog/category">블로그</a>가 있어 보고 그대로 따라했음</p>
 
 <p>위 블로그에선 여러 파일을 추가해서 진행했는데, 나는 그런게 좀 싫고 원래 가지고 있는 파일에 적용하고 싶어서 그렇게 했음</p>
 
@@ -638,7 +640,7 @@ sidebar:
 
 <p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/5e61e4f9-a788-491b-9549-44a506453f16" alt="image" /></p>
 
-<p>🤗</p>]]></content><author><name>최승호</name></author><category term="BLOG" /><category term="Blog" /><category term="Jekyll" /><category term="Github" /><category term="Git" /><summary type="html"><![CDATA[너무 맘에 드는 디자인을 잘 정리해준 블로그가 있어 보고 그대로 따라했음]]></summary></entry><entry><title type="html">Github 블로그 검색창 노출 시키기 [구글, 네이버]</title><link href="http://localhost:4000/blog/search/" rel="alternate" type="text/html" title="Github 블로그 검색창 노출 시키기 [구글, 네이버]" /><published>2023-10-20T00:00:00+09:00</published><updated>2023-10-20T00:00:00+09:00</updated><id>http://localhost:4000/blog/search</id><content type="html" xml:base="http://localhost:4000/blog/search/"><![CDATA[<p>블로그를 하면서 광고로 돈을 벌게 아니더라도 누군가 봐주지 않는다면 글을 쓸 필요가 없음</p>
+<p>🤗</p>]]></content><author><name>최승호</name></author><category term="BLOG" /><category term="Blog" /><category term="Jekyll" /><category term="Github" /><category term="Git" /><summary type="html"><![CDATA[너무 맘에 드는 디자인을 잘 정리해준 블로그가 있어 보고 그대로 따라했음]]></summary></entry><entry><title type="html">Github 블로그 검색창 노출 시키기 [구글, 네이버]</title><link href="https://oh-gnues-iohc.github.io//blog/search/" rel="alternate" type="text/html" title="Github 블로그 검색창 노출 시키기 [구글, 네이버]" /><published>2023-10-20T00:00:00+09:00</published><updated>2023-10-20T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//blog/search</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//blog/search/"><![CDATA[<p>블로그를 하면서 광고로 돈을 벌게 아니더라도 누군가 봐주지 않는다면 글을 쓸 필요가 없음</p>
 
 <p>그렇기 때문에 검색에 노출되도록 하는것이 중요</p>
 
@@ -671,7 +673,7 @@ layout: null
         <span class="na">xmlns=</span><span class="s">"http://www.sitemaps.org/schemas/sitemap/0.9"</span><span class="nt">&gt;</span>
     
     <span class="nt">&lt;url&gt;</span>
-        <span class="nt">&lt;loc&gt;</span>http://localhost:4000/toy%20project/huggingface-viewer/<span class="nt">&lt;/loc&gt;</span>
+        <span class="nt">&lt;loc&gt;</span>https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer/<span class="nt">&lt;/loc&gt;</span>
         
         <span class="nt">&lt;lastmod&gt;</span>2023-10-23T00:00:00+09:00<span class="nt">&lt;/lastmod&gt;</span>
         
@@ -687,7 +689,7 @@ layout: null
     <span class="nt">&lt;/url&gt;</span>
     
     <span class="nt">&lt;url&gt;</span>
-        <span class="nt">&lt;loc&gt;</span>http://localhost:4000/blog/search/<span class="nt">&lt;/loc&gt;</span>
+        <span class="nt">&lt;loc&gt;</span>https://oh-gnues-iohc.github.io//blog/search/<span class="nt">&lt;/loc&gt;</span>
         
         <span class="nt">&lt;lastmod&gt;</span>2023-10-20T00:00:00+09:00<span class="nt">&lt;/lastmod&gt;</span>
         
@@ -703,7 +705,7 @@ layout: null
     <span class="nt">&lt;/url&gt;</span>
     
     <span class="nt">&lt;url&gt;</span>
-        <span class="nt">&lt;loc&gt;</span>http://localhost:4000/blog/blog-05/<span class="nt">&lt;/loc&gt;</span>
+        <span class="nt">&lt;loc&gt;</span>https://oh-gnues-iohc.github.io//blog/blog-05/<span class="nt">&lt;/loc&gt;</span>
         
         <span class="nt">&lt;lastmod&gt;</span>2023-10-20T00:00:00+09:00<span class="nt">&lt;/lastmod&gt;</span>
         
@@ -719,7 +721,7 @@ layout: null
     <span class="nt">&lt;/url&gt;</span>
     
     <span class="nt">&lt;url&gt;</span>
-        <span class="nt">&lt;loc&gt;</span>http://localhost:4000/blog/blog-04/<span class="nt">&lt;/loc&gt;</span>
+        <span class="nt">&lt;loc&gt;</span>https://oh-gnues-iohc.github.io//blog/blog-04/<span class="nt">&lt;/loc&gt;</span>
         
         <span class="nt">&lt;lastmod&gt;</span>2023-10-20T00:00:00+09:00<span class="nt">&lt;/lastmod&gt;</span>
         
@@ -735,7 +737,7 @@ layout: null
     <span class="nt">&lt;/url&gt;</span>
     
     <span class="nt">&lt;url&gt;</span>
-        <span class="nt">&lt;loc&gt;</span>http://localhost:4000/blog/blog-03/<span class="nt">&lt;/loc&gt;</span>
+        <span class="nt">&lt;loc&gt;</span>https://oh-gnues-iohc.github.io//blog/blog-03/<span class="nt">&lt;/loc&gt;</span>
         
         <span class="nt">&lt;lastmod&gt;</span>2023-10-19T00:00:00+09:00<span class="nt">&lt;/lastmod&gt;</span>
         
@@ -751,7 +753,7 @@ layout: null
     <span class="nt">&lt;/url&gt;</span>
     
     <span class="nt">&lt;url&gt;</span>
-        <span class="nt">&lt;loc&gt;</span>http://localhost:4000/blog/blog-02/<span class="nt">&lt;/loc&gt;</span>
+        <span class="nt">&lt;loc&gt;</span>https://oh-gnues-iohc.github.io//blog/blog-02/<span class="nt">&lt;/loc&gt;</span>
         
         <span class="nt">&lt;lastmod&gt;</span>2023-10-18T00:00:00+09:00<span class="nt">&lt;/lastmod&gt;</span>
         
@@ -767,7 +769,7 @@ layout: null
     <span class="nt">&lt;/url&gt;</span>
     
     <span class="nt">&lt;url&gt;</span>
-        <span class="nt">&lt;loc&gt;</span>http://localhost:4000/blog/blog-01/<span class="nt">&lt;/loc&gt;</span>
+        <span class="nt">&lt;loc&gt;</span>https://oh-gnues-iohc.github.io//blog/blog-01/<span class="nt">&lt;/loc&gt;</span>
         
         <span class="nt">&lt;lastmod&gt;</span>2023-10-18T00:00:00+09:00<span class="nt">&lt;/lastmod&gt;</span>
         
@@ -826,7 +828,7 @@ Sitemap: https://oh-gnues-iohc.github.io/sitemap.xml
 
 <p>구글 등록과 마찬가지로 소유확인, 사이트맵 등록을 하면 된다</p>
 
-<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/a8b660f2-fcb6-4ae9-89c3-245d7952aa5a" alt="image" /></p>]]></content><author><name>최승호</name></author><category term="BLOG" /><category term="Blog" /><category term="Jekyll" /><category term="Github" /><category term="Git" /><summary type="html"><![CDATA[블로그를 하면서 광고로 돈을 벌게 아니더라도 누군가 봐주지 않는다면 글을 쓸 필요가 없음]]></summary></entry><entry><title type="html">Github 블로그 첫걸음 - minimal-mistakes 꾸미기</title><link href="http://localhost:4000/blog/blog-03/" rel="alternate" type="text/html" title="Github 블로그 첫걸음 - minimal-mistakes 꾸미기" /><published>2023-10-19T00:00:00+09:00</published><updated>2023-10-20T00:00:00+09:00</updated><id>http://localhost:4000/blog/blog-03</id><content type="html" xml:base="http://localhost:4000/blog/blog-03/"><![CDATA[<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>🔔 계속 업데이트 될 예정
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/a8b660f2-fcb6-4ae9-89c3-245d7952aa5a" alt="image" /></p>]]></content><author><name>최승호</name></author><category term="BLOG" /><category term="Blog" /><category term="Jekyll" /><category term="Github" /><category term="Git" /><summary type="html"><![CDATA[블로그를 하면서 광고로 돈을 벌게 아니더라도 누군가 봐주지 않는다면 글을 쓸 필요가 없음]]></summary></entry><entry><title type="html">Github 블로그 첫걸음 - minimal-mistakes 꾸미기</title><link href="https://oh-gnues-iohc.github.io//blog/blog-03/" rel="alternate" type="text/html" title="Github 블로그 첫걸음 - minimal-mistakes 꾸미기" /><published>2023-10-19T00:00:00+09:00</published><updated>2023-10-20T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//blog/blog-03</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//blog/blog-03/"><![CDATA[<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>🔔 계속 업데이트 될 예정
 </code></pre></div></div>
 
 <p><a href="https://jekyllrb-ko.github.io/">Jekyll 한글</a> 문서와 <a href="https://mmistakes.github.io/minimal-mistakes/">Minimal Mistakes</a> 공식 문서를 참고하였음</p>
@@ -1033,7 +1035,7 @@ Sitemap: https://oh-gnues-iohc.github.io/sitemap.xml
 
 <p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/a0a1ca04-9dc1-49c9-844d-d00792befdb5" alt="image" /></p>
 
-<p>글 위에 뜨는 이런걸 breadcrumbs라고 한다. 이거 꾸미는 역할인거 같은데, 꾸미는 방법은 잘 모르겠고 그냥 _config.yml 내에 있는 breadcrumbs를 true로 해주면 나타남</p>]]></content><author><name>최승호</name></author><category term="BLOG" /><category term="Blog" /><category term="Jekyll" /><category term="Github" /><category term="Git" /><summary type="html"><![CDATA[🔔 계속 업데이트 될 예정]]></summary></entry><entry><title type="html">Github 블로그 첫걸음 - 블로그 생성</title><link href="http://localhost:4000/blog/blog-01/" rel="alternate" type="text/html" title="Github 블로그 첫걸음 - 블로그 생성" /><published>2023-10-18T00:00:00+09:00</published><updated>2023-10-18T00:00:00+09:00</updated><id>http://localhost:4000/blog/blog-01</id><content type="html" xml:base="http://localhost:4000/blog/blog-01/"><![CDATA[<p>처음 만들어 보는데 어떻게 하는지 몰라서 이 문서, 저 문서 찾아보면서 하는중</p>
+<p>글 위에 뜨는 이런걸 breadcrumbs라고 한다. 이거 꾸미는 역할인거 같은데, 꾸미는 방법은 잘 모르겠고 그냥 _config.yml 내에 있는 breadcrumbs를 true로 해주면 나타남</p>]]></content><author><name>최승호</name></author><category term="BLOG" /><category term="Blog" /><category term="Jekyll" /><category term="Github" /><category term="Git" /><summary type="html"><![CDATA[🔔 계속 업데이트 될 예정]]></summary></entry><entry><title type="html">Github 블로그 첫걸음 - 블로그 생성</title><link href="https://oh-gnues-iohc.github.io//blog/blog-01/" rel="alternate" type="text/html" title="Github 블로그 첫걸음 - 블로그 생성" /><published>2023-10-18T00:00:00+09:00</published><updated>2023-10-18T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//blog/blog-01</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//blog/blog-01/"><![CDATA[<p>처음 만들어 보는데 어떻게 하는지 몰라서 이 문서, 저 문서 찾아보면서 하는중</p>
 
 <p>왠지 나 같은 사람들 많을듯해서 정리하면서 만들어봄</p>
 
@@ -1080,7 +1082,7 @@ Sitemap: https://oh-gnues-iohc.github.io/sitemap.xml
 
 <p>선택한 테마의 Repo에 가서 fork를 하던, 직접 로컬에 옮겨서 Commit을 하던 업로드를 하면 끝</p>
 
-<p>https://아이디.github.io 에 접속하면 테마가 적용된 블로그를 볼 수 있음</p>]]></content><author><name>최승호</name></author><category term="BLOG" /><category term="Blog" /><category term="Jekyll" /><category term="Github" /><category term="Git" /><summary type="html"><![CDATA[처음 만들어 보는데 어떻게 하는지 몰라서 이 문서, 저 문서 찾아보면서 하는중]]></summary></entry><entry><title type="html">Github 블로그 첫걸음 - 포스트</title><link href="http://localhost:4000/blog/blog-02/" rel="alternate" type="text/html" title="Github 블로그 첫걸음 - 포스트" /><published>2023-10-18T00:00:00+09:00</published><updated>2023-10-18T00:00:00+09:00</updated><id>http://localhost:4000/blog/blog-02</id><content type="html" xml:base="http://localhost:4000/blog/blog-02/"><![CDATA[<h1 id="1-포스트-작성하기">1. 포스트 작성하기</h1>
+<p>https://아이디.github.io 에 접속하면 테마가 적용된 블로그를 볼 수 있음</p>]]></content><author><name>최승호</name></author><category term="BLOG" /><category term="Blog" /><category term="Jekyll" /><category term="Github" /><category term="Git" /><summary type="html"><![CDATA[처음 만들어 보는데 어떻게 하는지 몰라서 이 문서, 저 문서 찾아보면서 하는중]]></summary></entry><entry><title type="html">Github 블로그 첫걸음 - 포스트</title><link href="https://oh-gnues-iohc.github.io//blog/blog-02/" rel="alternate" type="text/html" title="Github 블로그 첫걸음 - 포스트" /><published>2023-10-18T00:00:00+09:00</published><updated>2023-10-18T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//blog/blog-02</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//blog/blog-02/"><![CDATA[<h1 id="1-포스트-작성하기">1. 포스트 작성하기</h1>
 
 <h2 id="md">.md</h2>
 
