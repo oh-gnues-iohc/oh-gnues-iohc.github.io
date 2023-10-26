@@ -38,9 +38,9 @@ GPT, BERT, T5, ... 여러 모델과 모델의 목적에 따라 사용되는 인�
 
 - [X] [Dataclass 추출](#dataclass-추출)
   - [X] [Argument 추출](#argument-추출)
-- [ ] [Streamlit 구축](#streamlit-구축)
-  - [ ] 옵션 설정 기능 추가
-- [ ] 설정한 옵션들로 Python 실행 명령어 출력
+- [X] [Streamlit 구축](#streamlit-구축)
+  - [X] 옵션 설정 기능 추가
+- [X] 설정한 옵션들로 Python 실행 명령어 출력
 
 
 
@@ -173,3 +173,35 @@ if uploaded_file:
 
 이렇게 streamlit을 통해 얻은 파일의 Dataclass를 추출하였으니, 이걸 편하게 Display하면 됨
 
+전체적인 Streamlit 코드는 아래와 같음
+
+```python
+from srcs.finder import DataclassFinder
+import streamlit as st
+
+command = {}
+setter = {"str": str, "int": int, "float": float, "bool": bool}
+
+
+def main():
+    uploaded_file = st.file_uploader("Choose a Python file", accept_multiple_files=False)
+    if uploaded_file:
+        for dataclass in DataclassFinder(uploaded_file.read()):
+            st.markdown(f"#### {dataclass['name']}")
+            st.markdown("---")
+            for element in dataclass["elements"]:
+                command[element['name']] = st.text_input(f"{element['name']}: ", f"{element['default'] if element['default'] else ''}", help=f"type: {element['type']}\n\n{element['help'] if element['help'] else ''}")
+            st.markdown("---")
+
+        run = f"python {uploaded_file.name}"
+        for key, value in command.items():
+            if value:
+                run += f" --{key}={value}"
+        st.success(run)
+
+if __name__ == "__main__":
+    main()
+```
+![image](https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/656cf16f-128d-4bc4-9609-9d46cd6ed5ea)
+
+간단하고, 아직 추가할 코드가 많지만 얼추 완성
