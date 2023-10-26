@@ -11,7 +11,7 @@ toc: true
 toc_sticky: true
 
 date: 2023-10-23
-last_modified_at: 2023-10-23
+last_modified_at: 2023-10-26
 header:
     teaser: "https://github-readme-stats.vercel.app/api/pin/?username=oh-gnues-iohc&repo=Huggingface-Trainer-Args-Viewer"
 
@@ -36,9 +36,9 @@ GPT, BERT, T5, ... 여러 모델과 모델의 목적에 따라 사용되는 인�
 
 ### 개발 목표
 
-- [X] [Dataclass 추출](#dataclass-추출)
-  - [X] [Argument 추출](#argument-추출)
-- [X] [Streamlit 구축](#streamlit-구축)
+- [X] Dataclass 추출
+  - [X] Argument 추출
+- [X] Streamlit 구축
   - [X] 옵션 설정 기능 추가
 - [X] 설정한 옵션들로 Python 실행 명령어 출력
 
