@@ -1,4 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://oh-gnues-iohc.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://oh-gnues-iohc.github.io//" rel="alternate" type="text/html" /><updated>2023-10-26T13:17:58+09:00</updated><id>https://oh-gnues-iohc.github.io//feed.xml</id><title type="html">바퀴를 다시 개발하는 개발자</title><subtitle>취미 블로그</subtitle><author><name>최승호</name></author><entry><title type="html">Huggigface Trainer Arguments Viewer</title><link href="https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer/" rel="alternate" type="text/html" title="Huggigface Trainer Arguments Viewer" /><published>2023-10-23T00:00:00+09:00</published><updated>2023-10-23T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://oh-gnues-iohc.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://oh-gnues-iohc.github.io//" rel="alternate" type="text/html" /><updated>2023-10-26T14:54:29+09:00</updated><id>https://oh-gnues-iohc.github.io//feed.xml</id><title type="html">바퀴를 다시 개발하는 개발자</title><subtitle>취미 블로그</subtitle><author><name>최승호</name></author><entry><title type="html">Multi Modal Retrieval</title><link href="https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval/" rel="alternate" type="text/html" title="Multi Modal Retrieval" /><published>2023-10-26T00:00:00+09:00</published><updated>2023-10-26T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
+  <div class="jekyll-linkpreview-wrapper-inner">
+    <div class="jekyll-linkpreview-content">
+      <div class="jekyll-linkpreview-image">
+        <a href="https://github.com/oh-gnues-iohc/multi-modal-retrieval" target="_blank">
+          <img src="https://opengraph.githubassets.com/c560f18650b290faa4f8b80ef7bc075868c6536557cb1bc9650003ddefe1a72d/oh-gnues-iohc/multi-modal-retrieval" />
+        </a>
+      </div>
+
+      <div class="jekyll-linkpreview-body">
+        <h2 class="jekyll-linkpreview-title">
+          <a href="https://github.com/oh-gnues-iohc/multi-modal-retrieval" target="_blank">GitHub - oh-gnues-iohc/multi-modal-retrieval</a>
+        </h2>
+        <div class="jekyll-linkpreview-description">Contribute to oh-gnues-iohc/multi-modal-retrieval development by creating an account on GitHub.</div>
+      </div>
+    </div>
+    <div class="jekyll-linkpreview-footer">
+      <a href="//github.com" target="_blank">github.com</a>
+    </div>
+  </div>
+</div>
+
+<h2 id="프로젝트-개요">프로젝트 개요</h2>
+
+<p>CLIP 같은 멀티 모달 도메인의 Retrieval을 직접 구현한 프로젝트</p>
+
+<h3 id="개발-이유">개발 이유</h3>
+
+<p>해보고싶어서, CNN이랑 ViT 기반 Image Encoder 성능을 직접 학습해보고 비교 해보고 싶어서</p>
+
+<h3 id="개발-목표">개발 목표</h3>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />BiEncoder 구현</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />CNN 기반 Image Encoder 구현</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />ViT 기반 Image Encoder 구현</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />학습</li>
+</ul>
+
+<h2 id="biencoder-구현">BiEncoder 구현</h2>]]></content><author><name>최승호</name></author><category term="TOY PROJECT" /><category term="Huggingface" /><category term="NLP" /><category term="CV" /><category term="Side Project" /><summary type="html"><![CDATA[GitHub - oh-gnues-iohc/multi-modal-retrieval Contribute to oh-gnues-iohc/multi-modal-retrieval development by creating an account on GitHub. github.com]]></summary></entry><entry><title type="html">Huggigface Trainer Arguments Viewer</title><link href="https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer/" rel="alternate" type="text/html" title="Huggigface Trainer Arguments Viewer" /><published>2023-10-23T00:00:00+09:00</published><updated>2023-10-26T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
   <div class="jekyll-linkpreview-wrapper-inner">
     <div class="jekyll-linkpreview-content">
       <div class="jekyll-linkpreview-image">
@@ -35,12 +74,12 @@
 <h3 id="개발-목표">개발 목표</h3>
 
 <ul class="task-list">
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><a href="#dataclass-추출">Dataclass 추출</a>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Dataclass 추출
     <ul class="task-list">
-      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><a href="#argument-추출">Argument 추출</a></li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Argument 추출</li>
     </ul>
   </li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><a href="#streamlit-구축">Streamlit 구축</a>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Streamlit 구축
     <ul class="task-list">
       <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />옵션 설정 기능 추가</li>
     </ul>
@@ -574,7 +613,7 @@ TrainArguments
   <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav__items"</span> <span class="na">id=</span><span class="s">"category_tag_menu"</span><span class="nt">&gt;</span>
       <span class="c">&lt;!--전체 글 수--&gt;</span>
       <span class="nt">&lt;li&gt;</span>
-            📂 <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"font-family:'Dovemayo_gothic';"</span><span class="nt">&gt;</span>전체 글 수<span class="nt">&lt;/style&gt;</span> <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"font-family:'Dovemayo_gothic';"</span><span class="nt">&gt;</span>7<span class="nt">&lt;/style&gt;</span> <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"font-family:'Dovemayo_gothic';"</span><span class="nt">&gt;</span>개<span class="nt">&lt;/style&gt;</span> 
+            📂 <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"font-family:'Dovemayo_gothic';"</span><span class="nt">&gt;</span>전체 글 수<span class="nt">&lt;/style&gt;</span> <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"font-family:'Dovemayo_gothic';"</span><span class="nt">&gt;</span>8<span class="nt">&lt;/style&gt;</span> <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"font-family:'Dovemayo_gothic';"</span><span class="nt">&gt;</span>개<span class="nt">&lt;/style&gt;</span> 
       <span class="nt">&lt;/li&gt;</span>
       <span class="nt">&lt;li&gt;</span>
         <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"nav__sub-title"</span><span class="nt">&gt;</span>📖 Study<span class="nt">&lt;/span&gt;</span>
@@ -716,6 +755,22 @@ layout: null
 <span class="nt">&lt;urlset</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
         <span class="na">xsi:schemaLocation=</span><span class="s">"http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"</span>
         <span class="na">xmlns=</span><span class="s">"http://www.sitemaps.org/schemas/sitemap/0.9"</span><span class="nt">&gt;</span>
+    
+    <span class="nt">&lt;url&gt;</span>
+        <span class="nt">&lt;loc&gt;</span>https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval/<span class="nt">&lt;/loc&gt;</span>
+        
+        <span class="nt">&lt;lastmod&gt;</span>2023-10-26T00:00:00+09:00<span class="nt">&lt;/lastmod&gt;</span>
+        
+
+        
+        <span class="nt">&lt;changefreq&gt;</span>weekly<span class="nt">&lt;/changefreq&gt;</span>
+        
+
+        
+        <span class="nt">&lt;priority&gt;</span>0.5<span class="nt">&lt;/priority&gt;</span>
+        
+
+    <span class="nt">&lt;/url&gt;</span>
     
     <span class="nt">&lt;url&gt;</span>
         <span class="nt">&lt;loc&gt;</span>https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer/<span class="nt">&lt;/loc&gt;</span>

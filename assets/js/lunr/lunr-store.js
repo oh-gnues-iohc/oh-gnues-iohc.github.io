@@ -40,4 +40,10 @@ var store = [{
         "tags": ["Huggingface","Python","Side Project"],
         "url": "/toy%20project/huggingface-viewer/",
         "teaser": "https://github-readme-stats.vercel.app/api/pin/?username=oh-gnues-iohc&repo=Huggingface-Trainer-Args-Viewer"
+      },{
+        "title": "Multi Modal Retrieval",
+        "excerpt":"GitHub - oh-gnues-iohc/multi-modal-retrieval Contribute to oh-gnues-iohc/multi-modal-retrieval development by creating an account on GitHub. github.com 프로젝트 개요 CLIP 같은 멀티 모달 도메인의 Retrieval을 직접 구현한 프로젝트 개발 이유 해보고싶어서, CNN이랑 ViT 기반 Image Encoder 성능을 직접 학습해보고 비교 해보고 싶어서 개발 목표 BiEncoder 구현 CNN 기반 Image Encoder 구현 ViT 기반...","categories": ["TOY PROJECT"],
+        "tags": ["Huggingface","NLP","CV","Side Project"],
+        "url": "/toy%20project/multi-modal-retrieval/",
+        "teaser": "https://github-readme-stats.vercel.app/api/pin/?username=oh-gnues-iohc&repo=multi-modal-retrieval"
       }]
