@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://oh-gnues-iohc.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://oh-gnues-iohc.github.io//" rel="alternate" type="text/html" /><updated>2023-10-26T14:54:29+09:00</updated><id>https://oh-gnues-iohc.github.io//feed.xml</id><title type="html">바퀴를 다시 개발하는 개발자</title><subtitle>취미 블로그</subtitle><author><name>최승호</name></author><entry><title type="html">Multi Modal Retrieval</title><link href="https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval/" rel="alternate" type="text/html" title="Multi Modal Retrieval" /><published>2023-10-26T00:00:00+09:00</published><updated>2023-10-26T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://oh-gnues-iohc.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://oh-gnues-iohc.github.io//" rel="alternate" type="text/html" /><updated>2023-10-31T17:51:08+09:00</updated><id>https://oh-gnues-iohc.github.io//feed.xml</id><title type="html">바퀴를 다시 개발하는 개발자</title><subtitle>취미 블로그</subtitle><author><name>최승호</name></author><entry><title type="html">Multi Modal Retrieval</title><link href="https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval/" rel="alternate" type="text/html" title="Multi Modal Retrieval" /><published>2023-10-26T00:00:00+09:00</published><updated>2023-10-31T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
   <div class="jekyll-linkpreview-wrapper-inner">
     <div class="jekyll-linkpreview-content">
       <div class="jekyll-linkpreview-image">
@@ -31,13 +31,213 @@
 <h3 id="개발-목표">개발 목표</h3>
 
 <ul class="task-list">
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />BiEncoder 구현</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />CNN 기반 Image Encoder 구현</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />ViT 기반 Image Encoder 구현</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />BiEncoder 구현
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />CNN 기반 Image Encoder 구현</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />ViT 기반 Image Encoder 구현</li>
+    </ul>
+  </li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />학습</li>
 </ul>
 
-<h2 id="biencoder-구현">BiEncoder 구현</h2>]]></content><author><name>최승호</name></author><category term="TOY PROJECT" /><category term="Huggingface" /><category term="NLP" /><category term="CV" /><category term="Side Project" /><summary type="html"><![CDATA[GitHub - oh-gnues-iohc/multi-modal-retrieval Contribute to oh-gnues-iohc/multi-modal-retrieval development by creating an account on GitHub. github.com]]></summary></entry><entry><title type="html">Huggigface Trainer Arguments Viewer</title><link href="https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer/" rel="alternate" type="text/html" title="Huggigface Trainer Arguments Viewer" /><published>2023-10-23T00:00:00+09:00</published><updated>2023-10-26T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
+<h2 id="biencoder-구현">BiEncoder 구현</h2>
+
+<p>Image-Text 유사도 측정은 기존 Text 기반 유사도 측정과 다를게 하나 없음</p>
+
+<p>Image를 CNN이든 ViT던 태운 뒤, 얻은 정보를 Projection을 통해 Image 임베딩과 크기를 같게 만들어 준 뒤 거리를 구해주면 그게 곧 유사도이니</p>
+
+<p>이번 프로젝트에서는 Text Encoder는 흔히 사용하는 BERT를 사용하고, Image는 ResNet50을 사용하여 Bi-Encoder 구조로 구현할 예정</p>
+
+<p>모델을 만들기 앞서 내가 구현할 모델에 필요한 인자들을 Transformers 라이브러리의 PretrainedConfig를 상속 받아 선언해줘야 함</p>
+
+<p>물론 있는 CLIP Config 가져다 써도 되긴 함</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">transformers</span> <span class="kn">import</span> <span class="n">ResNetConfig</span><span class="p">,</span> <span class="n">BertConfig</span><span class="p">,</span> <span class="n">PretrainedConfig</span>
+
+<span class="k">class</span> <span class="nc">ImageTextRetrievalConfig</span><span class="p">(</span><span class="n">PretrainedConfig</span><span class="p">):</span>
+    
+    <span class="n">model_type</span> <span class="o">=</span> <span class="sh">"</span><span class="s">bert, resnet</span><span class="sh">"</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span>
+        <span class="n">self</span><span class="p">,</span> 
+        <span class="n">num_channels</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+        <span class="n">embedding_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+        <span class="n">hidden_sizes</span><span class="o">=</span><span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="mi">2048</span><span class="p">],</span>
+        <span class="n">depths</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+        <span class="n">layer_type</span><span class="o">=</span><span class="sh">"</span><span class="s">bottleneck</span><span class="sh">"</span><span class="p">,</span>
+        <span class="n">image_hidden_act</span><span class="o">=</span><span class="sh">"</span><span class="s">relu</span><span class="sh">"</span><span class="p">,</span>
+        <span class="n">downsample_in_first_stage</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+        <span class="n">out_features</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+        <span class="n">vocab_size</span><span class="o">=</span><span class="mi">30522</span><span class="p">,</span>
+        <span class="n">hidden_size</span><span class="o">=</span><span class="mi">768</span><span class="p">,</span>
+        <span class="n">num_hidden_layers</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+        <span class="n">num_attention_heads</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+        <span class="n">intermediate_size</span><span class="o">=</span><span class="mi">3072</span><span class="p">,</span>
+        <span class="n">text_hidden_act</span><span class="o">=</span><span class="sh">"</span><span class="s">gelu</span><span class="sh">"</span><span class="p">,</span>
+        <span class="n">hidden_dropout_prob</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+        <span class="n">attention_probs_dropout_prob</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+        <span class="n">max_position_embeddings</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+        <span class="n">type_vocab_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">initializer_range</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span>
+        <span class="n">layer_norm_eps</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">,</span>
+        <span class="n">pad_token_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">position_embedding_type</span><span class="o">=</span><span class="sh">"</span><span class="s">absolute</span><span class="sh">"</span><span class="p">,</span>
+        <span class="n">use_cache</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">classifier_dropout</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+        <span class="n">projection_dim</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> 
+        <span class="n">logit_scale_init_value</span><span class="o">=</span><span class="mf">2.6592</span><span class="p">,</span> 
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        
+        <span class="n">self</span><span class="p">.</span><span class="n">text_config</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="sh">'</span><span class="s">vocab_size</span><span class="sh">'</span><span class="p">:</span><span class="n">vocab_size</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">hidden_size</span><span class="sh">'</span><span class="p">:</span><span class="n">hidden_size</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">num_hidden_layers</span><span class="sh">'</span><span class="p">:</span><span class="n">num_hidden_layers</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">num_attention_heads</span><span class="sh">'</span><span class="p">:</span><span class="n">num_attention_heads</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">intermediate_size</span><span class="sh">'</span><span class="p">:</span><span class="n">intermediate_size</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">text_hidden_act</span><span class="sh">'</span><span class="p">:</span><span class="n">text_hidden_act</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">hidden_dropout_prob</span><span class="sh">'</span><span class="p">:</span><span class="n">hidden_dropout_prob</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">attention_probs_dropout_prob</span><span class="sh">'</span><span class="p">:</span><span class="n">attention_probs_dropout_prob</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">max_position_embeddings</span><span class="sh">'</span><span class="p">:</span><span class="n">max_position_embeddings</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">type_vocab_size</span><span class="sh">'</span><span class="p">:</span><span class="n">type_vocab_size</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">initializer_range</span><span class="sh">'</span><span class="p">:</span><span class="n">initializer_range</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">layer_norm_eps</span><span class="sh">'</span><span class="p">:</span><span class="n">layer_norm_eps</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">pad_token_id</span><span class="sh">'</span><span class="p">:</span><span class="n">pad_token_id</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">position_embedding_type</span><span class="sh">'</span><span class="p">:</span><span class="n">position_embedding_type</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">use_cache</span><span class="sh">'</span><span class="p">:</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">classifier_dropout</span><span class="sh">'</span><span class="p">:</span><span class="n">classifier_dropout</span><span class="p">,</span>
+            <span class="p">}</span>
+        
+        <span class="n">self</span><span class="p">.</span><span class="n">image_config</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="sh">'</span><span class="s">num_channels</span><span class="sh">'</span><span class="p">:</span><span class="n">num_channels</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">embedding_size</span><span class="sh">'</span><span class="p">:</span><span class="n">embedding_size</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">hidden_sizes</span><span class="sh">'</span><span class="p">:</span><span class="n">hidden_sizes</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">depths</span><span class="sh">'</span><span class="p">:</span><span class="n">depths</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">layer_type</span><span class="sh">'</span><span class="p">:</span><span class="n">layer_type</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">image_hidden_act</span><span class="sh">'</span><span class="p">:</span><span class="n">image_hidden_act</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">downsample_in_first_stage</span><span class="sh">'</span><span class="p">:</span><span class="n">downsample_in_first_stage</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">out_features</span><span class="sh">'</span><span class="p">:</span><span class="n">out_features</span><span class="p">,</span>
+            <span class="p">}</span>
+
+        <span class="n">self</span><span class="p">.</span><span class="n">projection_dim</span> <span class="o">=</span> <span class="n">projection_dim</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">logit_scale_init_value</span> <span class="o">=</span> <span class="n">logit_scale_init_value</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">initializer_factor</span> <span class="o">=</span> <span class="mf">1.0</span>
+</code></pre></div></div>
+
+<h3 id="image-encoder">Image Encoder</h3>
+
+<p>Resnet50을 기준으로 사용할 것이며, Bert와 함께 사용하니 ResnetModel의 last_hidden_state를 projection에 걸어 임베딩을 얻을 생각</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">image_config</span> <span class="o">=</span> <span class="n">config</span><span class="p">.</span><span class="n">image_config</span>
+<span class="n">self</span><span class="p">.</span><span class="n">image_embed_dim</span> <span class="o">=</span> <span class="n">image_config</span><span class="p">.</span><span class="n">hidden_sizes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">self</span><span class="p">.</span><span class="n">image_encoder</span> <span class="o">=</span> <span class="nc">ResNetModel</span><span class="p">(</span><span class="n">image_config</span><span class="p">)</span>
+<span class="n">self</span><span class="p">.</span><span class="n">image_projection</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="nc">Linear</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">image_embed_dim</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">projection_dim</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="text-encoder">Text Encoder</h3>
+
+<p>Text Encoder는 Bert를 사용하고, 마찬가지로 last_hidden_state를 사용하고, projection을 걸 예정</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">text_config</span> <span class="o">=</span> <span class="n">config</span><span class="p">.</span><span class="n">text_config</span>
+<span class="n">self</span><span class="p">.</span><span class="n">text_embed_dim</span> <span class="o">=</span> <span class="n">text_config</span><span class="p">.</span><span class="n">hidden_size</span>
+<span class="n">self</span><span class="p">.</span><span class="n">text_encoder</span> <span class="o">=</span> <span class="nc">BertModel</span><span class="p">(</span><span class="n">text_config</span><span class="p">,</span> <span class="n">add_pooling_layer</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">self</span><span class="p">.</span><span class="n">text_projection</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="nc">Linear</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">text_embed_dim</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">projection_dim</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>완성된 모델 코드는 이렇게 나옴</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ImageTextRetrievalPreTrainedModel</span><span class="p">(</span><span class="n">PreTrainedModel</span><span class="p">):</span>
+    
+    <span class="n">config_class</span> <span class="o">=</span> <span class="n">ImageTextRetrievalConfig</span>
+    <span class="n">base_model_prefix</span> <span class="o">=</span> <span class="sh">"</span><span class="s">bert, resnet</span><span class="sh">"</span>
+    <span class="n">supports_gradient_checkpointing</span> <span class="o">=</span> <span class="bp">True</span>
+    
+    <span class="k">def</span> <span class="nf">_init_weights</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">module</span><span class="p">):</span>
+        <span class="n">factor</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">config</span><span class="p">.</span><span class="n">initializer_factor</span>
+        <span class="k">if</span> <span class="nf">isinstance</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">nn</span><span class="p">.</span><span class="n">Conv2d</span><span class="p">):</span>
+            <span class="n">nn</span><span class="p">.</span><span class="n">init</span><span class="p">.</span><span class="nf">kaiming_normal_</span><span class="p">(</span><span class="n">module</span><span class="p">.</span><span class="n">weight</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="sh">"</span><span class="s">fan_out</span><span class="sh">"</span><span class="p">,</span> <span class="n">nonlinearity</span><span class="o">=</span><span class="sh">"</span><span class="s">relu</span><span class="sh">"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nf">isinstance</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">BatchNorm2d</span><span class="p">,</span> <span class="n">nn</span><span class="p">.</span><span class="n">GroupNorm</span><span class="p">)):</span>
+            <span class="n">nn</span><span class="p">.</span><span class="n">init</span><span class="p">.</span><span class="nf">constant_</span><span class="p">(</span><span class="n">module</span><span class="p">.</span><span class="n">weight</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">nn</span><span class="p">.</span><span class="n">init</span><span class="p">.</span><span class="nf">constant_</span><span class="p">(</span><span class="n">module</span><span class="p">.</span><span class="n">bias</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  
+            
+        <span class="k">elif</span> <span class="nf">isinstance</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">):</span>
+            <span class="n">module</span><span class="p">.</span><span class="n">weight</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="nf">normal_</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="n">factor</span> <span class="o">*</span> <span class="mf">0.02</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">module</span><span class="p">.</span><span class="n">bias</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">module</span><span class="p">.</span><span class="n">bias</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="nf">zero_</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="nf">isinstance</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">nn</span><span class="p">.</span><span class="n">Embedding</span><span class="p">):</span>
+            <span class="n">module</span><span class="p">.</span><span class="n">weight</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="nf">normal_</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="n">factor</span> <span class="o">*</span> <span class="mf">0.02</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">module</span><span class="p">.</span><span class="n">padding_idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">module</span><span class="p">.</span><span class="n">weight</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">module</span><span class="p">.</span><span class="n">padding_idx</span><span class="p">].</span><span class="nf">zero_</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="nf">isinstance</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">nn</span><span class="p">.</span><span class="n">LayerNorm</span><span class="p">):</span>
+            <span class="n">module</span><span class="p">.</span><span class="n">bias</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="nf">zero_</span><span class="p">()</span>
+            <span class="n">module</span><span class="p">.</span><span class="n">weight</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="nf">fill_</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+            
+<span class="k">class</span> <span class="nc">ImageTextRetrieval</span><span class="p">(</span><span class="n">ImageTextRetrievalPreTrainedModel</span><span class="p">):</span>
+    <span class="n">config_class</span> <span class="o">=</span> <span class="n">ImageTextRetrievalConfig</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">ImageTextRetrievalConfig</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__ini__</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+        
+        <span class="n">text_config</span> <span class="o">=</span> <span class="n">config</span><span class="p">.</span><span class="n">text_config</span>
+        <span class="n">image_config</span> <span class="o">=</span> <span class="n">config</span><span class="p">.</span><span class="n">image_config</span>
+        
+        <span class="n">self</span><span class="p">.</span><span class="n">projection_dim</span> <span class="o">=</span> <span class="n">config</span><span class="p">.</span><span class="n">projection_dim</span>
+        
+        <span class="n">self</span><span class="p">.</span><span class="n">text_embed_dim</span> <span class="o">=</span> <span class="n">text_config</span><span class="p">.</span><span class="n">hidden_size</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">image_embed_dim</span> <span class="o">=</span> <span class="n">image_config</span><span class="p">.</span><span class="n">hidden_sizes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        
+        <span class="n">self</span><span class="p">.</span><span class="n">text_encoder</span> <span class="o">=</span> <span class="nc">BertModel</span><span class="p">(</span><span class="n">text_config</span><span class="p">,</span> <span class="n">add_pooling_layer</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">image_encoder</span> <span class="o">=</span> <span class="nc">ResNetModel</span><span class="p">(</span><span class="n">image_config</span><span class="p">)</span>
+        
+        <span class="n">self</span><span class="p">.</span><span class="n">text_projection</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="nc">Linear</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">text_embed_dim</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">projection_dim</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">image_projection</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="nc">Linear</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">image_embed_dim</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">projection_dim</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">logit_scale</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="nc">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="nf">tensor</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">config</span><span class="p">.</span><span class="n">logit_scale_init_value</span><span class="p">))</span>
+        
+        <span class="n">self</span><span class="p">.</span><span class="nf">post_init</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>학습을 위한 forward 함수는 기존 Bi-Encoder와 마찬가지로 Text(Query), Image(Cadidate) 따로 분리해서 임베딩을 얻은 뒤, loss를 계산해주면 됨</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span>
+    <span class="n">self</span><span class="p">,</span>
+    <span class="n">input_ids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+    <span class="n">attention_mask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+    <span class="n">token_type_ids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+    <span class="n">position_ids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+    <span class="n">head_mask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+    <span class="n">inputs_embeds</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+    <span class="n">output_attentions</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+    <span class="n">output_hidden_states</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+    <span class="n">pixel_values</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="p">):</span>
+    
+    <span class="n">text_embs</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">text_encoder</span><span class="p">(</span>
+        <span class="n">input_ids</span><span class="o">=</span><span class="n">input_ids</span><span class="p">,</span>
+        <span class="n">attention_mask</span><span class="o">=</span><span class="n">attention_mask</span><span class="p">,</span>
+        <span class="n">token_type_ids</span><span class="o">=</span><span class="n">token_type_ids</span><span class="p">,</span>
+        <span class="n">position_ids</span><span class="o">=</span><span class="n">position_ids</span><span class="p">,</span>
+        <span class="n">head_mask</span><span class="o">=</span><span class="n">head_mask</span><span class="p">,</span>
+        <span class="n">inputs_embeds</span><span class="o">=</span><span class="n">inputs_embeds</span><span class="p">,</span>
+        <span class="n">output_attentions</span><span class="o">=</span><span class="n">output_attentions</span><span class="p">,</span>
+        <span class="n">output_hidden_states</span><span class="o">=</span><span class="n">output_hidden_states</span><span class="p">,</span>
+    <span class="p">).</span><span class="n">last_hidden_state</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+    
+    <span class="n">image_embs</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">image_encoder</span><span class="p">(</span>
+        <span class="n">pixel_values</span><span class="o">=</span><span class="n">pixel_values</span><span class="p">,</span>
+        <span class="n">output_hidden_states</span><span class="o">=</span><span class="n">output_hidden_states</span><span class="p">,</span>
+    <span class="p">).</span><span class="n">last_hidden_state</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+
+    <span class="n">text_embs</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">text_projection</span><span class="p">(</span><span class="n">text_embs</span><span class="p">)</span>
+    <span class="n">image_embs</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">image_projection</span><span class="p">(</span><span class="n">image_embs</span><span class="p">)</span>
+    
+    <span class="n">logit_scale</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">logit_scale</span><span class="p">.</span><span class="nf">exp</span><span class="p">()</span>
+    <span class="n">logits_per_text</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nf">matmul</span><span class="p">(</span><span class="n">text_embs</span><span class="p">,</span> <span class="n">image_embs</span><span class="p">.</span><span class="nf">t</span><span class="p">())</span> <span class="o">*</span> <span class="n">logit_scale</span>
+    <span class="n">logits_per_image</span> <span class="o">=</span> <span class="n">logits_per_text</span><span class="p">.</span><span class="nf">t</span><span class="p">()</span>
+    
+    <span class="n">_loss</span> <span class="o">=</span> <span class="nf">loss</span><span class="p">(</span><span class="n">logits_per_text</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="p">(</span><span class="n">logits_per_image</span><span class="p">,</span> <span class="n">logits_per_text</span><span class="p">,</span> <span class="n">text_embs</span><span class="p">,</span> <span class="n">image_embs</span><span class="p">)</span>
+    <span class="nf">return </span><span class="p">((</span><span class="n">_loss</span><span class="p">,)</span> <span class="o">+</span> <span class="n">output</span><span class="p">)</span>
+</code></pre></div></div>]]></content><author><name>최승호</name></author><category term="TOY PROJECT" /><category term="Huggingface" /><category term="NLP" /><category term="CV" /><category term="Side Project" /><summary type="html"><![CDATA[GitHub - oh-gnues-iohc/multi-modal-retrieval Contribute to oh-gnues-iohc/multi-modal-retrieval development by creating an account on GitHub. github.com]]></summary></entry><entry><title type="html">Huggigface Trainer Arguments Viewer</title><link href="https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer/" rel="alternate" type="text/html" title="Huggigface Trainer Arguments Viewer" /><published>2023-10-23T00:00:00+09:00</published><updated>2023-10-26T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
   <div class="jekyll-linkpreview-wrapper-inner">
     <div class="jekyll-linkpreview-content">
       <div class="jekyll-linkpreview-image">
