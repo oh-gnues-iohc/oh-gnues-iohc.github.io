@@ -41,7 +41,7 @@ CLIP 같은 멀티 모달 도메인의 Retrieval을 직접 구현한 프로젝�
 
 Image-Text 유사도 측정은 기존 Text 기반 유사도 측정과 다를게 하나 없음
 
-Image를 CNN이든 ViT던 태운 뒤, 얻은 정보를 Projection을 통해 Image 임베딩과 크기를 같게 만들어 준 뒤 거리를 구해주면 그게 곧 유사도이니
+Image를 CNN이든 ViT던 모델에 태운 뒤, 얻은 정보를 Projection을 통해 Image 임베딩과 크기를 같게 만들어 준 뒤 거리를 구해주면 그게 곧 유사도이니
 
 이번 프로젝트에서는 Text Encoder는 흔히 사용하는 BERT를 사용하고, Image는 ResNet50을 사용하여 Bi-Encoder 구조로 구현할 예정
 
@@ -147,6 +147,7 @@ self.text_projection = nn.Linear(self.text_embed_dim, self.projection_dim, bias=
 ```
 
 완성된 모델 코드는 이렇게 나옴
+
 ```python
 class ImageTextRetrievalPreTrainedModel(PreTrainedModel):
     
@@ -241,3 +242,17 @@ def forward(
     output = (logits_per_image, logits_per_text, text_embs, image_embs)
     return ((_loss,) + output)
 ```
+
+## 학습
+
+대조학습(Contrastive learning)을 진행하는 만큼 Batch Size가 성능에 영향을 미치게 됨
+
+근데 또 DPR 논문 보면 무작정 큰건 안좋고, 적당한게 좋다고 하면서 128 썻는데 그 정도 GPU 여유가 없으니 64를 사용
+
+{% linkpreview "https://huggingface.co/datasets/poloclub/diffusiondb" %}
+
+데이터는 Huggingface에서 diffusiondb라는 데이터셋을 사용
+
+찾다 보니 실제 사용자가 지정한 프롬프트와 Stable Diffusion에서 생성된 이미지로 구성된 데이터셋이라고 하길래 사용함
+
+컴퓨팅 파워도 있고 용량 문제도 있어서 **2m_random_500k** 사용하기로 결정
