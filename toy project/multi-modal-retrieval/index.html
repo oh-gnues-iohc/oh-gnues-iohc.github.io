@@ -454,7 +454,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#프로젝트-개요">프로젝트 개요</a><ul><li><a href="#개발-이유">개발 이유</a></li><li><a href="#개발-목표">개발 목표</a></li></ul></li><li><a href="#biencoder-구현">BiEncoder 구현</a><ul><li><a href="#image-encoder">Image Encoder</a></li><li><a href="#text-encoder">Text Encoder</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#프로젝트-개요">프로젝트 개요</a><ul><li><a href="#개발-이유">개발 이유</a></li><li><a href="#개발-목표">개발 목표</a></li></ul></li><li><a href="#biencoder-구현">BiEncoder 구현</a><ul><li><a href="#image-encoder">Image Encoder</a></li><li><a href="#text-encoder">Text Encoder</a></li></ul></li><li><a href="#학습">학습</a></li></ul>
 
             </nav>
           </aside>
@@ -464,7 +464,7 @@
     <div class="jekyll-linkpreview-content">
       <div class="jekyll-linkpreview-image">
         <a href="https://github.com/oh-gnues-iohc/multi-modal-retrieval" target="_blank">
-          <img src="https://opengraph.githubassets.com/c560f18650b290faa4f8b80ef7bc075868c6536557cb1bc9650003ddefe1a72d/oh-gnues-iohc/multi-modal-retrieval" />
+          <img src="https://opengraph.githubassets.com/cbafae2d632859636c7119cbc9f234c1409aace50112b96615b59058442d6998/oh-gnues-iohc/multi-modal-retrieval" />
         </a>
       </div>
 
@@ -505,7 +505,7 @@
 
 <p>Image-Text 유사도 측정은 기존 Text 기반 유사도 측정과 다를게 하나 없음</p>
 
-<p>Image를 CNN이든 ViT던 태운 뒤, 얻은 정보를 Projection을 통해 Image 임베딩과 크기를 같게 만들어 준 뒤 거리를 구해주면 그게 곧 유사도이니</p>
+<p>Image를 CNN이든 ViT던 모델에 태운 뒤, 얻은 정보를 Projection을 통해 Image 임베딩과 크기를 같게 만들어 준 뒤 거리를 구해주면 그게 곧 유사도이니</p>
 
 <p>이번 프로젝트에서는 Text Encoder는 흔히 사용하는 BERT를 사용하고, Image는 ResNet50을 사용하여 Bi-Encoder 구조로 구현할 예정</p>
 
@@ -607,6 +607,7 @@
 </code></pre></div></div>
 
 <p>완성된 모델 코드는 이렇게 나옴</p>
+
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ImageTextRetrievalPreTrainedModel</span><span class="p">(</span><span class="n">PreTrainedModel</span><span class="p">):</span>
     
     <span class="n">config_class</span> <span class="o">=</span> <span class="n">ImageTextRetrievalConfig</span>
@@ -699,6 +700,40 @@
     <span class="n">output</span> <span class="o">=</span> <span class="p">(</span><span class="n">logits_per_image</span><span class="p">,</span> <span class="n">logits_per_text</span><span class="p">,</span> <span class="n">text_embs</span><span class="p">,</span> <span class="n">image_embs</span><span class="p">)</span>
     <span class="nf">return </span><span class="p">((</span><span class="n">_loss</span><span class="p">,)</span> <span class="o">+</span> <span class="n">output</span><span class="p">)</span>
 </code></pre></div></div>
+
+<h2 id="학습">학습</h2>
+
+<p>대조학습(Contrastive learning)을 진행하는 만큼 Batch Size가 성능에 영향을 미치게 됨</p>
+
+<p>근데 또 DPR 논문 보면 무작정 큰건 안좋고, 적당한게 좋다고 하면서 128 썻는데 그 정도 GPU 여유가 없으니 64를 사용</p>
+
+<div class="jekyll-linkpreview-wrapper">
+  <div class="jekyll-linkpreview-wrapper-inner">
+    <div class="jekyll-linkpreview-content">
+      <div class="jekyll-linkpreview-image">
+        <a href="https://huggingface.co/datasets/poloclub/diffusiondb" target="_blank">
+          <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/datasets/poloclub/diffusiondb.png" />
+        </a>
+      </div>
+
+      <div class="jekyll-linkpreview-body">
+        <h2 class="jekyll-linkpreview-title">
+          <a href="https://huggingface.co/datasets/poloclub/diffusiondb" target="_blank">poloclub/diffusiondb · Datasets at Hugging Face</a>
+        </h2>
+        <div class="jekyll-linkpreview-description"></div>
+      </div>
+    </div>
+    <div class="jekyll-linkpreview-footer">
+      <a href="//huggingface.co" target="_blank">huggingface.co</a>
+    </div>
+  </div>
+</div>
+
+<p>데이터는 Huggingface에서 diffusiondb라는 데이터셋을 사용</p>
+
+<p>찾다 보니 실제 사용자가 지정한 프롬프트와 Stable Diffusion에서 생성된 이미지로 구성된 데이터셋이라고 하길래 사용함</p>
+
+<p>컴퓨팅 파워도 있고 용량 문제도 있어서 <strong>2m_random_50k</strong> 사용하기로 결정</p>
 
         
       </section>
