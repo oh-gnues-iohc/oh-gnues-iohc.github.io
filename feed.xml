@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://oh-gnues-iohc.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://oh-gnues-iohc.github.io//" rel="alternate" type="text/html" /><updated>2023-11-06T16:22:09+09:00</updated><id>https://oh-gnues-iohc.github.io//feed.xml</id><title type="html">바퀴를 다시 개발하는 개발자</title><subtitle>취미 블로그</subtitle><author><name>최승호</name></author><entry><title type="html">Generative Adversarial Networks with DPR</title><link href="https://oh-gnues-iohc.github.io//toy%20project/Generative-Adversarial-Networks-with-DPR/" rel="alternate" type="text/html" title="Generative Adversarial Networks with DPR" /><published>2023-11-06T00:00:00+09:00</published><updated>2023-11-06T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//toy%20project/Generative-Adversarial-Networks-with-DPR</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//toy%20project/Generative-Adversarial-Networks-with-DPR/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://oh-gnues-iohc.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://oh-gnues-iohc.github.io//" rel="alternate" type="text/html" /><updated>2023-11-06T16:44:14+09:00</updated><id>https://oh-gnues-iohc.github.io//feed.xml</id><title type="html">바퀴를 다시 개발하는 개발자</title><subtitle>취미 블로그</subtitle><author><name>최승호</name></author><entry><title type="html">Generative Adversarial Networks with DPR</title><link href="https://oh-gnues-iohc.github.io//toy%20project/Generative-Adversarial-Networks-with-DPR/" rel="alternate" type="text/html" title="Generative Adversarial Networks with DPR" /><published>2023-11-06T00:00:00+09:00</published><updated>2023-11-06T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//toy%20project/Generative-Adversarial-Networks-with-DPR</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//toy%20project/Generative-Adversarial-Networks-with-DPR/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
   <div class="jekyll-linkpreview-wrapper-inner">
     <div class="jekyll-linkpreview-content">
       <div class="jekyll-linkpreview-image">
@@ -58,9 +58,31 @@
 
 <p>Retrieval 또한 더 좋은 성능으로 학습을 할 수 있는게 아닐까? 아니더라도 GAN으로 Diffusion 처럼 원하는 이미지를 생성할 수 있는게 아닐까???</p>
 
-<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/9a5f3d2c-0bbb-4bc3-88d9-77dbb207d69c" alt="image" /></p>
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/f05bbb1b-b03c-4e7c-b3d7-48c210678709" alt="image" /></p>
 
-<h3 id="개발-목표">개발 목표</h3>]]></content><author><name>최승호</name></author><category term="TOY PROJECT" /><category term="Huggingface" /><category term="NLP" /><category term="CV" /><category term="Side Project" /><summary type="html"><![CDATA[GitHub - oh-gnues-iohc/Generative-Adversarial-Networks-with-DPR: GAN (Generative Adversarial Network) model with controlled generation using DPR (Dense Passage Retrieval) GAN (Generative Adversarial Network) model with controlled generation using DPR (Dense Passage Retrieval) - GitHub - oh-gnues-iohc/Generative-Adversarial-Networks-with-DPR: GAN (Generative Adversar... github.com]]></summary></entry><entry><title type="html">Multi Modal Retrieval</title><link href="https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval/" rel="alternate" type="text/html" title="Multi Modal Retrieval" /><published>2023-10-26T00:00:00+09:00</published><updated>2023-11-06T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
+<h3 id="개발-목표">개발 목표</h3>
+
+<h3 id="구조">구조</h3>
+
+<p>구상한 구조는 아래 그림과 같음</p>
+
+<ol>
+  <li>프롬프트를 Text Encoder에 태워 얻은 Text Embedding을 Generator의 입력으로 넣어 이미지를 생성</li>
+</ol>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/ce9eb5d6-07b0-4afc-b53b-db521a2c17de" alt="image" /></p>
+
+<ol>
+  <li>생성한 이미지와 원본 이미지를 Image Encoder에 태워 Image Embedding을 얻은 뒤, 두 벡터 사이의 거리를 Generator의 Loss로 설정하여 학습</li>
+</ol>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/0f9a1320-b2b7-4c76-8a3a-5c23dc2c42d0" alt="image" /></p>
+
+<ol>
+  <li>생성한 이미지를 Hard Negative로 설정하여 DPR 학습</li>
+</ol>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/fc6535f1-da8c-4406-866d-71c19d9bf326" alt="image" /></p>]]></content><author><name>최승호</name></author><category term="TOY PROJECT" /><category term="Huggingface" /><category term="NLP" /><category term="CV" /><category term="Side Project" /><summary type="html"><![CDATA[GitHub - oh-gnues-iohc/Generative-Adversarial-Networks-with-DPR: GAN (Generative Adversarial Network) model with controlled generation using DPR (Dense Passage Retrieval) GAN (Generative Adversarial Network) model with controlled generation using DPR (Dense Passage Retrieval) - GitHub - oh-gnues-iohc/Generative-Adversarial-Networks-with-DPR: GAN (Generative Adversar... github.com]]></summary></entry><entry><title type="html">Multi Modal Retrieval</title><link href="https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval/" rel="alternate" type="text/html" title="Multi Modal Retrieval" /><published>2023-10-26T00:00:00+09:00</published><updated>2023-11-06T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
   <div class="jekyll-linkpreview-wrapper-inner">
     <div class="jekyll-linkpreview-content">
       <div class="jekyll-linkpreview-image">
