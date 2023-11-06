@@ -11,7 +11,7 @@ toc: true
 toc_sticky: true
 
 date: 2023-10-26
-last_modified_at: 2023-10-31
+last_modified_at: 2023-11-06
 header:
     teaser: "https://github-readme-stats.vercel.app/api/pin/?username=oh-gnues-iohc&repo=multi-modal-retrieval"
 
@@ -28,14 +28,14 @@ CLIP 같은 멀티 모달 도메인의 Retrieval을 직접 구현한 프로젝�
 
 ### 개발 이유
 
-해보고싶어서, CNN이랑 ViT 기반 Image Encoder 성능을 직접 학습해보고 비교 해보고 싶어서
+CNN이랑 ViT 기반 Image Encoder 성능을 직접 학습해보고 비교 해보고 싶어서 시작
 
 ### 개발 목표
 
 - [X] BiEncoder 구현
   - [X] CNN 기반 Image Encoder 구현
   - [ ] ViT 기반 Image Encoder 구현
-- [ ] 학습
+- [X] 학습
 
 ## BiEncoder 구현
 
@@ -249,10 +249,173 @@ def forward(
 
 근데 또 DPR 논문 보면 무작정 큰건 안좋고, 적당한게 좋다고 하면서 128 썻는데 그 정도 GPU 여유가 없으니 64를 사용
 
-{% linkpreview "https://huggingface.co/datasets/poloclub/diffusiondb" %}
-
-데이터는 Huggingface에서 diffusiondb라는 데이터셋을 사용
+데이터는 Huggingface에서 [diffusiondb](https://huggingface.co/datasets/poloclub/diffusiondb)라는 데이터셋을 사용
 
 찾다 보니 실제 사용자가 지정한 프롬프트와 Stable Diffusion에서 생성된 이미지로 구성된 데이터셋이라고 하길래 사용함
 
 컴퓨팅 파워도 있고 용량 문제도 있어서 **2m_random_50k** 사용하기로 결정
+
+```python
+from transformers import AutoImageProcessor, ResNetForImageClassification, AutoTokenizer
+import torch
+from models.model import ImageTextRetrieval, ImageTextRetrievalConfig
+from datasets import load_dataset, load_from_disk
+from tqdm import tqdm
+import torch.nn as nn
+import torch.optim as optim
+from transformers import TrainingArguments, Trainer, HfArgumentParser
+import logging
+import os
+from dataclasses import dataclass, field
+import transformers
+from typing import Union
+
+
+@dataclass
+class ModelArguments:
+    pretrained_model_name_or_path: str=field(
+        default="ohgnues/ImageTextRetrieval"
+    )
+    use_auth_token: str=field(
+        default=None, metadata={"help": "비공개 모델 사용에 필요한 인증 토큰"}
+    )
+
+@dataclass
+class DataArguments:
+    path: str=field(
+        default="poloclub/diffusiondb", metadata={"help": "데이터셋의 경로 혹은 이름"}
+    )
+    name: str=field(
+        default=None, metadata={"help": "서브셋 이름"}
+    )
+    cache_dir: str=field(
+        default=None, metadata={"help": "캐시 파일 저장 위치"}
+    )
+    train_split: str = field(
+        default="train", metadata={"help": "학습 데이터 이름"}
+    )
+    eval_split: str = field(
+        default=None, metadata={"help": "평가 데이터 이름"}
+    )
+    shuffle: bool = field(
+        default=True, metadata={"help": "데이터 셔플 여부"}
+    )
+    text_column_name: str = field(
+        default="prompt", metadata={"help": "Text 데이터 Column 이름"}
+    )
+    image_column_name: str = field(
+        default="image", metadata={"help": "Image 데이터 Column 이름"}
+    )
+    max_length: int = field(
+        default=512, metadata={"help": "최대 토큰 길이"}
+    )
+
+
+@dataclass
+class TrainArguments(TrainingArguments):
+    output_dir: str = "runs/"
+    do_train: bool = True
+    do_eval: bool = False
+    per_device_train_batch_size: int = 64
+    per_device_eval_batch_size: int = 8
+    num_train_epochs: float = 5.0
+    learning_rate: float = 5e-5
+    save_strategy: Union[transformers.trainer_utils.IntervalStrategy, str] = 'epoch'
+    
+
+
+
+if __name__ == "__main__":
+    
+    parser = HfArgumentParser((ModelArguments, DataArguments, TrainArguments))
+    model_args, data_args, train_args = parser.parse_args_into_dataclasses()
+
+    model = ImageTextRetrieval.from_pretrained(**vars(model_args))
+    tokenizer = AutoTokenizer.from_pretrained(**vars(model_args))
+    processor = AutoImageProcessor.from_pretrained(**vars(model_args))
+
+    if os.path.isdir(data_args.path):
+        dataset = load_from_disk(data_args.path)
+    else:
+        dataset = load_dataset(data_args.path, data_args.name, cache_dir=data_args.cache_dir)
+
+    if data_args.shuffle:
+        dataset = dataset.shuffle()
+
+
+    def example_function(examples):
+
+        tokenized_text = tokenizer(
+            examples[data_args.text_column_name],
+            truncation=True,
+            padding="max_length",
+            max_length=data_args.max_length,
+            return_tensors="pt"
+        )
+
+        processed_image = processor(examples[data_args.image_column_name], return_tensors="pt")
+
+        tokenized_text.update(processed_image)
+
+        return tokenized_text
+
+    dataset = dataset.map(example_function, batched=True, batch_size=10000, remove_columns=dataset[data_args.train_split].column_names)
+
+    trainer = Trainer(
+        model=model,
+        args=train_args,
+        train_dataset=dataset[data_args.train_split],
+        eval_dataset=dataset[data_args.eval_split] if data_args.eval_split else None,
+    )
+
+    trainer.train()
+
+```
+
+이렇게 해서 학습은 총 10 에폭으로 마무리 되었음
+
+```bash
+{'train_runtime': 45238.1827, 'train_samples_per_second': 11.053, 'train_steps_per_second': 0.173, 'train_loss': 9.051637022208679, 'epoch': 10.0}
+```
+
+실 사용을 위해선 forward가 아닌 함수를 따로 구현 해야함
+
+retireval의 목적 특히나 Bi-Encoder 구조의 목적은 수 많은 데이터를 미리 임베딩 해 Document pool을 구축하는데에 있음
+
+```python
+    def encode(self, model_name: Literal["text", "image"],
+            input_ids: Optional[torch.Tensor] = None,
+            attention_mask: Optional[torch.Tensor] = None,
+            token_type_ids: Optional[torch.Tensor] = None,
+            position_ids: Optional[torch.Tensor] = None,
+            head_mask: Optional[torch.Tensor] = None,
+            inputs_embeds: Optional[torch.Tensor] = None,
+            output_attentions: Optional[bool] = None,
+            output_hidden_states: Optional[bool] = None,
+            return_dict: Optional[bool] = None,
+            pixel_values: Tensor = None
+            ):
+        
+        if model_name == "text":
+            self.text_encoder(
+            input_ids,
+            attention_mask=attention_mask,
+            token_type_ids=token_type_ids,
+            position_ids=position_ids,
+            head_mask=head_mask,
+            inputs_embeds=inputs_embeds,
+            output_attentions=output_attentions,
+            output_hidden_states=output_hidden_states,
+            return_dict=return_dict,
+            ).last_hidden_state[:, 0, :]
+        
+        elif model_name == "image":
+            self.image_encoder(
+            pixel_values=pixel_values,
+            output_hidden_states=output_hidden_states,
+            ).pooler_output[:, :, 0, 0]
+```
+
+이제 이 함수를 통해 배치 단위의 데이터 혹은 단일 데이터의 임베딩을 얻을 수 있음
+
+이렇게 얻은 임베딩들 사이의 거리를 `torch.matmul`을 이용해 구하면 해당 모델을 완벽하게 사용할 수 있음
