@@ -61,6 +61,22 @@ GAN이 생성한 이미지를 Hard Negative로 지정하여 DPR을 학습한다�
 
 Retrieval 또한 더 좋은 성능으로 학습을 할 수 있는게 아닐까? 아니더라도 GAN으로 Diffusion 처럼 원하는 이미지를 생성할 수 있는게 아닐까???
 
-![image](https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/9a5f3d2c-0bbb-4bc3-88d9-77dbb207d69c)
+![image](https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/f05bbb1b-b03c-4e7c-b3d7-48c210678709)
 
 ### 개발 목표
+
+### 구조
+
+구상한 구조는 아래 그림과 같음
+
+1. 프롬프트를 Text Encoder에 태워 얻은 Text Embedding을 Generator의 입력으로 넣어 이미지를 생성
+
+![image](https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/ce9eb5d6-07b0-4afc-b53b-db521a2c17de)
+
+2. 생성한 이미지와 원본 이미지를 Image Encoder에 태워 Image Embedding을 얻은 뒤, 두 벡터 사이의 거리를 Generator의 Loss로 설정하여 학습
+
+![image](https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/0f9a1320-b2b7-4c76-8a3a-5c23dc2c42d0)
+
+3. 생성한 이미지를 Hard Negative로 설정하여 DPR 학습
+
+![image](https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/fc6535f1-da8c-4406-866d-71c19d9bf326)
