@@ -49,13 +49,9 @@ GAN은 학습 방식 상 이미지를 생성하는 모델과 이미지를 판별
 
 그럼 이렇게 좋은 GAN을 왜 요즘엔 잘 안쓰고 Diffusion 모델이 뜰까라고 묻는다면 답은 간단함
 
-GAN은 Diffusion 처럼 원하는 이미지를 생성할 수 없음
+GAN은 Diffusion 처럼 원하는 이미지를 생성할 수 없음 좀 더 정확히 말하면 원하는 이미지를 **상세히** 생성할 수 없음
 
-좀 더 정확히 말하면 원하는 이미지를 **상세히** 생성할 수 없음
-
-GAN은 Diffusion 모델과 다르게 설정 되어있는 클래스에 맞춰 대략적인 이미지밖에 생성할 수 없음
-
-코끼리를 생성하는건 가능하지만 물구나무선 코끼리를 원트에 딱 찝어서 생성하는건 불가능
+GAN은 Diffusion 모델과 다르게 설정 되어있는 클래스에 맞춰 대략적인 이미지밖에 생성할 수 없음 즉, 코끼리를 생성하는건 가능하지만 물구나무선 코끼리를 원트에 딱 찝어서 생성하는건 불가능
 
 Generator를 학습할 때 Loss가 되는 Discriminator가 말했듯 Classifier이기 때문에 일어나는 현상임 물구나무선 코끼리를 GAN으로 생성하기 위해선 `물구나무선 코끼리`라는 Label을 지정해야함
 
@@ -64,5 +60,7 @@ Generator를 학습할 때 Loss가 되는 Discriminator가 말했듯 Classifier�
 GAN이 생성한 이미지를 Hard Negative로 지정하여 DPR을 학습한다면??
 
 Retrieval 또한 더 좋은 성능으로 학습을 할 수 있는게 아닐까? 아니더라도 GAN으로 Diffusion 처럼 원하는 이미지를 생성할 수 있는게 아닐까???
+
+![image](https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/9a5f3d2c-0bbb-4bc3-88d9-77dbb207d69c)
 
 ### 개발 목표
