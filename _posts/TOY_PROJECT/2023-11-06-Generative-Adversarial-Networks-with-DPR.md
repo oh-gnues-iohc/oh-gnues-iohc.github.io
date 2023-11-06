@@ -75,8 +75,8 @@ Retrieval 또한 더 좋은 성능으로 학습을 할 수 있는게 아닐까? 
 
 2. 생성한 이미지와 원본 이미지를 Image Encoder에 태워 Image Embedding을 얻은 뒤, 두 벡터 사이의 거리를 Generator의 Loss로 설정하여 학습
 
-![image](https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/0f9a1320-b2b7-4c76-8a3a-5c23dc2c42d0)
+![image](https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/c1cc0212-838a-4625-b6cb-d7fe8682c0f2){: height="50%"}
 
 3. 생성한 이미지를 Hard Negative로 설정하여 DPR 학습
 
-![image](https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/fc6535f1-da8c-4406-866d-71c19d9bf326)
+![image](https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/fc6535f1-da8c-4406-866d-71c19d9bf326){: height="50%"}
