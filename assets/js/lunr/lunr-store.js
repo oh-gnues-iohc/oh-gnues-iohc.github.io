@@ -42,8 +42,14 @@ var store = [{
         "teaser": "https://github-readme-stats.vercel.app/api/pin/?username=oh-gnues-iohc&repo=Huggingface-Trainer-Args-Viewer"
       },{
         "title": "Multi Modal Retrieval",
-        "excerpt":"GitHub - oh-gnues-iohc/multi-modal-retrieval Contribute to oh-gnues-iohc/multi-modal-retrieval development by creating an account on GitHub. github.com 프로젝트 개요 CLIP 같은 멀티 모달 도메인의 Retrieval을 직접 구현한 프로젝트 개발 이유 해보고싶어서, CNN이랑 ViT 기반 Image Encoder 성능을 직접 학습해보고 비교 해보고 싶어서 개발 목표 BiEncoder 구현 CNN 기반 Image Encoder 구현 ViT 기반...","categories": ["TOY PROJECT"],
+        "excerpt":"GitHub - oh-gnues-iohc/multi-modal-retrieval: text, image retrieval with DPR text, image retrieval with DPR. Contribute to oh-gnues-iohc/multi-modal-retrieval development by creating an account on GitHub. github.com 프로젝트 개요 CLIP 같은 멀티 모달 도메인의 Retrieval을 직접 구현한 프로젝트 개발 이유 CNN이랑 ViT 기반 Image Encoder 성능을 직접 학습해보고 비교 해보고 싶어서 시작 개발...","categories": ["TOY PROJECT"],
         "tags": ["Huggingface","NLP","CV","Side Project"],
         "url": "/toy%20project/multi-modal-retrieval/",
         "teaser": "https://github-readme-stats.vercel.app/api/pin/?username=oh-gnues-iohc&repo=multi-modal-retrieval"
+      },{
+        "title": "Generative Adversarial Networks with DPR",
+        "excerpt":"GitHub - oh-gnues-iohc/Generative-Adversarial-Networks-with-DPR: GAN (Generative Adversarial Network) model with controlled generation using DPR (Dense Passage Retrieval) GAN (Generative Adversarial Network) model with controlled generation using DPR (Dense Passage Retrieval) - GitHub - oh-gnues-iohc/Generative-Adversarial-Networks-with-DPR: GAN (Generative Adversar... github.com 프로젝트 개요 DPR(Dense Passage Retrieve)을 이용한 생성 제어가 가능한 GAN(Generative Adversarial Network) 모델...","categories": ["TOY PROJECT"],
+        "tags": ["Huggingface","NLP","CV","Side Project"],
+        "url": "/toy%20project/Generative-Adversarial-Networks-with-DPR/",
+        "teaser": "https://github-readme-stats.vercel.app/api/pin/?username=oh-gnues-iohc&repo=Generative-Adversarial-Networks-with-DPR"
       }]

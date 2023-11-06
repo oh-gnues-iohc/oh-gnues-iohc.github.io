@@ -1,17 +1,81 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://oh-gnues-iohc.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://oh-gnues-iohc.github.io//" rel="alternate" type="text/html" /><updated>2023-11-03T16:04:00+09:00</updated><id>https://oh-gnues-iohc.github.io//feed.xml</id><title type="html">바퀴를 다시 개발하는 개발자</title><subtitle>취미 블로그</subtitle><author><name>최승호</name></author><entry><title type="html">Multi Modal Retrieval</title><link href="https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval/" rel="alternate" type="text/html" title="Multi Modal Retrieval" /><published>2023-10-26T00:00:00+09:00</published><updated>2023-10-31T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://oh-gnues-iohc.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://oh-gnues-iohc.github.io//" rel="alternate" type="text/html" /><updated>2023-11-06T16:03:36+09:00</updated><id>https://oh-gnues-iohc.github.io//feed.xml</id><title type="html">바퀴를 다시 개발하는 개발자</title><subtitle>취미 블로그</subtitle><author><name>최승호</name></author><entry><title type="html">Generative Adversarial Networks with DPR</title><link href="https://oh-gnues-iohc.github.io//toy%20project/Generative-Adversarial-Networks-with-DPR/" rel="alternate" type="text/html" title="Generative Adversarial Networks with DPR" /><published>2023-11-06T00:00:00+09:00</published><updated>2023-11-06T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//toy%20project/Generative-Adversarial-Networks-with-DPR</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//toy%20project/Generative-Adversarial-Networks-with-DPR/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
   <div class="jekyll-linkpreview-wrapper-inner">
     <div class="jekyll-linkpreview-content">
       <div class="jekyll-linkpreview-image">
-        <a href="https://github.com/oh-gnues-iohc/multi-modal-retrieval" target="_blank">
-          <img src="https://opengraph.githubassets.com/cbafae2d632859636c7119cbc9f234c1409aace50112b96615b59058442d6998/oh-gnues-iohc/multi-modal-retrieval" />
+        <a href="https://github.com/oh-gnues-iohc/Generative-Adversarial-Networks-with-DPR" target="_blank">
+          <img src="https://opengraph.githubassets.com/048bbde2f00abd1af630802f82d309496ae18a231c1baf9de0d930a0abb57929/oh-gnues-iohc/Generative-Adversarial-Networks-with-DPR" />
         </a>
       </div>
 
       <div class="jekyll-linkpreview-body">
         <h2 class="jekyll-linkpreview-title">
-          <a href="https://github.com/oh-gnues-iohc/multi-modal-retrieval" target="_blank">GitHub - oh-gnues-iohc/multi-modal-retrieval</a>
+          <a href="https://github.com/oh-gnues-iohc/Generative-Adversarial-Networks-with-DPR" target="_blank">GitHub - oh-gnues-iohc/Generative-Adversarial-Networks-with-DPR: GAN (Generative Adversarial Network) model with controlled generation using DPR (Dense Passage Retrieval)</a>
         </h2>
-        <div class="jekyll-linkpreview-description">Contribute to oh-gnues-iohc/multi-modal-retrieval development by creating an account on GitHub.</div>
+        <div class="jekyll-linkpreview-description">GAN (Generative Adversarial Network) model with controlled generation using DPR (Dense Passage Retrieval) - GitHub - oh-gnues-iohc/Generative-Adversarial-Networks-with-DPR: GAN (Generative Adversar...</div>
+      </div>
+    </div>
+    <div class="jekyll-linkpreview-footer">
+      <a href="//github.com" target="_blank">github.com</a>
+    </div>
+  </div>
+</div>
+
+<h2 id="프로젝트-개요">프로젝트 개요</h2>
+
+<p>DPR(Dense Passage Retrieve)을 이용한 생성 제어가 가능한 GAN(Generative Adversarial Network) 모델</p>
+
+<h3 id="개발-이유">개발 이유</h3>
+
+<p>요즘 이미지를 생성하는 모델은 Diffusion 모델을 많이 사용한다. 근데 Diffusion 모델 말고 GAN 이라는 녀석도 데이터를 생성할 수 있고, 실제로도 많이 쓰였음</p>
+
+<p>GAN은 Diffusion이랑 뭐가 다르냐 우선 Diffusion 부터 알아보자</p>
+
+<p>Diffusion의 원리는 간단함 원본 이미지에 노이즈를 조금씩 덮은 뒤, 디노이징하는 모델을 학습하면 완전한 노이즈에서 원하는 이미지를 생성(디노이징의 반복)할 수 있는 모델이 된다는 아이디어</p>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/b50dfb63-8994-4512-8c14-342e1b8d346a" alt="image" /></p>
+
+<p>즉 이렇게 학습을 한 뒤, 사용할 때는 랜덤 노이즈와 함께 “이 노이즈는 사실 어떤 외눈박이의 사진인데, 노이즈가 너무 많이 끼었어” 라고 입력하면, 모델이 알아서 디노이징을 해주는 것</p>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/26499fba-a148-490b-a9f9-f82e81a45dfd" alt="image" /></p>
+
+<p>GAN도 원리는 간단함 Generator와 Discriminator로 이루어지는데, Generator는 노이즈에서 이미지를 생성하고, Discriminator는 원본 이미지와 Generator가 생성한 이미지를 분류하는 방식 즉 적대적으로 학습되는 아이디어임</p>
+
+<p>GAN은 학습 방식 상 이미지를 생성하는 모델과 이미지를 판별하는 모델 모두 학습이 되기 때문에 Generator 뿐만 아니라 적은 데이터로도 좋은 성능의 Classifier를 얻고 싶을 때도 사용함</p>
+
+<p><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/3e6e73e6-dbca-42fc-91b8-8e3e7d836a08" alt="image" /></p>
+
+<p>그럼 이렇게 좋은 GAN을 왜 요즘엔 잘 안쓰고 Diffusion 모델이 뜰까라고 묻는다면 답은 간단함</p>
+
+<p>GAN은 Diffusion 처럼 원하는 이미지를 생성할 수 없음</p>
+
+<p>좀 더 정확히 말하면 원하는 이미지를 <strong>상세히</strong> 생성할 수 없음</p>
+
+<p>GAN은 Diffusion 모델과 다르게 설정 되어있는 클래스에 맞춰 대략적인 이미지밖에 생성할 수 없음</p>
+
+<p>코끼리를 생성하는건 가능하지만 물구나무선 코끼리를 원트에 딱 찝어서 생성하는건 불가능</p>
+
+<p>Generator를 학습할 때 Loss가 되는 Discriminator가 말했듯 Classifier이기 때문에 일어나는 현상임 물구나무선 코끼리를 GAN으로 생성하기 위해선 <code class="language-plaintext highlighter-rouge">물구나무선 코끼리</code>라는 Label을 지정해야함</p>
+
+<p>그럼 여기서 GAN이 Diffusion처럼 유연하게, 상세하게 이미지를 생성하지 못하는 이유가 Discriminator를, Classifier를 Loss로 사용하기 때문이라면 Loss를 DPR로 지정하여 적대적 학습을 진행한다면?</p>
+
+<p>GAN이 생성한 이미지를 Hard Negative로 지정하여 DPR을 학습한다면??</p>
+
+<p>Retrieval 또한 더 좋은 성능으로 학습을 할 수 있는게 아닐까? 아니더라도 GAN으로 Diffusion 처럼 원하는 이미지를 생성할 수 있는게 아닐까???</p>
+
+<h3 id="개발-목표">개발 목표</h3>]]></content><author><name>최승호</name></author><category term="TOY PROJECT" /><category term="Huggingface" /><category term="NLP" /><category term="CV" /><category term="Side Project" /><summary type="html"><![CDATA[GitHub - oh-gnues-iohc/Generative-Adversarial-Networks-with-DPR: GAN (Generative Adversarial Network) model with controlled generation using DPR (Dense Passage Retrieval) GAN (Generative Adversarial Network) model with controlled generation using DPR (Dense Passage Retrieval) - GitHub - oh-gnues-iohc/Generative-Adversarial-Networks-with-DPR: GAN (Generative Adversar... github.com]]></summary></entry><entry><title type="html">Multi Modal Retrieval</title><link href="https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval/" rel="alternate" type="text/html" title="Multi Modal Retrieval" /><published>2023-10-26T00:00:00+09:00</published><updated>2023-11-06T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
+  <div class="jekyll-linkpreview-wrapper-inner">
+    <div class="jekyll-linkpreview-content">
+      <div class="jekyll-linkpreview-image">
+        <a href="https://github.com/oh-gnues-iohc/multi-modal-retrieval" target="_blank">
+          <img src="https://opengraph.githubassets.com/d973a3ac04843b25b67cf8983a987b7853670533271901a4913fe98e8e77f166/oh-gnues-iohc/multi-modal-retrieval" />
+        </a>
+      </div>
+
+      <div class="jekyll-linkpreview-body">
+        <h2 class="jekyll-linkpreview-title">
+          <a href="https://github.com/oh-gnues-iohc/multi-modal-retrieval" target="_blank">GitHub - oh-gnues-iohc/multi-modal-retrieval: text, image retrieval with DPR</a>
+        </h2>
+        <div class="jekyll-linkpreview-description">text, image retrieval with DPR. Contribute to oh-gnues-iohc/multi-modal-retrieval development by creating an account on GitHub.</div>
       </div>
     </div>
     <div class="jekyll-linkpreview-footer">
@@ -26,7 +90,7 @@
 
 <h3 id="개발-이유">개발 이유</h3>
 
-<p>해보고싶어서, CNN이랑 ViT 기반 Image Encoder 성능을 직접 학습해보고 비교 해보고 싶어서</p>
+<p>CNN이랑 ViT 기반 Image Encoder 성능을 직접 학습해보고 비교 해보고 싶어서 시작</p>
 
 <h3 id="개발-목표">개발 목표</h3>
 
@@ -37,7 +101,7 @@
       <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />ViT 기반 Image Encoder 구현</li>
     </ul>
   </li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />학습</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />학습</li>
 </ul>
 
 <h2 id="biencoder-구현">BiEncoder 구현</h2>
@@ -246,33 +310,173 @@
 
 <p>근데 또 DPR 논문 보면 무작정 큰건 안좋고, 적당한게 좋다고 하면서 128 썻는데 그 정도 GPU 여유가 없으니 64를 사용</p>
 
-<div class="jekyll-linkpreview-wrapper">
-  <div class="jekyll-linkpreview-wrapper-inner">
-    <div class="jekyll-linkpreview-content">
-      <div class="jekyll-linkpreview-image">
-        <a href="https://huggingface.co/datasets/poloclub/diffusiondb" target="_blank">
-          <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/datasets/poloclub/diffusiondb.png" />
-        </a>
-      </div>
-
-      <div class="jekyll-linkpreview-body">
-        <h2 class="jekyll-linkpreview-title">
-          <a href="https://huggingface.co/datasets/poloclub/diffusiondb" target="_blank">poloclub/diffusiondb · Datasets at Hugging Face</a>
-        </h2>
-        <div class="jekyll-linkpreview-description"></div>
-      </div>
-    </div>
-    <div class="jekyll-linkpreview-footer">
-      <a href="//huggingface.co" target="_blank">huggingface.co</a>
-    </div>
-  </div>
-</div>
-
-<p>데이터는 Huggingface에서 diffusiondb라는 데이터셋을 사용</p>
+<p>데이터는 Huggingface에서 <a href="https://huggingface.co/datasets/poloclub/diffusiondb">diffusiondb</a>라는 데이터셋을 사용</p>
 
 <p>찾다 보니 실제 사용자가 지정한 프롬프트와 Stable Diffusion에서 생성된 이미지로 구성된 데이터셋이라고 하길래 사용함</p>
 
-<p>컴퓨팅 파워도 있고 용량 문제도 있어서 <strong>2m_random_50k</strong> 사용하기로 결정</p>]]></content><author><name>최승호</name></author><category term="TOY PROJECT" /><category term="Huggingface" /><category term="NLP" /><category term="CV" /><category term="Side Project" /><summary type="html"><![CDATA[GitHub - oh-gnues-iohc/multi-modal-retrieval Contribute to oh-gnues-iohc/multi-modal-retrieval development by creating an account on GitHub. github.com]]></summary></entry><entry><title type="html">Huggigface Trainer Arguments Viewer</title><link href="https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer/" rel="alternate" type="text/html" title="Huggigface Trainer Arguments Viewer" /><published>2023-10-23T00:00:00+09:00</published><updated>2023-10-26T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
+<p>컴퓨팅 파워도 있고 용량 문제도 있어서 <strong>2m_random_50k</strong> 사용하기로 결정</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">transformers</span> <span class="kn">import</span> <span class="n">AutoImageProcessor</span><span class="p">,</span> <span class="n">ResNetForImageClassification</span><span class="p">,</span> <span class="n">AutoTokenizer</span>
+<span class="kn">import</span> <span class="n">torch</span>
+<span class="kn">from</span> <span class="n">models.model</span> <span class="kn">import</span> <span class="n">ImageTextRetrieval</span><span class="p">,</span> <span class="n">ImageTextRetrievalConfig</span>
+<span class="kn">from</span> <span class="n">datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span><span class="p">,</span> <span class="n">load_from_disk</span>
+<span class="kn">from</span> <span class="n">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="n">torch.nn</span> <span class="k">as</span> <span class="n">nn</span>
+<span class="kn">import</span> <span class="n">torch.optim</span> <span class="k">as</span> <span class="n">optim</span>
+<span class="kn">from</span> <span class="n">transformers</span> <span class="kn">import</span> <span class="n">TrainingArguments</span><span class="p">,</span> <span class="n">Trainer</span><span class="p">,</span> <span class="n">HfArgumentParser</span>
+<span class="kn">import</span> <span class="n">logging</span>
+<span class="kn">import</span> <span class="n">os</span>
+<span class="kn">from</span> <span class="n">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">import</span> <span class="n">transformers</span>
+<span class="kn">from</span> <span class="n">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">ModelArguments</span><span class="p">:</span>
+    <span class="n">pretrained_model_name_or_path</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="nf">field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="sh">"</span><span class="s">ohgnues/ImageTextRetrieval</span><span class="sh">"</span>
+    <span class="p">)</span>
+    <span class="n">use_auth_token</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="nf">field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="sh">"</span><span class="s">help</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">비공개 모델 사용에 필요한 인증 토큰</span><span class="sh">"</span><span class="p">}</span>
+    <span class="p">)</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">DataArguments</span><span class="p">:</span>
+    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="nf">field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="sh">"</span><span class="s">poloclub/diffusiondb</span><span class="sh">"</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="sh">"</span><span class="s">help</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">데이터셋의 경로 혹은 이름</span><span class="sh">"</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="nf">field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="sh">"</span><span class="s">help</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">서브셋 이름</span><span class="sh">"</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">cache_dir</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="nf">field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="sh">"</span><span class="s">help</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">캐시 파일 저장 위치</span><span class="sh">"</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">train_split</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="nf">field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="sh">"</span><span class="s">train</span><span class="sh">"</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="sh">"</span><span class="s">help</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">학습 데이터 이름</span><span class="sh">"</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">eval_split</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="nf">field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="sh">"</span><span class="s">help</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">평가 데이터 이름</span><span class="sh">"</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">shuffle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="nf">field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="sh">"</span><span class="s">help</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">데이터 셔플 여부</span><span class="sh">"</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">text_column_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="nf">field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="sh">"</span><span class="s">prompt</span><span class="sh">"</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="sh">"</span><span class="s">help</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Text 데이터 Column 이름</span><span class="sh">"</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">image_column_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="nf">field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="sh">"</span><span class="s">image</span><span class="sh">"</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="sh">"</span><span class="s">help</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Image 데이터 Column 이름</span><span class="sh">"</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">max_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nf">field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="sh">"</span><span class="s">help</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">최대 토큰 길이</span><span class="sh">"</span><span class="p">}</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">TrainArguments</span><span class="p">(</span><span class="n">TrainingArguments</span><span class="p">):</span>
+    <span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sh">"</span><span class="s">runs/</span><span class="sh">"</span>
+    <span class="n">do_train</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">do_eval</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">per_device_train_batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">64</span>
+    <span class="n">per_device_eval_batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span>
+    <span class="n">num_train_epochs</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">5.0</span>
+    <span class="n">learning_rate</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">5e-5</span>
+    <span class="n">save_strategy</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">transformers</span><span class="p">.</span><span class="n">trainer_utils</span><span class="p">.</span><span class="n">IntervalStrategy</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="sh">'</span><span class="s">epoch</span><span class="sh">'</span>
+    
+
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
+    
+    <span class="n">parser</span> <span class="o">=</span> <span class="nc">HfArgumentParser</span><span class="p">((</span><span class="n">ModelArguments</span><span class="p">,</span> <span class="n">DataArguments</span><span class="p">,</span> <span class="n">TrainArguments</span><span class="p">))</span>
+    <span class="n">model_args</span><span class="p">,</span> <span class="n">data_args</span><span class="p">,</span> <span class="n">train_args</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="nf">parse_args_into_dataclasses</span><span class="p">()</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">ImageTextRetrieval</span><span class="p">.</span><span class="nf">from_pretrained</span><span class="p">(</span><span class="o">**</span><span class="nf">vars</span><span class="p">(</span><span class="n">model_args</span><span class="p">))</span>
+    <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="p">.</span><span class="nf">from_pretrained</span><span class="p">(</span><span class="o">**</span><span class="nf">vars</span><span class="p">(</span><span class="n">model_args</span><span class="p">))</span>
+    <span class="n">processor</span> <span class="o">=</span> <span class="n">AutoImageProcessor</span><span class="p">.</span><span class="nf">from_pretrained</span><span class="p">(</span><span class="o">**</span><span class="nf">vars</span><span class="p">(</span><span class="n">model_args</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">isdir</span><span class="p">(</span><span class="n">data_args</span><span class="p">.</span><span class="n">path</span><span class="p">):</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="nf">load_from_disk</span><span class="p">(</span><span class="n">data_args</span><span class="p">.</span><span class="n">path</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="nf">load_dataset</span><span class="p">(</span><span class="n">data_args</span><span class="p">.</span><span class="n">path</span><span class="p">,</span> <span class="n">data_args</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cache_dir</span><span class="o">=</span><span class="n">data_args</span><span class="p">.</span><span class="n">cache_dir</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">data_args</span><span class="p">.</span><span class="n">shuffle</span><span class="p">:</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">.</span><span class="nf">shuffle</span><span class="p">()</span>
+
+
+    <span class="k">def</span> <span class="nf">example_function</span><span class="p">(</span><span class="n">examples</span><span class="p">):</span>
+
+        <span class="n">tokenized_text</span> <span class="o">=</span> <span class="nf">tokenizer</span><span class="p">(</span>
+            <span class="n">examples</span><span class="p">[</span><span class="n">data_args</span><span class="p">.</span><span class="n">text_column_name</span><span class="p">],</span>
+            <span class="n">truncation</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+            <span class="n">padding</span><span class="o">=</span><span class="sh">"</span><span class="s">max_length</span><span class="sh">"</span><span class="p">,</span>
+            <span class="n">max_length</span><span class="o">=</span><span class="n">data_args</span><span class="p">.</span><span class="n">max_length</span><span class="p">,</span>
+            <span class="n">return_tensors</span><span class="o">=</span><span class="sh">"</span><span class="s">pt</span><span class="sh">"</span>
+        <span class="p">)</span>
+
+        <span class="n">processed_image</span> <span class="o">=</span> <span class="nf">processor</span><span class="p">(</span><span class="n">examples</span><span class="p">[</span><span class="n">data_args</span><span class="p">.</span><span class="n">image_column_name</span><span class="p">],</span> <span class="n">return_tensors</span><span class="o">=</span><span class="sh">"</span><span class="s">pt</span><span class="sh">"</span><span class="p">)</span>
+
+        <span class="n">tokenized_text</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="n">processed_image</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">tokenized_text</span>
+
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="n">example_function</span><span class="p">,</span> <span class="n">batched</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">remove_columns</span><span class="o">=</span><span class="n">dataset</span><span class="p">[</span><span class="n">data_args</span><span class="p">.</span><span class="n">train_split</span><span class="p">].</span><span class="n">column_names</span><span class="p">)</span>
+
+    <span class="n">trainer</span> <span class="o">=</span> <span class="nc">Trainer</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+        <span class="n">args</span><span class="o">=</span><span class="n">train_args</span><span class="p">,</span>
+        <span class="n">train_dataset</span><span class="o">=</span><span class="n">dataset</span><span class="p">[</span><span class="n">data_args</span><span class="p">.</span><span class="n">train_split</span><span class="p">],</span>
+        <span class="n">eval_dataset</span><span class="o">=</span><span class="n">dataset</span><span class="p">[</span><span class="n">data_args</span><span class="p">.</span><span class="n">eval_split</span><span class="p">]</span> <span class="k">if</span> <span class="n">data_args</span><span class="p">.</span><span class="n">eval_split</span> <span class="k">else</span> <span class="bp">None</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">trainer</span><span class="p">.</span><span class="nf">train</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<p>이렇게 해서 학습은 총 10 에폭으로 마무리 되었음</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span><span class="s1">'train_runtime'</span>: 45238.1827, <span class="s1">'train_samples_per_second'</span>: 11.053, <span class="s1">'train_steps_per_second'</span>: 0.173, <span class="s1">'train_loss'</span>: 9.051637022208679, <span class="s1">'epoch'</span>: 10.0<span class="o">}</span>
+</code></pre></div></div>
+
+<p>실 사용을 위해선 forward가 아닌 함수를 따로 구현 해야함</p>
+
+<p>retireval의 목적 특히나 Bi-Encoder 구조의 목적은 수 많은 데이터를 미리 임베딩 해 Document pool을 구축하는데에 있음</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">image</span><span class="sh">"</span><span class="p">],</span>
+            <span class="n">input_ids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+            <span class="n">attention_mask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+            <span class="n">token_type_ids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+            <span class="n">position_ids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+            <span class="n">head_mask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+            <span class="n">inputs_embeds</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+            <span class="n">output_attentions</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+            <span class="n">output_hidden_states</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+            <span class="n">return_dict</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+            <span class="n">pixel_values</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="p">):</span>
+        
+        <span class="k">if</span> <span class="n">model_name</span> <span class="o">==</span> <span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">:</span>
+            <span class="n">self</span><span class="p">.</span><span class="nf">text_encoder</span><span class="p">(</span>
+            <span class="n">input_ids</span><span class="p">,</span>
+            <span class="n">attention_mask</span><span class="o">=</span><span class="n">attention_mask</span><span class="p">,</span>
+            <span class="n">token_type_ids</span><span class="o">=</span><span class="n">token_type_ids</span><span class="p">,</span>
+            <span class="n">position_ids</span><span class="o">=</span><span class="n">position_ids</span><span class="p">,</span>
+            <span class="n">head_mask</span><span class="o">=</span><span class="n">head_mask</span><span class="p">,</span>
+            <span class="n">inputs_embeds</span><span class="o">=</span><span class="n">inputs_embeds</span><span class="p">,</span>
+            <span class="n">output_attentions</span><span class="o">=</span><span class="n">output_attentions</span><span class="p">,</span>
+            <span class="n">output_hidden_states</span><span class="o">=</span><span class="n">output_hidden_states</span><span class="p">,</span>
+            <span class="n">return_dict</span><span class="o">=</span><span class="n">return_dict</span><span class="p">,</span>
+            <span class="p">).</span><span class="n">last_hidden_state</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+        
+        <span class="k">elif</span> <span class="n">model_name</span> <span class="o">==</span> <span class="sh">"</span><span class="s">image</span><span class="sh">"</span><span class="p">:</span>
+            <span class="n">self</span><span class="p">.</span><span class="nf">image_encoder</span><span class="p">(</span>
+            <span class="n">pixel_values</span><span class="o">=</span><span class="n">pixel_values</span><span class="p">,</span>
+            <span class="n">output_hidden_states</span><span class="o">=</span><span class="n">output_hidden_states</span><span class="p">,</span>
+            <span class="p">).</span><span class="n">pooler_output</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>이제 이 함수를 통해 배치 단위의 데이터 혹은 단일 데이터의 임베딩을 얻을 수 있음</p>
+
+<p>이렇게 얻은 임베딩들 사이의 거리를 <code class="language-plaintext highlighter-rouge">torch.matmul</code>을 이용해 구하면 해당 모델을 완벽하게 사용할 수 있음</p>]]></content><author><name>최승호</name></author><category term="TOY PROJECT" /><category term="Huggingface" /><category term="NLP" /><category term="CV" /><category term="Side Project" /><summary type="html"><![CDATA[GitHub - oh-gnues-iohc/multi-modal-retrieval: text, image retrieval with DPR text, image retrieval with DPR. Contribute to oh-gnues-iohc/multi-modal-retrieval development by creating an account on GitHub. github.com]]></summary></entry><entry><title type="html">Huggigface Trainer Arguments Viewer</title><link href="https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer/" rel="alternate" type="text/html" title="Huggigface Trainer Arguments Viewer" /><published>2023-10-23T00:00:00+09:00</published><updated>2023-10-26T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//toy%20project/huggingface-viewer/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
   <div class="jekyll-linkpreview-wrapper-inner">
     <div class="jekyll-linkpreview-content">
       <div class="jekyll-linkpreview-image">
@@ -848,7 +1052,7 @@ TrainArguments
   <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav__items"</span> <span class="na">id=</span><span class="s">"category_tag_menu"</span><span class="nt">&gt;</span>
       <span class="c">&lt;!--전체 글 수--&gt;</span>
       <span class="nt">&lt;li&gt;</span>
-            📂 <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"font-family:'Dovemayo_gothic';"</span><span class="nt">&gt;</span>전체 글 수<span class="nt">&lt;/style&gt;</span> <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"font-family:'Dovemayo_gothic';"</span><span class="nt">&gt;</span>8<span class="nt">&lt;/style&gt;</span> <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"font-family:'Dovemayo_gothic';"</span><span class="nt">&gt;</span>개<span class="nt">&lt;/style&gt;</span> 
+            📂 <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"font-family:'Dovemayo_gothic';"</span><span class="nt">&gt;</span>전체 글 수<span class="nt">&lt;/style&gt;</span> <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"font-family:'Dovemayo_gothic';"</span><span class="nt">&gt;</span>9<span class="nt">&lt;/style&gt;</span> <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"font-family:'Dovemayo_gothic';"</span><span class="nt">&gt;</span>개<span class="nt">&lt;/style&gt;</span> 
       <span class="nt">&lt;/li&gt;</span>
       <span class="nt">&lt;li&gt;</span>
         <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"nav__sub-title"</span><span class="nt">&gt;</span>📖 Study<span class="nt">&lt;/span&gt;</span>
@@ -990,6 +1194,22 @@ layout: null
 <span class="nt">&lt;urlset</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
         <span class="na">xsi:schemaLocation=</span><span class="s">"http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"</span>
         <span class="na">xmlns=</span><span class="s">"http://www.sitemaps.org/schemas/sitemap/0.9"</span><span class="nt">&gt;</span>
+    
+    <span class="nt">&lt;url&gt;</span>
+        <span class="nt">&lt;loc&gt;</span>https://oh-gnues-iohc.github.io//toy%20project/Generative-Adversarial-Networks-with-DPR/<span class="nt">&lt;/loc&gt;</span>
+        
+        <span class="nt">&lt;lastmod&gt;</span>2023-11-06T00:00:00+09:00<span class="nt">&lt;/lastmod&gt;</span>
+        
+
+        
+        <span class="nt">&lt;changefreq&gt;</span>weekly<span class="nt">&lt;/changefreq&gt;</span>
+        
+
+        
+        <span class="nt">&lt;priority&gt;</span>0.5<span class="nt">&lt;/priority&gt;</span>
+        
+
+    <span class="nt">&lt;/url&gt;</span>
     
     <span class="nt">&lt;url&gt;</span>
         <span class="nt">&lt;loc&gt;</span>https://oh-gnues-iohc.github.io//toy%20project/multi-modal-retrieval/<span class="nt">&lt;/loc&gt;</span>
