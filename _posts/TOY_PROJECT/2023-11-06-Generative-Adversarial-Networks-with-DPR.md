@@ -93,3 +93,6 @@ Retrieval 또한 더 좋은 성능으로 학습을 할 수 있는게 아닐까? 
 #### Generator
 
 Generator의 경우 
+
+
+BN vs LN
