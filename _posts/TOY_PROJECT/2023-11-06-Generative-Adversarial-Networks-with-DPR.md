@@ -38,7 +38,7 @@ Diffusion의 원리는 간단함 원본 이미지에 노이즈를 조금씩 덮�
 
 즉 이렇게 학습을 한 뒤, 사용할 때는 랜덤 노이즈와 함께 "이 노이즈는 사실 어떤 외눈박이의 사진인데, 노이즈가 너무 많이 끼었어" 라고 입력하면, 모델이 알아서 디노이징을 해주는 것
 
-![image](https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/26499fba-a148-490b-a9f9-f82e81a45dfd)
+<p align="center"><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/26499fba-a148-490b-a9f9-f82e81a45dfd" width="50%" height="50%"/></p>
 
 GAN도 원리는 간단함 Generator와 Discriminator로 이루어지는데, Generator는 노이즈에서 이미지를 생성하고, Discriminator는 원본 이미지와 Generator가 생성한 이미지를 분류하는 방식 즉 적대적으로 학습되는 아이디어임
 
@@ -61,7 +61,7 @@ GAN이 생성한 이미지를 Hard Negative로 지정하여 DPR을 학습한다�
 
 Retrieval 또한 더 좋은 성능으로 학습을 할 수 있는게 아닐까? 아니더라도 GAN으로 Diffusion 처럼 원하는 이미지를 생성할 수 있는게 아닐까???
 
-![image](https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/f05bbb1b-b03c-4e7c-b3d7-48c210678709)
+<p align="center"><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/f05bbb1b-b03c-4e7c-b3d7-48c210678709" width="50%" height="50%"/></p>
 
 ### 개발 목표
 
@@ -71,7 +71,7 @@ Retrieval 또한 더 좋은 성능으로 학습을 할 수 있는게 아닐까? 
 
 1. 프롬프트를 Text Encoder에 태워 얻은 Text Embedding을 Generator의 입력으로 넣어 이미지를 생성
 
-![image](https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/ce9eb5d6-07b0-4afc-b53b-db521a2c17de)
+<p align="center"><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/ce9eb5d6-07b0-4afc-b53b-db521a2c17de" width="50%" height="50%"/></p>
 
 2. 생성한 이미지와 원본 이미지를 Image Encoder에 태워 Image Embedding을 얻은 뒤, 두 벡터 사이의 거리를 Generator의 Loss로 설정하여 학습
 
@@ -80,3 +80,16 @@ Retrieval 또한 더 좋은 성능으로 학습을 할 수 있는게 아닐까? 
 3. 생성한 이미지를 Hard Negative로 설정하여 DPR 학습
 
 <p align="center"><img src="https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/fc6535f1-da8c-4406-866d-71c19d9bf326" width="50%" height="50%"/></p>
+
+
+물론 이 구조를 사용할 경우 프롬프트 하나당 한개의 이미지만 생성 가능하지, 다양성이 존재하는 이미지를 생성할 수는 없음
+
+이 문제는 나중에 따로 Conditional GAN에서 사용된 conditional을 적용하여 해결할 예정
+
+### 구현
+
+구조는 이렇게 정했으니 이제 구현을 할 차례 Generator와 Discriminator를 구현해야 하는데, 후자는 이미 구현한 [Multi Modal Retrieval](https://oh-gnues-iohc.github.io/toy%20project/multi-modal-retrieval/)을 사용할 것
+
+#### Generator
+
+Generator의 경우 
