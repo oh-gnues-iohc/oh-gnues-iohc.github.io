@@ -165,4 +165,26 @@ class GanLayer(nn.Module):
         return self.activation(output)
 ```
 
+하나하나 설명해보자면 우선 GanEncoder
+
+```python
+class GanEncoder(nn.Module):
+    
+    def __init__(self, config):
+        super().__init__()
+        self.config = config
+        self.head = GanLayer(config.latent_dim, 128, config.activation, normalize=False)
+        self.layer = nn.ModuleList([GanLayer(128 * 2 ** i, 128 * 2 ** (i+1), config.activation) for i in range(config.num_layer)])
+        
+    def forward(self, input: Optional[torch.Tensor]):
+        output = self.head(input)
+        for i, layer_module in enumerate(self.layer):
+            output = layer_module(output)
+        return output
+```
+
+이 모듈의 역할은 Retrieval에서 얻어온 Text embedding을 입력 받고, 해당 벡터에서 feature를 뽑는 역할
+
+
+
 BN vs LN
