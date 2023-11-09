@@ -94,7 +94,7 @@ Retrieval 또한 더 좋은 성능으로 학습을 할 수 있는게 아닐까? 
 
 Generator의 경우 아래 코드처럼 구현했음
 
-```
+```python
 class GeneratorPreTrainedModel(PreTrainedModel):
     
     config_class = GeneratorConfig
