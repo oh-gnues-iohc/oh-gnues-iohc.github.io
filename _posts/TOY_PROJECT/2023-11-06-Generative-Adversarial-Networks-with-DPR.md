@@ -92,9 +92,16 @@ Retrieval 또한 더 좋은 성능으로 학습을 할 수 있는게 아닐까? 
 
 #### Generator
 
-Generator의 경우 아래 코드처럼 구현했음
+Generator의 경우 아래 코드처럼 DCGAN 구조로 구현했음
 
 ```python
+import transformers
+import torch
+import torch.nn as nn
+from transformers import PreTrainedModel
+from models.config import GeneratorConfig
+from typing import Optional, Literal
+from utils.train_utils import kaiming_normal_
 class GeneratorPreTrainedModel(PreTrainedModel):
     
     config_class = GeneratorConfig
@@ -102,9 +109,16 @@ class GeneratorPreTrainedModel(PreTrainedModel):
     supports_gradient_checkpointing = True
     
     def _init_weights(self, module):
-        if isinstance(module, nn.LayerNorm):
+        if isinstance(module, nn.Conv2d):
+            kaiming_normal_(module.weight, mode="fan_out", nonlinearity="gelu")
+            
+        elif isinstance(module, nn.LayerNorm):
             module.bias.data.zero_()
             module.weight.data.fill_(1.0)
+            
+        elif isinstance(module, (nn.BatchNorm2d, nn.GroupNorm)):
+            nn.init.constant_(module.weight, 1)
+            nn.init.constant_(module.bias, 0)  
             
         elif isinstance(module, nn.Linear):
             module.weight.data.normal_(mean=0.0, std=self.config.initializer_range)
@@ -115,11 +129,9 @@ class Generator(GeneratorPreTrainedModel):
     
     def __init__(self, config:GeneratorConfig):
         super().__init__(config)
-        img_shape = (config.img_size ** 2) * config.img_channels
-        
         self.config = config
         self.encoder = GanEncoder(config)
-        self.projection = nn.Linear(128 * 2 ** config.num_layer, img_shape)
+        self.projection = nn.Conv2d(64, config.img_channels, kernel_size=3, stride=1, padding=1)
         self.act = nn.Tanh()
         
         self.post_init()
@@ -129,40 +141,54 @@ class Generator(GeneratorPreTrainedModel):
         image = self.projection(embeddings)
         image = self.act(image)
         
-        return image.view(input.size(0), self.config.img_channels, self.config.img_size, self.config.img_size)
+        return image
 
-        
+
 class GanEncoder(nn.Module):
     
     def __init__(self, config):
         super().__init__()
         self.config = config
-        self.head = GanLayer(config.latent_dim, 128, config.activation, normalize=False)
-        self.layer = nn.ModuleList([GanLayer(128 * 2 ** i, 128 * 2 ** (i+1), config.activation) for i in range(config.num_layer)])
+        self.init_size = config.img_size // (2 ** config.num_layer)
+        self.init_dim = (64 * (2 ** config.num_layer))
+        self.head = nn.Linear(config.latent_dim, self.init_dim * self.init_size ** 2)
+        self.layer = nn.ModuleList([GanLayer(in_channels=64 * (2 ** (config.num_layer - i)), 
+                                             out_channels=64 * (2 ** (config.num_layer - i - 1)), 
+                                             activation = config.activation) for i in range(config.num_layer)])
         
     def forward(self, input: Optional[torch.Tensor]):
         output = self.head(input)
+        output = output.view(output.shape[0], self.init_dim, self.init_size, self.init_size)
         for i, layer_module in enumerate(self.layer):
             output = layer_module(output)
         return output
         
 class GanLayer(nn.Module):
     
-    def __init__(self, in_feat: int, out_feat: int, activation: str, normalize: bool=True):
+    def __init__(
+        self, in_channels: int, out_channels: int, kernel_size: int = 3, stride: int = 1, activation: str = "relu"
+    ):
         super().__init__()
-        self.in_feat = in_feat
-        self.out_feat = out_feat
-        self.activation = nn.functional.gelu if activation == "gelu" else (nn.ReLU if activation == "relu" else nn.LeakyReLU)
-        self.layer = nn.Linear(in_feat, out_feat)
-        self.norm = None
-        if normalize:
-            self.norm = nn.LayerNorm(out_feat, eps=1e-12)
+        self.in_channels = in_channels
+        self.out_channels = out_channels
+        self.kernel_size = kernel_size
+        self.stride = stride
+        self.activation = nn.functional.gelu if activation == "gelu" else (nn.functional.relu if activation == "relu" else nn.functional.leaky_relu)
+        self.upsample = nn.Upsample(scale_factor=2)
+        self.block = self.conv_block(in_channels, out_channels, kernel_size, stride)
+        self.block2 = self.conv_block(out_channels, out_channels, kernel_size, stride)
+        
+    def conv_block(self, in_channels, out_channels, kernel_size, stride):
+        return nn.Sequential(
+            nn.Conv2d(in_channels, out_channels, kernel_size=kernel_size, stride=stride, padding=1),
+            nn.BatchNorm2d(out_channels),
+        )
             
     def forward(self, input: Optional[torch.Tensor]):
-        output = self.layer(input)
-        if self.norm:
-            output = self.norm(output)
-        return self.activation(output)
+        _x = self.upsample(input)
+        _x = self.block(_x)
+        _x = self.block2(_x)
+        return self.activation(_x)
 ```
 
 하나하나 설명해보자면 우선 GanEncoder
@@ -173,18 +199,109 @@ class GanEncoder(nn.Module):
     def __init__(self, config):
         super().__init__()
         self.config = config
-        self.head = GanLayer(config.latent_dim, 128, config.activation, normalize=False)
-        self.layer = nn.ModuleList([GanLayer(128 * 2 ** i, 128 * 2 ** (i+1), config.activation) for i in range(config.num_layer)])
+        self.init_size = config.img_size // (2 ** config.num_layer)
+        self.init_dim = (64 * (2 ** config.num_layer))
+        self.head = nn.Linear(config.latent_dim, self.init_dim * self.init_size ** 2)
+        self.layer = nn.ModuleList([GanLayer(in_channels=64 * (2 ** (config.num_layer - i)), 
+                                             out_channels=64 * (2 ** (config.num_layer - i - 1)), 
+                                             activation = config.activation) for i in range(config.num_layer)])
         
     def forward(self, input: Optional[torch.Tensor]):
         output = self.head(input)
+        output = output.view(output.shape[0], self.init_dim, self.init_size, self.init_size)
         for i, layer_module in enumerate(self.layer):
             output = layer_module(output)
         return output
 ```
 
-이 모듈의 역할은 Retrieval에서 얻어온 Text embedding을 입력 받고, 해당 벡터에서 feature를 뽑는 역할
+이 모듈은 Retrieval에서 얻어온 Text embedding을 입력 받고, 해당 벡터에서 feature를 뽑는 역할을 함
 
+head는 num_layer에 비래하여 init_size를 지정해주고, 그 수만큼 Linear layer를 통해 확장해주는 역할
 
+그 뒤 CNN을 통해서 Upsample, Conv를 적용하는게 layer인데, 이 모듈은 모두 `GanLayer`로 이루어져 있음
 
-BN vs LN
+```python
+class GanLayer(nn.Module):
+    
+    def __init__(
+        self, in_channels: int, out_channels: int, kernel_size: int = 3, stride: int = 1, activation: str = "relu"
+    ):
+        super().__init__()
+        self.in_channels = in_channels
+        self.out_channels = out_channels
+        self.kernel_size = kernel_size
+        self.stride = stride
+        self.activation = nn.functional.gelu if activation == "gelu" else (nn.functional.relu if activation == "relu" else nn.functional.leaky_relu)
+        self.upsample = nn.Upsample(scale_factor=2)
+        self.block = self.conv_block(in_channels, out_channels, kernel_size, stride)
+        self.block2 = self.conv_block(out_channels, out_channels, kernel_size, stride)
+        
+    def conv_block(self, in_channels, out_channels, kernel_size, stride):
+        return nn.Sequential(
+            nn.Conv2d(in_channels, out_channels, kernel_size=kernel_size, stride=stride, padding=1),
+            nn.BatchNorm2d(out_channels),
+        )
+            
+    def forward(self, input: Optional[torch.Tensor]):
+        _x = self.upsample(input)
+        _x = self.block(_x)
+        _x = self.block2(_x)
+        return self.activation(_x)
+```
+
+GanLayer는 DCGAN 구조를 참고하여 만들었음
+
+Upsample, Conv, Norm, Act 순서로 피드포워딩 하는 모듈
+
+여기서 GanLayer 하나당 Upsample 하나이기 때문에 `self.init_size = config.img_size // (2 ** config.num_layer)`가 되는것
+
+##### BN vs LN
+
+Generator 모델 구조를 만드는 도중 Batch Norm과 Layer Norm 중 무엇을 써야할지 고민이 됨
+
+###### Batch Normalization
+
+- 장점
+  - Overfitting 감소
+  - 안정적인 학습, 빠른 수렴
+  - 피드포워드 네트워크 모델(한방향으로 흐르는 인공신경망 모델)에 적합
+  
+- 단점
+  - 미니배치 크기에 의존
+  - 시계열 모델에 적용 어려움
+
+###### Layer Normalization
+
+- 장점
+  - 작은 배치에도 적용 가능
+  - 시계열 모델에 적용 가능
+  - 일반화 성능 향상 가능
+  
+- 단점
+  - 추가 계산, 오버헤드 발생
+  - 피드포워드 모델에 적합하지 않음
+
+![image](https://github.com/oh-gnues-iohc/oh-gnues-iohc.github.io/assets/79557937/669145f4-89f6-4f2c-8c07-4a8d091f8f95)
+
+실제로 RNN 모델에서는 BN 과 LN의 차이가 상당히 남
+
+이런 이유로 보통 CV에서는 BN을 사용하고, NLP에서는 LN을 사용하는게 약간 국룰 느낌으로 굳어졌는데, Convnet 2020s 논문을 보면 CV에서도 LN이 미약하게나마 성능이 좋다고는 하는데 잘 모르겠음
+
+### 학습
+
+학습에 있어 문제가 있음
+
+GAN의 고질적인 문제, 학습이 어려운 여러 이유중 하나인 힘의 균형이 있음
+
+당연하게도 분류기 보다 생성기를 학습시키는 것이 일반적으로 어려움 일반적으로 판별자가 생성기보다 먼저, 잘 학습이 되는데 이때 둘 사이의 힘의 균형이 깨지는 경우 GAN 학습이 더이상 진전될 수 없음
+
+즉 티키타카가 잘 되어야 애프터, 삼프터가 되는데 판별자가 첫만남에 급발진으로 고백을 박아버리는 문제가 생김
+
+흔한 GAN 문제이지만, 해당 프로젝트에서는 아주 아주 큰 문제로 발생하게 됨
+
+그 이유는 문장을 임베딩하는 본 프로젝트의 판별자 즉 DPR(Retrieval)의 경우 사전학습된 모델을 사용하지 않으면 아주 많은 데이터셋과, 아주 많은 컴퓨팅 파워로 오랜 기간을 들여 학습을 시켜야 함
+
+그렇지 않고 사전학습된 모델을 사용할 경우 생성자와 판별자가 Init Weight에서 시작하는 것보다 판별자가 더 빨리 수렴해버림 사전 학습된 판별자에세 초기화된 생성자가 생성하는 노이즈 가득한 이미지는 누워서 떡먹기임
+
+사전학습할 자원도, 여유도 없으니 Text Encoder 즉 BERT만 사전학습된 모델을 사용하고 Image Encoder ResNet은 Init Weight로 생성자와 함께 학습 시키기로 결정
+
