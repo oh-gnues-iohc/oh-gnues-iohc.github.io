@@ -191,7 +191,19 @@ class GanLayer(nn.Module):
         return self.activation(_x)
 ```
 
-하나하나 설명해보자면 우선 GanEncoder
+하나하나 설명해보자면 우선 _init_weights 부분을 보면
+
+```python
+def _init_weights(self, module):
+    if isinstance(module, nn.Conv2d):
+        kaiming_normal_(module.weight, mode="fan_out", nonlinearity="gelu")
+```
+
+kaiming_normal_을 통해 Conv 레이어를 초기화 하는데, DCGAN 논문에는 평균 0, 표준편차 0.02로 초기화를 해주라고 나와있음
+
+하지만 옛날 논문이기도 해서 둘 다 실험해볼 생각
+
+다음으로 GanEncoder
 
 ```python
 class GanEncoder(nn.Module):
@@ -255,7 +267,7 @@ Upsample, Conv, Norm, Act 순서로 피드포워딩 하는 모듈
 
 여기서 GanLayer 하나당 Upsample 하나이기 때문에 `self.init_size = config.img_size // (2 ** config.num_layer)`가 되는것
 
-##### BN vs LN
+##### BN vs LN vs GN
 
 Generator 모델 구조를 만드는 도중 Batch Norm과 Layer Norm 중 무엇을 써야할지 고민이 됨
 
@@ -286,6 +298,10 @@ Generator 모델 구조를 만드는 도중 Batch Norm과 Layer Norm 중 무엇�
 실제로 RNN 모델에서는 BN 과 LN의 차이가 상당히 남
 
 이런 이유로 보통 CV에서는 BN을 사용하고, NLP에서는 LN을 사용하는게 약간 국룰 느낌으로 굳어졌는데, Convnet 2020s 논문을 보면 CV에서도 LN이 미약하게나마 성능이 좋다고는 하는데 잘 모르겠음
+
+그런데, 학습 데이터 총 50만 건중 배치의 크기가 너무 작아 배치의 평균과 분산이 데이터셋 전체를 대표한다는 가정을 만족시키기 어려움
+
+때문에 BN과 GN을 비교해보기로 함
 
 ### 학습
 
