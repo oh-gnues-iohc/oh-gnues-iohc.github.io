@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://oh-gnues-iohc.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://oh-gnues-iohc.github.io//" rel="alternate" type="text/html" /><updated>2023-11-13T15:55:23+09:00</updated><id>https://oh-gnues-iohc.github.io//feed.xml</id><title type="html">바퀴를 다시 개발하는 개발자</title><subtitle>취미 블로그</subtitle><author><name>최승호</name></author><entry><title type="html">Generative Adversarial Networks with DPR</title><link href="https://oh-gnues-iohc.github.io//toy%20project/Generative-Adversarial-Networks-with-DPR/" rel="alternate" type="text/html" title="Generative Adversarial Networks with DPR" /><published>2023-11-06T00:00:00+09:00</published><updated>2023-11-06T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//toy%20project/Generative-Adversarial-Networks-with-DPR</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//toy%20project/Generative-Adversarial-Networks-with-DPR/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://oh-gnues-iohc.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://oh-gnues-iohc.github.io//" rel="alternate" type="text/html" /><updated>2023-11-14T13:41:04+09:00</updated><id>https://oh-gnues-iohc.github.io//feed.xml</id><title type="html">바퀴를 다시 개발하는 개발자</title><subtitle>취미 블로그</subtitle><author><name>최승호</name></author><entry><title type="html">Generative Adversarial Networks with DPR</title><link href="https://oh-gnues-iohc.github.io//toy%20project/Generative-Adversarial-Networks-with-DPR/" rel="alternate" type="text/html" title="Generative Adversarial Networks with DPR" /><published>2023-11-06T00:00:00+09:00</published><updated>2023-11-06T00:00:00+09:00</updated><id>https://oh-gnues-iohc.github.io//toy%20project/Generative-Adversarial-Networks-with-DPR</id><content type="html" xml:base="https://oh-gnues-iohc.github.io//toy%20project/Generative-Adversarial-Networks-with-DPR/"><![CDATA[<div class="jekyll-linkpreview-wrapper">
   <div class="jekyll-linkpreview-wrapper-inner">
     <div class="jekyll-linkpreview-content">
       <div class="jekyll-linkpreview-image">
@@ -192,7 +192,18 @@
         <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="nf">activation</span><span class="p">(</span><span class="n">_x</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>하나하나 설명해보자면 우선 GanEncoder</p>
+<p>하나하나 설명해보자면 우선 _init_weights 부분을 보면</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_init_weights</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">module</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nf">isinstance</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">nn</span><span class="p">.</span><span class="n">Conv2d</span><span class="p">):</span>
+        <span class="nf">kaiming_normal_</span><span class="p">(</span><span class="n">module</span><span class="p">.</span><span class="n">weight</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="sh">"</span><span class="s">fan_out</span><span class="sh">"</span><span class="p">,</span> <span class="n">nonlinearity</span><span class="o">=</span><span class="sh">"</span><span class="s">gelu</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>kaiming_normal_을 통해 Conv 레이어를 초기화 하는데, DCGAN 논문에는 평균 0, 표준편차 0.02로 초기화를 해주라고 나와있음</p>
+
+<p>하지만 옛날 논문이기도 해서 둘 다 실험해볼 생각</p>
+
+<p>다음으로 GanEncoder</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">GanEncoder</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">Module</span><span class="p">):</span>
     
@@ -254,7 +265,7 @@
 
 <p>여기서 GanLayer 하나당 Upsample 하나이기 때문에 <code class="language-plaintext highlighter-rouge">self.init_size = config.img_size // (2 ** config.num_layer)</code>가 되는것</p>
 
-<h5 id="bn-vs-ln">BN vs LN</h5>
+<h5 id="bn-vs-ln-vs-gn">BN vs LN vs GN</h5>
 
 <p>Generator 모델 구조를 만드는 도중 Batch Norm과 Layer Norm 중 무엇을 써야할지 고민이 됨</p>
 
@@ -299,6 +310,10 @@
 <p>실제로 RNN 모델에서는 BN 과 LN의 차이가 상당히 남</p>
 
 <p>이런 이유로 보통 CV에서는 BN을 사용하고, NLP에서는 LN을 사용하는게 약간 국룰 느낌으로 굳어졌는데, Convnet 2020s 논문을 보면 CV에서도 LN이 미약하게나마 성능이 좋다고는 하는데 잘 모르겠음</p>
+
+<p>그런데, 학습 데이터 총 50만 건중 배치의 크기가 너무 작아 배치의 평균과 분산이 데이터셋 전체를 대표한다는 가정을 만족시키기 어려움</p>
+
+<p>때문에 BN과 GN을 비교해보기로 함</p>
 
 <h3 id="학습">학습</h3>
 
