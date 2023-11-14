@@ -11,7 +11,7 @@ toc: true
 toc_sticky: true
 
 date: 2023-11-06
-last_modified_at: 2023-11-06
+last_modified_at: 2023-11-14
 header:
     teaser: "https://github-readme-stats.vercel.app/api/pin/?username=oh-gnues-iohc&repo=Generative-Adversarial-Networks-with-DPR"
 
@@ -321,3 +321,5 @@ GAN의 고질적인 문제, 학습이 어려운 여러 이유중 하나인 힘�
 
 사전학습할 자원도, 여유도 없으니 Text Encoder 즉 BERT만 사전학습된 모델을 사용하고 Image Encoder ResNet은 Init Weight로 생성자와 함께 학습 시키기로 결정
 
+
+11.14 - 학습이 너무 안됨 이것저것 바꿔봐도 답이 안보임
