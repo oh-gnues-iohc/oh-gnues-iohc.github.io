@@ -11,7 +11,7 @@ toc: true
 toc_sticky: true
 
 date: 2023-11-06
-last_modified_at: 2023-11-14
+last_modified_at: 2023-11-20
 header:
     teaser: "https://github-readme-stats.vercel.app/api/pin/?username=oh-gnues-iohc&repo=Generative-Adversarial-Networks-with-DPR"
 
