@@ -11,7 +11,7 @@ toc: true
 toc_sticky: true
 
 date: 2023-11-06
-last_modified_at: 2023-11-20
+last_modified_at: 2023-11-23
 header:
     teaser: "https://github-readme-stats.vercel.app/api/pin/?username=oh-gnues-iohc&repo=Generative-Adversarial-Networks-with-DPR"
 
@@ -323,3 +323,7 @@ GAN의 고질적인 문제, 학습이 어려운 여러 이유중 하나인 힘�
 
 
 11.14 - 학습이 너무 안됨 이것저것 바꿔봐도 답이 안보임
+
+11.23 - 1주일 내내 서버 켜놓고 돌렸지만 안됨 ㅠㅠ Loss 바꾸고, 모델 구조 바꾸고 할 수 있는건 다 해봤지만 안됨 아무래도 생성 모델과 판별 모델이 보는 관점이 너무 다른듯
+
+판별 모델은 이미지, 텍스트를 벡터화 시킨 뒤, 그 벡터들의 거리로 유사도를 측정하는데, 이 과정을 생성 모델이 이해하기에는 너무 복잡한듯 싶음
