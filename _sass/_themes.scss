@@ -1,0 +1,24 @@
+/* =============================================================================
+   Sky-blue accent override for al-folio (v1.x)
+   Location in your repo:  _sass/_themes.scss
+   (create the _sass/ folder if it doesn't exist)
+
+   This only recolors the accent (links, buttons, highlights, nav).
+   Light/dark backgrounds and text stay at the theme defaults.
+   ============================================================================= */
+
+:root {
+  --global-theme-color: #0ea5e9; /* sky blue  - light mode accent */
+  --global-hover-color: #0284c7; /* deeper sky - hover state      */
+}
+
+html[data-theme="dark"] {
+  --global-theme-color: #38bdf8; /* brighter sky - dark mode accent */
+  --global-hover-color: #7dd3fc; /* light sky    - hover state      */
+}
+
+/* If you want an even softer / lighter "하늘색", try:
+     light accent  #38bdf8   hover #0ea5e9
+   For more contrast on white (better link legibility), try:
+     light accent  #0284c7   hover #0369a1
+*/
