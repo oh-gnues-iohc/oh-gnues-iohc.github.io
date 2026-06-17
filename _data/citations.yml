@@ -1,10 +1,10 @@
 metadata:
-  last_updated: '2026-06-01'
+  last_updated: '2026-06-17'
 papers:
   xJz1_6MAAAAJ:u-x6o8ySG0sC:
     citations: 0
     title: 'FRAMER: Frequency-Aligned Self-Distillation with Adaptive Modulation Leveraging Diffusion Priors for Real-World Image Super-Resolution'
-    year: '2025'
+    year: '2026'
   xJz1_6MAAAAJ:u5HHmVD_uO8C:
     citations: 0
     title: 'HanjaBridge: Resolving Semantic Ambiguity in Korean LLMs via Hanja-Augmented Pre-Training'
