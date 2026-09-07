@@ -1,12 +1,12 @@
 metadata:
-  last_updated: '2026-08-19'
+  last_updated: '2026-09-07'
 papers:
   xJz1_6MAAAAJ:d1gkVwhDpl0C:
     citations: 0
     title: 'DiTTo: Scalable Order-aware All-in-One Image Restoration Agent'
     year: '2026'
   xJz1_6MAAAAJ:u-x6o8ySG0sC:
-    citations: 2
+    citations: 3
     title: 'Framer: Frequency-aligned self-distillation with adaptive modulation leveraging diffusion priors for real-world image super-resolution'
     year: '2026'
   xJz1_6MAAAAJ:u5HHmVD_uO8C:
